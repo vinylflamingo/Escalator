@@ -26,9 +26,9 @@ namespace WebInterface.Controllers
         }
 
         [HttpPost]
-        public IActionResult New(Escalation escalation)
+        public async Task<IActionResult> New(Escalation escalation)
         {
-            await EscalationProcessor.SaveEscalation(escalation);
+            var result = await EscalationProcessor.SaveEscalation(escalation);
             return View();
 
             //more manual way of making model object from form collection.

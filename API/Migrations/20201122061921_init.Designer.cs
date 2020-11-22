@@ -10,7 +10,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace EscalatorclassAPIEscalator.Migrations
 {
     [DbContext(typeof(DBContext))]
-    [Migration("20201122013208_init")]
+    [Migration("20201122061921_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -23,7 +23,7 @@ namespace EscalatorclassAPIEscalator.Migrations
 
             modelBuilder.Entity("Escalator.Common.Models.Escalation", b =>
                 {
-                    b.Property<long>("ID")
+                    b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
@@ -43,7 +43,7 @@ namespace EscalatorclassAPIEscalator.Migrations
                     b.Property<DateTime>("DueBy")
                         .HasColumnType("timestamp without time zone");
 
-                    b.Property<long>("JurisdictionID")
+                    b.Property<long>("JurisdictionId")
                         .HasColumnType("bigint");
 
                     b.Property<DateTime>("OpenDate")
@@ -58,7 +58,7 @@ namespace EscalatorclassAPIEscalator.Migrations
                     b.Property<string>("phoneNumber")
                         .HasColumnType("text");
 
-                    b.HasKey("ID");
+                    b.HasKey("Id");
 
                     b.ToTable("Escalations");
                 });

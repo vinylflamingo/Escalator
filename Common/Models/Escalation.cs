@@ -4,8 +4,8 @@ namespace Escalator.Common.Models
 {
     public class Escalation
     {
-        public long ID { get; set; }
-        public long JurisdictionID {get; set;}
+        public long Id { get; set; }
+        public long JurisdictionId {get; set;}
         public long AssignedAgent {get; set;}
         public long CompletedBy {get; set;}
         public DateTime OpenDate {get; set;}

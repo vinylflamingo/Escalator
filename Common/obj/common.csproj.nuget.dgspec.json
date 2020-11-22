@@ -14,7 +14,7 @@
         "outputPath": "/Users/frankie/Documents/Escalator/Common/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/frankie/.config/NuGet/NuGet.Config"
+          "/Users/frankie/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
