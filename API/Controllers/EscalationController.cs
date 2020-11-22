@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Escalator;
-using Common.Models;
+using Escalator.Common.Models;
 
 namespace Escalator.API.Controllers
 {

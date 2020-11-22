@@ -20,6 +20,7 @@ namespace Escalator.API
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
+                    webBuilder.UseUrls("https://localhost:8081", "http://localhost:8080");
                     webBuilder.UseStartup<Startup>();
                 });
     }

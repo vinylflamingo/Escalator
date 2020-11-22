@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "BoVkte9PfTKL/QLS4hyJDGbHtz3QHfxxuKtTA6ebUW3uzdmQR7GJJefN+9XJ5jO1b5AQBtjadZJb7Ocr/jORYQ==",
+  "dgSpecHash": "L0QRygGL2JNuYASprardB/BzvnHxjSkJ6N1J4Xy+Hnn1SDZf87MxCZlb992QjvtqwZEq0sknPPnRl6abSib9zQ==",
   "success": true,
-  "projectFilePath": "/Users/frankie/Documents/CW-Escalate/CW-Escalate.csproj",
+  "projectFilePath": "/Users/frankie/Documents/Escalator/API/API.csproj",
   "expectedPackageFiles": [
     "/Users/frankie/.nuget/packages/microsoft.aspnetcore.html.abstractions/2.2.0/microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",
     "/Users/frankie/.nuget/packages/microsoft.aspnetcore.razor/2.2.0/microsoft.aspnetcore.razor.2.2.0.nupkg.sha512",
@@ -163,7 +163,8 @@
     "/Users/frankie/.nuget/packages/system.xml.readerwriter/4.3.0/system.xml.readerwriter.4.3.0.nupkg.sha512",
     "/Users/frankie/.nuget/packages/system.xml.xdocument/4.3.0/system.xml.xdocument.4.3.0.nupkg.sha512",
     "/Users/frankie/.nuget/packages/system.xml.xmldocument/4.3.0/system.xml.xmldocument.4.3.0.nupkg.sha512",
-    "/Users/frankie/.nuget/packages/system.xml.xmlserializer/4.3.0/system.xml.xmlserializer.4.3.0.nupkg.sha512"
+    "/Users/frankie/.nuget/packages/system.xml.xmlserializer/4.3.0/system.xml.xmlserializer.4.3.0.nupkg.sha512",
+    "/Users/frankie/.nuget/packages/microsoft.aspnetcore.app.ref/3.1.8/microsoft.aspnetcore.app.ref.3.1.8.nupkg.sha512"
   ],
   "logs": []
 }

@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using Models;
+using Escalator.Common.Models;
 
 namespace Escalator.API
 {

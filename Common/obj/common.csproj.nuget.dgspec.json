@@ -1,29 +1,30 @@
 {
   "format": 1,
   "restore": {
-    "/Users/frankie/Documents/Escalator/common/common.csproj": {}
+    "/Users/frankie/Documents/Escalator/Common/Common.csproj": {}
   },
   "projects": {
-    "/Users/frankie/Documents/Escalator/common/common.csproj": {
+    "/Users/frankie/Documents/Escalator/Common/Common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/frankie/Documents/Escalator/common/common.csproj",
-        "projectName": "common",
-        "projectPath": "/Users/frankie/Documents/Escalator/common/common.csproj",
+        "projectUniqueName": "/Users/frankie/Documents/Escalator/Common/Common.csproj",
+        "projectName": "Common",
+        "projectPath": "/Users/frankie/Documents/Escalator/Common/Common.csproj",
         "packagesPath": "/Users/frankie/.nuget/packages/",
-        "outputPath": "/Users/frankie/Documents/Escalator/common/obj/",
+        "outputPath": "/Users/frankie/Documents/Escalator/Common/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/frankie/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
-          "netstandard2.0"
+          "netcoreapp3.1"
         ],
         "sources": {
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "netstandard2.0": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {}
           }
         },
@@ -34,15 +35,8 @@
         }
       },
       "frameworks": {
-        "netstandard2.0": {
-          "dependencies": {
-            "NETStandard.Library": {
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[2.0.3, )",
-              "autoReferenced": true
-            }
-          },
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "imports": [
             "net461",
             "net462",
@@ -53,7 +47,18 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.200/RuntimeIdentifierGraph.json"
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[3.1.8, 3.1.8]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.100/RuntimeIdentifierGraph.json"
         }
       }
     }

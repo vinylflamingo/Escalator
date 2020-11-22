@@ -2589,6 +2589,16 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XmlSerializer.dll": {}
         }
+      },
+      "Common/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "compile": {
+          "bin/placeholder/Common.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Common.dll": {}
+        }
       }
     }
   },
@@ -8488,10 +8498,16 @@
         "system.xml.xmlserializer.4.3.0.nupkg.sha512",
         "system.xml.xmlserializer.nuspec"
       ]
+    },
+    "Common/1.0.0": {
+      "type": "project",
+      "path": "../Common/Common.csproj",
+      "msbuildProject": "../Common/Common.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
+      "Common >= 1.0.0",
       "Microsoft.EntityFrameworkCore >= 3.1.10",
       "Microsoft.EntityFrameworkCore.Design >= 3.1.10",
       "Microsoft.EntityFrameworkCore.SqlServer >= 3.1.10",
@@ -8506,11 +8522,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/frankie/Documents/CW-Escalate/CW-Escalate.csproj",
-      "projectName": "CW-Escalate",
-      "projectPath": "/Users/frankie/Documents/CW-Escalate/CW-Escalate.csproj",
+      "projectUniqueName": "/Users/frankie/Documents/Escalator/API/API.csproj",
+      "projectName": "API",
+      "projectPath": "/Users/frankie/Documents/Escalator/API/API.csproj",
       "packagesPath": "/Users/frankie/.nuget/packages/",
-      "outputPath": "/Users/frankie/Documents/CW-Escalate/obj/",
+      "outputPath": "/Users/frankie/Documents/Escalator/API/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/frankie/.nuget/NuGet/NuGet.Config"
@@ -8523,7 +8539,12 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "projectReferences": {}
+          "targetAlias": "netcoreapp3.1",
+          "projectReferences": {
+            "/Users/frankie/Documents/Escalator/Common/Common.csproj": {
+              "projectPath": "/Users/frankie/Documents/Escalator/Common/Common.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
@@ -8534,6 +8555,7 @@
     },
     "frameworks": {
       "netcoreapp3.1": {
+        "targetAlias": "netcoreapp3.1",
         "dependencies": {
           "Microsoft.EntityFrameworkCore": {
             "target": "Package",
@@ -8572,6 +8594,12 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[3.1.8, 3.1.8]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
@@ -8580,7 +8608,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.200/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.100/RuntimeIdentifierGraph.json"
       }
     }
   }
