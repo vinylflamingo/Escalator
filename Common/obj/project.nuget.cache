@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "OvdTXN83+CD2a3oNDx4vo2CfIVlKGVLZ8nVdAEyfyVuiusatO3KTGhf9+WNvPivnE0D8ihgjOtRCSRVLNP8MEA==",
+  "success": true,
+  "projectFilePath": "/Users/frankie/Documents/Escalator/common/common.csproj",
+  "expectedPackageFiles": [
+    "/Users/frankie/.nuget/packages/microsoft.netcore.platforms/1.1.0/microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "/Users/frankie/.nuget/packages/netstandard.library/2.0.3/netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
