@@ -7,25 +7,33 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Escalator;
 using Escalator.Common.Models;
+using Escalator.API;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Escalator.API.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class AgentController : ControllerBase
     {
         private readonly DBContext _context;
+        private readonly IJwtAuthenticationManager jwtAuthenticationManager;
 
-        public AgentController(DBContext context)
+        public AgentController(DBContext context, IJwtAuthenticationManager jwtAuthenticationManager)
         {
             _context = context;
+            this.jwtAuthenticationManager = jwtAuthenticationManager;
+
         }
 
         // GET: api/Agent
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Agent>>> GetAgents()
         {
-            return await _context.Agents.ToListAsync();
+
+            return new string[] {"value1", "value2"};
+            //return await _context.Agents.ToListAsync();
         }
 
         // GET: api/Agent/5
@@ -42,11 +50,16 @@ namespace Escalator.API.Controllers
             return agent;
         }
 
-        
+
         [HttpPost("authenticate")]
         public IActionResult Authenticate([FromBody] UserCred userCred) 
         {
-            return Ok();
+            var token = jwtAuthenticationManager.Authenticate(userCred.Username, userCred.Password);
+            if (token == null)
+            {
+                return Unauthorized();
+            }
+            return Ok(token);
         }
 
 

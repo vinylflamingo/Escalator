@@ -7,3 +7,12 @@
 /Users/frankie/Documents/Escalator/Common/obj/Debug/netcoreapp3.1/Common.AssemblyInfo.cs
 /Users/frankie/Documents/Escalator/Common/obj/Debug/netcoreapp3.1/Common.dll
 /Users/frankie/Documents/Escalator/Common/obj/Debug/netcoreapp3.1/Common.pdb
+C:\Users\francisco.costoya\Desktop\Portfolio Projects for GitHub\False-Alarm-Heat-Map\Escalator\Common\bin\Debug\netcoreapp3.1\Common.deps.json
+C:\Users\francisco.costoya\Desktop\Portfolio Projects for GitHub\False-Alarm-Heat-Map\Escalator\Common\bin\Debug\netcoreapp3.1\Common.dll
+C:\Users\francisco.costoya\Desktop\Portfolio Projects for GitHub\False-Alarm-Heat-Map\Escalator\Common\bin\Debug\netcoreapp3.1\Common.pdb
+C:\Users\francisco.costoya\Desktop\Portfolio Projects for GitHub\False-Alarm-Heat-Map\Escalator\Common\obj\Debug\netcoreapp3.1\Common.csprojAssemblyReference.cache
+C:\Users\francisco.costoya\Desktop\Portfolio Projects for GitHub\False-Alarm-Heat-Map\Escalator\Common\obj\Debug\netcoreapp3.1\Common.AssemblyInfoInputs.cache
+C:\Users\francisco.costoya\Desktop\Portfolio Projects for GitHub\False-Alarm-Heat-Map\Escalator\Common\obj\Debug\netcoreapp3.1\Common.AssemblyInfo.cs
+C:\Users\francisco.costoya\Desktop\Portfolio Projects for GitHub\False-Alarm-Heat-Map\Escalator\Common\obj\Debug\netcoreapp3.1\Common.csproj.CoreCompileInputs.cache
+C:\Users\francisco.costoya\Desktop\Portfolio Projects for GitHub\False-Alarm-Heat-Map\Escalator\Common\obj\Debug\netcoreapp3.1\Common.dll
+C:\Users\francisco.costoya\Desktop\Portfolio Projects for GitHub\False-Alarm-Heat-Map\Escalator\Common\obj\Debug\netcoreapp3.1\Common.pdb

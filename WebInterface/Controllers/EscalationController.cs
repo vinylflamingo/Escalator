@@ -25,7 +25,7 @@ namespace WebInterface.Controllers
                 }
                 
 
-            }
+            };
 
             return View(model);
         }
