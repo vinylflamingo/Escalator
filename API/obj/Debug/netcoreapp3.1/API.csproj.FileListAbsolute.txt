@@ -134,3 +134,15 @@
 /Users/frankie/Documents/Escalator/API/obj/Debug/netcoreapp3.1/API.pdb
 /Users/frankie/Documents/Escalator/API/obj/Debug/netcoreapp3.1/API.genruntimeconfig.cache
 /Users/frankie/Documents/Escalator/API/obj/Debug/netcoreapp3.1/scopedcss/bundle/API.styles.css
+/Users/frankie/Documents/Escalator/API/bin/Debug/netcoreapp3.1/API.StaticWebAssets.xml
+/Users/frankie/Documents/Escalator/API/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Cryptography.Internal.dll
+/Users/frankie/Documents/Escalator/API/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+/Users/frankie/Documents/Escalator/API/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+/Users/frankie/Documents/Escalator/API/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Identity.UI.Views.V3.dll
+/Users/frankie/Documents/Escalator/API/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Identity.UI.Views.V4.dll
+/Users/frankie/Documents/Escalator/API/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Identity.UI.dll
+/Users/frankie/Documents/Escalator/API/bin/Debug/netcoreapp3.1/Microsoft.Extensions.FileProviders.Abstractions.dll
+/Users/frankie/Documents/Escalator/API/bin/Debug/netcoreapp3.1/Microsoft.Extensions.FileProviders.Embedded.dll
+/Users/frankie/Documents/Escalator/API/bin/Debug/netcoreapp3.1/Microsoft.Extensions.Identity.Core.dll
+/Users/frankie/Documents/Escalator/API/bin/Debug/netcoreapp3.1/Microsoft.Extensions.Identity.Stores.dll
+/Users/frankie/Documents/Escalator/API/obj/Debug/netcoreapp3.1/API.MvcApplicationPartsAssemblyInfo.cs

@@ -1,10 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "TEj+FZa08cI4+mjmsNblTdHFnG/PnZeUVaWcM185hMzr/psBt/od3c8AMipcHT9FJHntRmt46BXU1NYXubDq1g==",
+  "dgSpecHash": "f226o3hMwE5JTVneqXxGlaomivDRMEFfnYygUUQMYMJUibPeCHyfiU5ZA8V/DfRDa457iQZl6sc3wO42qJdXVw==",
   "success": true,
   "projectFilePath": "/Users/frankie/Documents/Escalator/Common/Common.csproj",
-  "expectedPackageFiles": [
-    "/Users/frankie/.nuget/packages/microsoft.aspnetcore.app.ref/3.1.8/microsoft.aspnetcore.app.ref.3.1.8.nupkg.sha512"
-  ],
+  "expectedPackageFiles": [],
   "logs": []
 }

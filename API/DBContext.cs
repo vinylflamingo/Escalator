@@ -1,9 +1,11 @@
 using Microsoft.EntityFrameworkCore;
 using Escalator.Common.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 
 namespace Escalator.API
 {
-    public class DBContext: DbContext
+    public class DBContext: IdentityDbContext<IdentityUser>
     {
         public DBContext(DbContextOptions<DBContext> options) : base(options)
         {           

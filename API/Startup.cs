@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 
 namespace Escalator.API
 {
@@ -27,6 +28,8 @@ namespace Escalator.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<DBContext>(options => options.UseNpgsql(Configuration.GetConnectionString("Local")));
+            services.AddIdentity<IdentityUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = true)
+                    .AddEntityFrameworkStores<DBContext>();
             
             services.AddControllers();
         }
