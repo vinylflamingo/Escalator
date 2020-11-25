@@ -19,9 +19,27 @@ namespace EscalatorclassAPIEscalator.Migrations
                 .HasAnnotation("ProductVersion", "3.1.10")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
+            modelBuilder.Entity("Escalator.Common.Models.Agent", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+
+                    b.Property<string>("Password")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Username")
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Agents");
+                });
+
             modelBuilder.Entity("Escalator.Common.Models.Escalation", b =>
                 {
-                    b.Property<long>("ID")
+                    b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
@@ -41,7 +59,7 @@ namespace EscalatorclassAPIEscalator.Migrations
                     b.Property<DateTime>("DueBy")
                         .HasColumnType("timestamp without time zone");
 
-                    b.Property<long>("JurisdictionID")
+                    b.Property<long>("JurisdictionId")
                         .HasColumnType("bigint");
 
                     b.Property<DateTime>("OpenDate")
@@ -56,9 +74,24 @@ namespace EscalatorclassAPIEscalator.Migrations
                     b.Property<string>("phoneNumber")
                         .HasColumnType("text");
 
-                    b.HasKey("ID");
+                    b.HasKey("Id");
 
                     b.ToTable("Escalations");
+                });
+
+            modelBuilder.Entity("Escalator.Common.Models.Jurisdiction", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+
+                    b.Property<string>("Name")
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Jurisdictions");
                 });
 #pragma warning restore 612, 618
         }

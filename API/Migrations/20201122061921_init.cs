@@ -12,9 +12,9 @@ namespace EscalatorclassAPIEscalator.Migrations
                 name: "Escalations",
                 columns: table => new
                 {
-                    ID = table.Column<long>(nullable: false)
+                    Id = table.Column<long>(nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    JurisdictionID = table.Column<long>(nullable: false),
+                    JurisdictionId = table.Column<long>(nullable: false),
                     AssignedAgent = table.Column<long>(nullable: false),
                     CompletedBy = table.Column<long>(nullable: false),
                     OpenDate = table.Column<DateTime>(nullable: false),
@@ -27,7 +27,7 @@ namespace EscalatorclassAPIEscalator.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Escalations", x => x.ID);
+                    table.PrimaryKey("PK_Escalations", x => x.Id);
                 });
         }
 

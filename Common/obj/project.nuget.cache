@@ -1,10 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "TEj+FZa08cI4+mjmsNblTdHFnG/PnZeUVaWcM185hMzr/psBt/od3c8AMipcHT9FJHntRmt46BXU1NYXubDq1g==",
+  "dgSpecHash": "1zVJS8ZX75Njv1VtFMveZGjNp8wk/YV6DHPL+VMTLUZHbxgowZHCA0X5PndDU1br6oDpIRoS6kR0j0rdacfo5g==",
   "success": true,
-  "projectFilePath": "/Users/frankie/Documents/Escalator/Common/Common.csproj",
-  "expectedPackageFiles": [
-    "/Users/frankie/.nuget/packages/microsoft.aspnetcore.app.ref/3.1.8/microsoft.aspnetcore.app.ref.3.1.8.nupkg.sha512"
-  ],
+  "projectFilePath": "C:\\Users\\francisco.costoya\\Desktop\\Portfolio Projects for GitHub\\False-Alarm-Heat-Map\\Escalator\\Common\\Common.csproj",
+  "expectedPackageFiles": [],
   "logs": []
 }

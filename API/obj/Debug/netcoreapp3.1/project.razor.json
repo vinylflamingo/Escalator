@@ -14389,7 +14389,7 @@
     ],
     "CSharpLanguageVersion": 800
   },
-  "RootNamespace": "<Escalator class=\"API\"></Escalator>",
+  "RootNamespace": "<Escalator class=\"API\" />",
   "Documents": [],
   "SerializationFormat": "0.2"
 }

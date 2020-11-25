@@ -1,10 +1,75 @@
 @model Escalator.Common.Models.Escalation
 @{
+    ViewBag.Title = "Create New Escalation";
 
-    ViewData["Title"] = "New Escalation";
 }
 
-<form asp-action="New" asp-controller="Escalation">
-    <label asp-for=""
+<h2>Create New Escalation</h2>
 
-</form>
+@using (Html.BeginForm())
+{
+    <div class="form-horizontal">
+        <h4>Escalation</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Account, new { @class = "control-label col-md-2"})
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Account)
+                @Html.ValidationMessageFor(model => model.Account)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.JurisdictionId, new { @class = "control-label col-md-2"})
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.JurisdictionId)
+                @Html.ValidationMessageFor(model => model.JurisdictionId)
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.DueBy, new { @class = "control-label col-md-2"})
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DueBy)
+                @Html.ValidationMessageFor(model => model.DueBy)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.phoneNumber, new { @class = "control-label col-md-2"})
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.phoneNumber)
+                @Html.ValidationMessageFor(model => model.phoneNumber)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.emailAddress, new { @class = "control-label col-md-2"})
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.emailAddress)
+                @Html.ValidationMessageFor(model => model.emailAddress)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.details, new { @class = "control-label col-md-2"})
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.details)
+                @Html.ValidationMessageFor(model => model.details)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+
+
+
+
+
+    </div>
+}

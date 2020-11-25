@@ -48,7 +48,7 @@ namespace Escalator.API.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutEscalation(long id, Escalation escalation)
         {
-            if (id != escalation.ID)
+            if (id != escalation.Id)
             {
                 return BadRequest();
             }
@@ -83,7 +83,7 @@ namespace Escalator.API.Controllers
             _context.Escalations.Add(escalation);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetEscalation", new { id = escalation.ID }, escalation);
+            return CreatedAtAction("GetEscalation", new { id = escalation.Id }, escalation);
         }
 
         // DELETE: api/Escalation/5
@@ -104,7 +104,7 @@ namespace Escalator.API.Controllers
 
         private bool EscalationExists(long id)
         {
-            return _context.Escalations.Any(e => e.ID == id);
+            return _context.Escalations.Any(e => e.Id == id);
         }
     }
 }

@@ -4,14 +4,16 @@ using Escalator.Common.Models;
 using Escalator.WebInterface;
 using System;
 using System.Collections.Generic;
+using Newtonsoft.Json;
+using System.Text;
 
 namespace WebInterface.Processors
 {
     public class EscalationProcessor
     {
-        public static async Task<Escalation> LoadEscalation(int escalationID)
+        public static async Task<Escalation> LoadEscalation(int escalationId)
         {
-            string url = $"https://localhost:8081/api/Escalation/{escalationID}/";
+            string url = $"https://localhost:8081/api/Escalation/{escalationId}/";
             using (HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync(url))
             {
                 if (response.IsSuccessStatusCode)
@@ -43,12 +45,19 @@ namespace WebInterface.Processors
             }
         }
 
-        public static async Task<Escalation> SaveEscalation(Escalation escalation)
+        public static async Task<string> SaveEscalation(Escalation escalation)
         {
             string url = $"https://localhost:8081/api/Escalation/";
-            var content = new FormUrlEncodedContent(escalation);
-            var response = await client.PostAsync(url, content);
-            var responseString = await response.Contet.ReadAsAsync();
+            
+            var json = JsonConvert.SerializeObject(escalation);
+            var data = new StringContent(json, Encoding.UTF8, "application/json");
+
+            var response = await ApiHelper.ApiClient.PostAsync(url, data);
+            string result = response.Content.ReadAsStringAsync().Result;
+            Console.WriteLine(result);
+            return result;
+            
+
         }
     }
 }

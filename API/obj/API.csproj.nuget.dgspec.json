@@ -1,33 +1,34 @@
 {
   "format": 1,
   "restore": {
-    "/Users/frankie/Documents/Escalator/API/API.csproj": {}
+    "c:\\Users\\francisco.costoya\\Desktop\\Portfolio Projects for GitHub\\False-Alarm-Heat-Map\\Escalator\\API\\API.csproj": {}
   },
   "projects": {
-    "/Users/frankie/Documents/Escalator/API/API.csproj": {
+    "c:\\Users\\francisco.costoya\\Desktop\\Portfolio Projects for GitHub\\False-Alarm-Heat-Map\\Escalator\\API\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/frankie/Documents/Escalator/API/API.csproj",
+        "projectUniqueName": "c:\\Users\\francisco.costoya\\Desktop\\Portfolio Projects for GitHub\\False-Alarm-Heat-Map\\Escalator\\API\\API.csproj",
         "projectName": "API",
-        "projectPath": "/Users/frankie/Documents/Escalator/API/API.csproj",
-        "packagesPath": "/Users/frankie/.nuget/packages/",
-        "outputPath": "/Users/frankie/Documents/Escalator/API/obj/",
+        "projectPath": "c:\\Users\\francisco.costoya\\Desktop\\Portfolio Projects for GitHub\\False-Alarm-Heat-Map\\Escalator\\API\\API.csproj",
+        "packagesPath": "C:\\Users\\francisco.costoya\\.nuget\\packages\\",
+        "outputPath": "c:\\Users\\francisco.costoya\\Desktop\\Portfolio Projects for GitHub\\False-Alarm-Heat-Map\\Escalator\\API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/frankie/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\francisco.costoya\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp3.1": {
-            "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "/Users/frankie/Documents/Escalator/Common/Common.csproj": {
-                "projectPath": "/Users/frankie/Documents/Escalator/Common/Common.csproj"
+              "c:\\Users\\francisco.costoya\\Desktop\\Portfolio Projects for GitHub\\False-Alarm-Heat-Map\\Escalator\\Common\\Common.csproj": {
+                "projectPath": "c:\\Users\\francisco.costoya\\Desktop\\Portfolio Projects for GitHub\\False-Alarm-Heat-Map\\Escalator\\Common\\Common.csproj"
               }
             }
           }
@@ -40,8 +41,23 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "targetAlias": "netcoreapp3.1",
           "dependencies": {
+            "Microsoft.AspNetCore.Authentication": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[3.1.10, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.10, )"
+            },
+            "Microsoft.AspNetCore.Identity.UI": {
+              "target": "Package",
+              "version": "[3.1.10, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[3.1.10, )"
@@ -56,9 +72,9 @@
               "target": "Package",
               "version": "[3.1.10, )"
             },
-            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+            "Microsoft.EntityFrameworkCore.Tools": {
               "target": "Package",
-              "version": "[3.1.4, )"
+              "version": "[3.1.10, )"
             },
             "Npgsql": {
               "target": "Package",
@@ -67,6 +83,10 @@
             "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",
               "version": "[3.1.0, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[6.8.0, )"
             }
           },
           "imports": [
@@ -79,12 +99,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[3.1.8, 3.1.8]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -93,31 +107,32 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.100/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "/Users/frankie/Documents/Escalator/Common/Common.csproj": {
+    "c:\\Users\\francisco.costoya\\Desktop\\Portfolio Projects for GitHub\\False-Alarm-Heat-Map\\Escalator\\Common\\Common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/frankie/Documents/Escalator/Common/Common.csproj",
+        "projectUniqueName": "c:\\Users\\francisco.costoya\\Desktop\\Portfolio Projects for GitHub\\False-Alarm-Heat-Map\\Escalator\\Common\\Common.csproj",
         "projectName": "Common",
-        "projectPath": "/Users/frankie/Documents/Escalator/Common/Common.csproj",
-        "packagesPath": "/Users/frankie/.nuget/packages/",
-        "outputPath": "/Users/frankie/Documents/Escalator/Common/obj/",
+        "projectPath": "c:\\Users\\francisco.costoya\\Desktop\\Portfolio Projects for GitHub\\False-Alarm-Heat-Map\\Escalator\\Common\\Common.csproj",
+        "packagesPath": "C:\\Users\\francisco.costoya\\.nuget\\packages\\",
+        "outputPath": "c:\\Users\\francisco.costoya\\Desktop\\Portfolio Projects for GitHub\\False-Alarm-Heat-Map\\Escalator\\Common\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/frankie/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\francisco.costoya\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp3.1": {
-            "targetAlias": "netcoreapp3.1",
             "projectReferences": {}
           }
         },
@@ -129,7 +144,6 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "targetAlias": "netcoreapp3.1",
           "imports": [
             "net461",
             "net462",
@@ -140,18 +154,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[3.1.8, 3.1.8]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.100/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -7,7 +7,10 @@ namespace WebInterface.Models
     {
         public IEnumerable<Escalation> Escalations;
         public IEnumerable<Agent> Agents;
-        public IEnumerable<Jurisdiction> Jurisdictions; 
+        public IEnumerable<Jurisdiction> Jurisdictions;
+        public Escalation Escalation;
+        public Agent Agent;
+        public Jurisdiction Jurisdiction;
         
     }
 }
