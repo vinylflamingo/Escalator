@@ -21,7 +21,7 @@ namespace WebInterface.Controllers
                 escalations = await EscalationProcessor.LoadEscalations(),
                 agents = 
                 {
-                    new Agent(){ Id = 1, Username = "Agent One", }
+                 //   new Agent(){ Id = 1, Username = "Agent One", }
                 }
                 
 

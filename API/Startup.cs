@@ -13,9 +13,11 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 namespace Escalator.API
-{
+{ 
     public class Startup
     {
         public Startup(IConfiguration configuration)
@@ -37,7 +39,7 @@ namespace Escalator.API
 
             services.AddAuthentication(x => 
             {
-                x.DefaultAuthenticationScheme = JwtBearerDefaults.AuthenticationScheme;
+                x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                 x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
 
             }).AddJwtBearer(x =>
@@ -48,12 +50,11 @@ namespace Escalator.API
                 {
                     ValidateIssuerSigningKey = true, 
                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(key)),
-                    ValidateIssued = false,
+                    ValidateIssuer = false,
                     ValidateAudience = false
 
                 };
             });
-
             services.AddSingleton<IJwtAuthenticationManager>(new JwtAuthenticationManager(key));
         }
 

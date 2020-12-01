@@ -11,8 +11,6 @@ namespace Escalator.API
     public class JwtAuthenticationManager : IJwtAuthenticationManager 
     {
 
-        private readonly IDictionary<string, string> users = new Dictionary<string, string>
-        { { "admin", "dodgeball" }};
         private readonly string key;
 
         public JwtAuthenticationManager(string key)
@@ -20,9 +18,10 @@ namespace Escalator.API
             this.key = key;
         }
         
-        public string Authenticate(string username, string password)
+        public string Authenticate(string username, string password, DBContext context)
         {
-            if (!users.Any(u => u.Key == username && u.Value == password))
+            var users = context.Agents;
+            if (!users.Any(u => u.Username == username && u.Password == password))
             {
                 return null;
             }

@@ -1,21 +1,18 @@
 ﻿<Properties StartupConfiguration="{C5A5610C-45B2-4E3D-882C-87E13E7B26D0}|API">
-  <MonoDevelop.Ide.Workbench ActiveDocument="WebInterface/Processors/EscalationProcessor.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="API/Startup.cs">
     <Files>
       <File FileName="WebInterface/Models/CommonViewModel.cs" Line="13" Column="42" />
       <File FileName="WebInterface/Controllers/EscalationController.cs" />
       <File FileName="WebInterface/ApiHelper.cs" />
-      <File FileName="WebInterface/Processors/EscalationProcessor.cs" Line="54" Column="1" />
+      <File FileName="WebInterface/Processors/EscalationProcessor.cs" Line="44" Column="18" />
+      <File FileName="API/Startup.cs" Line="53" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Escalator" expanded="True">
-            <Node name="WebInterface" expanded="True">
-              <Node name="Controllers" expanded="True" />
-              <Node name="Processors" expanded="True" />
-              <Node name="Views" expanded="True">
-                <Node name="Escalation" expanded="True" />
-              </Node>
+            <Node name="API" expanded="True">
+              <Node name="Startup.cs" selected="True" />
             </Node>
           </Node>
         </State>

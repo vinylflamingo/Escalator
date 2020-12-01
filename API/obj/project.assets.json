@@ -6341,33 +6341,32 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\francisco.costoya\\.nuget\\packages\\": {}
+    "/Users/frankie/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\francisco.costoya\\Desktop\\Portfolio Projects for GitHub\\False-Alarm-Heat-Map\\Escalator\\API\\API.csproj",
+      "projectUniqueName": "/Users/frankie/Documents/Escalator/API/API.csproj",
       "projectName": "API",
-      "projectPath": "c:\\Users\\francisco.costoya\\Desktop\\Portfolio Projects for GitHub\\False-Alarm-Heat-Map\\Escalator\\API\\API.csproj",
-      "packagesPath": "C:\\Users\\francisco.costoya\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\francisco.costoya\\Desktop\\Portfolio Projects for GitHub\\False-Alarm-Heat-Map\\Escalator\\API\\obj\\",
+      "projectPath": "/Users/frankie/Documents/Escalator/API/API.csproj",
+      "packagesPath": "/Users/frankie/.nuget/packages/",
+      "outputPath": "/Users/frankie/Documents/Escalator/API/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\francisco.costoya\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/Users/frankie/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "c:\\Users\\francisco.costoya\\Desktop\\Portfolio Projects for GitHub\\False-Alarm-Heat-Map\\Escalator\\Common\\Common.csproj": {
-              "projectPath": "c:\\Users\\francisco.costoya\\Desktop\\Portfolio Projects for GitHub\\False-Alarm-Heat-Map\\Escalator\\Common\\Common.csproj"
+            "/Users/frankie/Documents/Escalator/Common/Common.csproj": {
+              "projectPath": "/Users/frankie/Documents/Escalator/Common/Common.csproj"
             }
           }
         }
@@ -6380,6 +6379,7 @@
     },
     "frameworks": {
       "netcoreapp3.1": {
+        "targetAlias": "netcoreapp3.1",
         "dependencies": {
           "Microsoft.AspNetCore.Authentication": {
             "target": "Package",
@@ -6446,7 +6446,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.100/RuntimeIdentifierGraph.json"
       }
     }
   }
