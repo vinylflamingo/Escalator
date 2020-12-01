@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Escalator;
 using Escalator.Common.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Escalator.API.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class EscalationController : ControllerBase
@@ -77,6 +79,7 @@ namespace Escalator.API.Controllers
         // POST: api/Escalation
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
+        [AllowAnonymous]
         [HttpPost]
         public async Task<ActionResult<Escalation>> PostEscalation(Escalation escalation)
         {

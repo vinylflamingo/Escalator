@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Escalator;
 using Escalator.Common.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Escalator.API.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class JurisdictionController : ControllerBase

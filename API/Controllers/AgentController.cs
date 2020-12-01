@@ -27,6 +27,7 @@ namespace Escalator.API.Controllers
 
         }
 
+        //GET A LIST OF ALL AGENTS
         // GET: api/Agent
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Agent>>> GetAgents()
@@ -36,6 +37,7 @@ namespace Escalator.API.Controllers
             return await _context.Agents.ToListAsync();
         }
 
+        // GET INFO FOR SINGLE AGENT
         // GET: api/Agent/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Agent>> GetAgent(long id)
@@ -50,6 +52,7 @@ namespace Escalator.API.Controllers
             return agent;
         }
 
+        //AUTHENTICATE AGENT USING CREDENTIALS. MAIN AUTHENTICATION METHOD
         [AllowAnonymous]
         [HttpPost("authenticate")]
         public IActionResult Authenticate([FromBody] UserCred userCred) 
@@ -62,6 +65,8 @@ namespace Escalator.API.Controllers
             return Ok(token);
         }
 
+
+        // POST/CREATE NEW AGENT
        // [AllowAnonymous] only needs to be enabled for initial user
         [HttpPost("create")]
         public async Task<ActionResult<Agent>> CreateAgent(Agent agent)
@@ -70,6 +75,54 @@ namespace Escalator.API.Controllers
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetAgent", new { id = agent.Id }, agent);
+        }
+
+
+        //EDIT EXISTING AGENT
+        [HttpPut("{id}")]
+        public async Task<IActionResult> PutAgent(long id, Agent agent)
+        {
+            if (id != agent.Id)
+            {
+                return BadRequest();
+            }
+
+            _context.Entry(agent).State = EntityState.Modified;
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!AgentExists(id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return NoContent();
+        }
+
+        // DELETE AGENT 
+        // DELETE: api/Agent/5
+        [HttpDelete("{id}")]
+        public async Task<ActionResult<Agent>> DeleteAgent(long id)
+        {
+            var agent = await _context.Agents.FindAsync(id);
+            if (agent == null)
+            {
+                return NotFound();
+            }
+
+            _context.Agents.Remove(agent);
+            await _context.SaveChangesAsync();
+
+            return agent;
         }
  
         private bool AgentExists(long id)
