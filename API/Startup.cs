@@ -55,7 +55,6 @@ namespace Escalator.API
 
                 };
             });
-
             services.AddSingleton<IJwtAuthenticationManager>(new JwtAuthenticationManager(key));
         }
 

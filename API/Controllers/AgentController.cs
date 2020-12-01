@@ -54,7 +54,7 @@ namespace Escalator.API.Controllers
         [HttpPost("authenticate")]
         public IActionResult Authenticate([FromBody] UserCred userCred) 
         {
-            var token = jwtAuthenticationManager.Authenticate(userCred.Username, userCred.Password);
+            var token = jwtAuthenticationManager.Authenticate(userCred.Username, userCred.Password, _context);
             if (token == null)
             {
                 return Unauthorized();
@@ -62,10 +62,15 @@ namespace Escalator.API.Controllers
             return Ok(token);
         }
 
+       // [AllowAnonymous] only needs to be enabled for initial user
+        [HttpPost("create")]
+        public async Task<ActionResult<Agent>> CreateAgent(Agent agent)
+        {
+            _context.Agents.Add(agent);
+            await _context.SaveChangesAsync();
 
-
-
-
+            return CreatedAtAction("GetAgent", new { id = agent.Id }, agent);
+        }
  
         private bool AgentExists(long id)
         {
