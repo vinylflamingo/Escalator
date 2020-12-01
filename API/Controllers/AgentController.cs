@@ -50,7 +50,7 @@ namespace Escalator.API.Controllers
             return agent;
         }
 
-
+        [AllowAnonymous]
         [HttpPost("authenticate")]
         public IActionResult Authenticate([FromBody] UserCred userCred) 
         {

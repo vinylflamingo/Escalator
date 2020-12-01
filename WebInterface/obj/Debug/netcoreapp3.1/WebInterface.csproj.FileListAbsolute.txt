@@ -165,3 +165,16 @@ C:/Users/francisco.costoya/Desktop/Portfolio Projects for GitHub/False-Alarm-Hea
 C:/Users/francisco.costoya/Desktop/Portfolio Projects for GitHub/False-Alarm-Heat-Map/Escalator/WebInterface/obj/Debug/netcoreapp3.1/WebInterface.MvcApplicationPartsAssemblyInfo.cache
 C:/Users/francisco.costoya/Desktop/Portfolio Projects for GitHub/False-Alarm-Heat-Map/Escalator/WebInterface/obj/Debug/netcoreapp3.1/WebInterface.RazorAssemblyInfo.cache
 C:/Users/francisco.costoya/Desktop/Portfolio Projects for GitHub/False-Alarm-Heat-Map/Escalator/WebInterface/obj/Debug/netcoreapp3.1/WebInterface.RazorAssemblyInfo.cs
+/Users/frankie/Documents/Escalator/WebInterface/bin/Debug/netcoreapp3.1/API.StaticWebAssets.xml
+/Users/frankie/Documents/Escalator/WebInterface/bin/Debug/netcoreapp3.1/WebInterface.StaticWebAssets.xml
+/Users/frankie/Documents/Escalator/WebInterface/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Authentication.JwtBearer.dll
+/Users/frankie/Documents/Escalator/WebInterface/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Cryptography.Internal.dll
+/Users/frankie/Documents/Escalator/WebInterface/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+/Users/frankie/Documents/Escalator/WebInterface/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+/Users/frankie/Documents/Escalator/WebInterface/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Identity.UI.Views.V3.dll
+/Users/frankie/Documents/Escalator/WebInterface/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Identity.UI.Views.V4.dll
+/Users/frankie/Documents/Escalator/WebInterface/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Identity.UI.dll
+/Users/frankie/Documents/Escalator/WebInterface/bin/Debug/netcoreapp3.1/Microsoft.Extensions.FileProviders.Abstractions.dll
+/Users/frankie/Documents/Escalator/WebInterface/bin/Debug/netcoreapp3.1/Microsoft.Extensions.FileProviders.Embedded.dll
+/Users/frankie/Documents/Escalator/WebInterface/bin/Debug/netcoreapp3.1/Microsoft.Extensions.Identity.Core.dll
+/Users/frankie/Documents/Escalator/WebInterface/bin/Debug/netcoreapp3.1/Microsoft.Extensions.Identity.Stores.dll
