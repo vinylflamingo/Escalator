@@ -70,6 +70,21 @@
           "lib/netstandard2.0/Microsoft.AspNetCore.Authentication.Core.dll": {}
         }
       },
+      "Microsoft.AspNetCore.Authentication.JwtBearer/3.1.10": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.IdentityModel.Protocols.OpenIdConnect": "5.5.0"
+        },
+        "compile": {
+          "lib/netcoreapp3.1/Microsoft.AspNetCore.Authentication.JwtBearer.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Microsoft.AspNetCore.Authentication.JwtBearer.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
       "Microsoft.AspNetCore.Cryptography.Internal/3.1.10": {
         "type": "package",
         "compile": {
@@ -2968,6 +2983,7 @@
         "dependencies": {
           "Common": "1.0.0",
           "Microsoft.AspNetCore.Authentication": "2.2.0",
+          "Microsoft.AspNetCore.Authentication.JwtBearer": "3.1.10",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "3.1.10",
           "Microsoft.AspNetCore.Identity.UI": "3.1.10",
           "Microsoft.EntityFrameworkCore": "3.1.10",
@@ -3070,6 +3086,21 @@
         "lib/netstandard2.0/Microsoft.AspNetCore.Authentication.Core.xml",
         "microsoft.aspnetcore.authentication.core.2.2.0.nupkg.sha512",
         "microsoft.aspnetcore.authentication.core.nuspec"
+      ]
+    },
+    "Microsoft.AspNetCore.Authentication.JwtBearer/3.1.10": {
+      "sha512": "0FwXX6sTTXBq+ZajtT9VSNNFfmzsFL7Jiy4Qj4qT5qBbUPry26V2rh8QMWn52J2+81q9u7Bm0YKfsClu22VTMA==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.authentication.jwtbearer/3.1.10",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/netcoreapp3.1/Microsoft.AspNetCore.Authentication.JwtBearer.dll",
+        "lib/netcoreapp3.1/Microsoft.AspNetCore.Authentication.JwtBearer.xml",
+        "microsoft.aspnetcore.authentication.jwtbearer.3.1.10.nupkg.sha512",
+        "microsoft.aspnetcore.authentication.jwtbearer.nuspec"
       ]
     },
     "Microsoft.AspNetCore.Cryptography.Internal/3.1.10": {
@@ -9427,36 +9458,35 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\francisco.costoya\\.nuget\\packages\\": {}
+    "/Users/frankie/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\francisco.costoya\\Desktop\\Portfolio Projects for GitHub\\False-Alarm-Heat-Map\\Escalator\\WebInterface\\WebInterface.csproj",
+      "projectUniqueName": "/Users/frankie/Documents/Escalator/WebInterface/WebInterface.csproj",
       "projectName": "WebInterface",
-      "projectPath": "C:\\Users\\francisco.costoya\\Desktop\\Portfolio Projects for GitHub\\False-Alarm-Heat-Map\\Escalator\\WebInterface\\WebInterface.csproj",
-      "packagesPath": "C:\\Users\\francisco.costoya\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\francisco.costoya\\Desktop\\Portfolio Projects for GitHub\\False-Alarm-Heat-Map\\Escalator\\WebInterface\\obj\\",
+      "projectPath": "/Users/frankie/Documents/Escalator/WebInterface/WebInterface.csproj",
+      "packagesPath": "/Users/frankie/.nuget/packages/",
+      "outputPath": "/Users/frankie/Documents/Escalator/WebInterface/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\francisco.costoya\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/Users/frankie/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\francisco.costoya\\Desktop\\Portfolio Projects for GitHub\\False-Alarm-Heat-Map\\Escalator\\API\\API.csproj": {
-              "projectPath": "C:\\Users\\francisco.costoya\\Desktop\\Portfolio Projects for GitHub\\False-Alarm-Heat-Map\\Escalator\\API\\API.csproj"
+            "/Users/frankie/Documents/Escalator/API/API.csproj": {
+              "projectPath": "/Users/frankie/Documents/Escalator/API/API.csproj"
             },
-            "C:\\Users\\francisco.costoya\\Desktop\\Portfolio Projects for GitHub\\False-Alarm-Heat-Map\\Escalator\\Common\\Common.csproj": {
-              "projectPath": "C:\\Users\\francisco.costoya\\Desktop\\Portfolio Projects for GitHub\\False-Alarm-Heat-Map\\Escalator\\Common\\Common.csproj"
+            "/Users/frankie/Documents/Escalator/Common/Common.csproj": {
+              "projectPath": "/Users/frankie/Documents/Escalator/Common/Common.csproj"
             }
           }
         }
@@ -9469,6 +9499,7 @@
     },
     "frameworks": {
       "netcoreapp3.1": {
+        "targetAlias": "netcoreapp3.1",
         "dependencies": {
           "Microsoft.AspNet.WebApi.Client": {
             "target": "Package",
@@ -9503,7 +9534,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.100/RuntimeIdentifierGraph.json"
       }
     }
   }

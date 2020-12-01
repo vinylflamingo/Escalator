@@ -155,13 +155,13 @@
 /Users/frankie/Documents/Escalator/WebInterface/obj/Debug/netcoreapp3.1/WebInterface.genruntimeconfig.cache
 /Users/frankie/Documents/Escalator/WebInterface/obj/Debug/netcoreapp3.1/Razor/Views/Escalation/index.cshtml.g.cs
 /Users/frankie/Documents/Escalator/WebInterface/obj/Debug/netcoreapp3.1/Razor/Views/Escalation/New.cshtml.g.cs
-C:\Users\francisco.costoya\Desktop\Portfolio Projects for GitHub\False-Alarm-Heat-Map\Escalator\WebInterface\obj\Debug\netcoreapp3.1\WebInterface.dll
-C:\Users\francisco.costoya\Desktop\Portfolio Projects for GitHub\False-Alarm-Heat-Map\Escalator\WebInterface\obj\Debug\netcoreapp3.1\WebInterface.pdb
-C:\Users\francisco.costoya\Desktop\Portfolio Projects for GitHub\False-Alarm-Heat-Map\Escalator\WebInterface\obj\Debug\netcoreapp3.1\WebInterface.csprojAssemblyReference.cache
-C:\Users\francisco.costoya\Desktop\Portfolio Projects for GitHub\False-Alarm-Heat-Map\Escalator\WebInterface\obj\Debug\netcoreapp3.1\WebInterface.AssemblyInfoInputs.cache
-C:\Users\francisco.costoya\Desktop\Portfolio Projects for GitHub\False-Alarm-Heat-Map\Escalator\WebInterface\obj\Debug\netcoreapp3.1\WebInterface.AssemblyInfo.cs
-C:\Users\francisco.costoya\Desktop\Portfolio Projects for GitHub\False-Alarm-Heat-Map\Escalator\WebInterface\obj\Debug\netcoreapp3.1\WebInterface.csproj.CoreCompileInputs.cache
-C:\Users\francisco.costoya\Desktop\Portfolio Projects for GitHub\False-Alarm-Heat-Map\Escalator\WebInterface\obj\Debug\netcoreapp3.1\WebInterface.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\francisco.costoya\Desktop\Portfolio Projects for GitHub\False-Alarm-Heat-Map\Escalator\WebInterface\obj\Debug\netcoreapp3.1\WebInterface.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\francisco.costoya\Desktop\Portfolio Projects for GitHub\False-Alarm-Heat-Map\Escalator\WebInterface\obj\Debug\netcoreapp3.1\WebInterface.RazorAssemblyInfo.cache
-C:\Users\francisco.costoya\Desktop\Portfolio Projects for GitHub\False-Alarm-Heat-Map\Escalator\WebInterface\obj\Debug\netcoreapp3.1\WebInterface.RazorAssemblyInfo.cs
+C:/Users/francisco.costoya/Desktop/Portfolio Projects for GitHub/False-Alarm-Heat-Map/Escalator/WebInterface/obj/Debug/netcoreapp3.1/WebInterface.dll
+C:/Users/francisco.costoya/Desktop/Portfolio Projects for GitHub/False-Alarm-Heat-Map/Escalator/WebInterface/obj/Debug/netcoreapp3.1/WebInterface.pdb
+C:/Users/francisco.costoya/Desktop/Portfolio Projects for GitHub/False-Alarm-Heat-Map/Escalator/WebInterface/obj/Debug/netcoreapp3.1/WebInterface.csprojAssemblyReference.cache
+C:/Users/francisco.costoya/Desktop/Portfolio Projects for GitHub/False-Alarm-Heat-Map/Escalator/WebInterface/obj/Debug/netcoreapp3.1/WebInterface.AssemblyInfoInputs.cache
+C:/Users/francisco.costoya/Desktop/Portfolio Projects for GitHub/False-Alarm-Heat-Map/Escalator/WebInterface/obj/Debug/netcoreapp3.1/WebInterface.AssemblyInfo.cs
+C:/Users/francisco.costoya/Desktop/Portfolio Projects for GitHub/False-Alarm-Heat-Map/Escalator/WebInterface/obj/Debug/netcoreapp3.1/WebInterface.csproj.CoreCompileInputs.cache
+C:/Users/francisco.costoya/Desktop/Portfolio Projects for GitHub/False-Alarm-Heat-Map/Escalator/WebInterface/obj/Debug/netcoreapp3.1/WebInterface.MvcApplicationPartsAssemblyInfo.cs
+C:/Users/francisco.costoya/Desktop/Portfolio Projects for GitHub/False-Alarm-Heat-Map/Escalator/WebInterface/obj/Debug/netcoreapp3.1/WebInterface.MvcApplicationPartsAssemblyInfo.cache
+C:/Users/francisco.costoya/Desktop/Portfolio Projects for GitHub/False-Alarm-Heat-Map/Escalator/WebInterface/obj/Debug/netcoreapp3.1/WebInterface.RazorAssemblyInfo.cache
+C:/Users/francisco.costoya/Desktop/Portfolio Projects for GitHub/False-Alarm-Heat-Map/Escalator/WebInterface/obj/Debug/netcoreapp3.1/WebInterface.RazorAssemblyInfo.cs

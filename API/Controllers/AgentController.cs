@@ -32,8 +32,8 @@ namespace Escalator.API.Controllers
         public async Task<ActionResult<IEnumerable<Agent>>> GetAgents()
         {
 
-            return new string[] {"value1", "value2"};
-            //return await _context.Agents.ToListAsync();
+            
+            return await _context.Agents.ToListAsync();
         }
 
         // GET: api/Agent/5
