@@ -56,8 +56,20 @@ namespace WebInterface.Processors
             string result = response.Content.ReadAsStringAsync().Result;
             Console.WriteLine(result);
             return result;
-            
+        }
 
+
+        public static async Task<string> EditTicket(Ticket ticket)
+        {
+            string url = $"https://localhost:8081/api/Ticket/";
+            
+            var json = JsonConvert.SerializeObject(ticket);
+            var data = new StringContent(json, Encoding.UTF8, "application/json");
+
+            var response = await ApiHelper.ApiClient.PutAsync(url, data);
+            string result = response.Content.ReadAsStringAsync().Result;
+            Console.WriteLine(result);
+            return result;
         }
     }
 }

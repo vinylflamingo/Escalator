@@ -153,8 +153,6 @@
 /Users/frankie/Documents/Escalator/WebInterface/obj/Debug/netcoreapp3.1/WebInterface.Views.pdb
 /Users/frankie/Documents/Escalator/WebInterface/obj/Debug/netcoreapp3.1/WebInterface.csproj.CopyComplete
 /Users/frankie/Documents/Escalator/WebInterface/obj/Debug/netcoreapp3.1/WebInterface.genruntimeconfig.cache
-/Users/frankie/Documents/Escalator/WebInterface/obj/Debug/netcoreapp3.1/Razor/Views/Escalation/index.cshtml.g.cs
-/Users/frankie/Documents/Escalator/WebInterface/obj/Debug/netcoreapp3.1/Razor/Views/Escalation/New.cshtml.g.cs
 C:/Users/francisco.costoya/Desktop/Portfolio Projects for GitHub/False-Alarm-Heat-Map/Escalator/WebInterface/obj/Debug/netcoreapp3.1/WebInterface.dll
 C:/Users/francisco.costoya/Desktop/Portfolio Projects for GitHub/False-Alarm-Heat-Map/Escalator/WebInterface/obj/Debug/netcoreapp3.1/WebInterface.pdb
 C:/Users/francisco.costoya/Desktop/Portfolio Projects for GitHub/False-Alarm-Heat-Map/Escalator/WebInterface/obj/Debug/netcoreapp3.1/WebInterface.csprojAssemblyReference.cache
@@ -178,3 +176,5 @@ C:/Users/francisco.costoya/Desktop/Portfolio Projects for GitHub/False-Alarm-Hea
 /Users/frankie/Documents/Escalator/WebInterface/bin/Debug/netcoreapp3.1/Microsoft.Extensions.FileProviders.Embedded.dll
 /Users/frankie/Documents/Escalator/WebInterface/bin/Debug/netcoreapp3.1/Microsoft.Extensions.Identity.Core.dll
 /Users/frankie/Documents/Escalator/WebInterface/bin/Debug/netcoreapp3.1/Microsoft.Extensions.Identity.Stores.dll
+/Users/frankie/Documents/Escalator/WebInterface/obj/Debug/netcoreapp3.1/Razor/Views/Ticket/Index.cshtml.g.cs
+/Users/frankie/Documents/Escalator/WebInterface/obj/Debug/netcoreapp3.1/Razor/Views/Ticket/New.cshtml.g.cs
