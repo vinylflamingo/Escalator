@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Escalator;
 using Escalator.Common.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Escalator.API.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class JurisdictionController : ControllerBase
@@ -45,6 +47,7 @@ namespace Escalator.API.Controllers
         // PUT: api/Jurisdiction/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
+        [Authorize(Roles = "admin")]
         [HttpPut("{id}")]
         public async Task<IActionResult> PutJurisdiction(long id, Jurisdiction jurisdiction)
         {
@@ -77,6 +80,7 @@ namespace Escalator.API.Controllers
         // POST: api/Jurisdiction
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
+        [Authorize(Roles = "admin")]
         [HttpPost]
         public async Task<ActionResult<Escalation>> PostJurisdiction(Jurisdiction jurisdiction)
         {
@@ -87,6 +91,7 @@ namespace Escalator.API.Controllers
         }
 
         // DELETE: api/Escalation/5
+        
         [HttpDelete("{id}")]
         public async Task<ActionResult<Jurisdiction>> DeleteJurisdiction(long id)
         {
