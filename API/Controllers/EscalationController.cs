@@ -90,6 +90,7 @@ namespace Escalator.API.Controllers
         }
 
         // DELETE: api/Escalation/5
+        [Authorize(Roles = "admin")]
         [HttpDelete("{id}")]
         public async Task<ActionResult<Escalation>> DeleteEscalation(long id)
         {

@@ -12,8 +12,8 @@ namespace Escalator.Common.Models
         public DateTime CloseDate {get; set;}
         public DateTime DueBy {get; set;}
         public string Account {get; set;}
-        public string phoneNumber {get; set;}
-        public string emailAddress {get; set;}
-        public string details {get; set;}
+        public string PhoneNumber {get; set;}
+        public string EmailAddress {get; set;}
+        public string Details {get; set;}
     }
 }

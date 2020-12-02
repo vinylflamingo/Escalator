@@ -12,7 +12,6 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace Escalator.API.Controllers
 {
-    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class AgentController : ControllerBase
@@ -29,6 +28,7 @@ namespace Escalator.API.Controllers
 
         //GET A LIST OF ALL AGENTS
         // GET: api/Agent
+        [Authorize]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Agent>>> GetAgents()
         {
@@ -39,6 +39,7 @@ namespace Escalator.API.Controllers
 
         // GET INFO FOR SINGLE AGENT
         // GET: api/Agent/5
+        [Authorize]
         [HttpGet("{id}")]
         public async Task<ActionResult<Agent>> GetAgent(long id)
         {
@@ -68,9 +69,11 @@ namespace Escalator.API.Controllers
 
         // POST/CREATE NEW AGENT
        // [AllowAnonymous] only needs to be enabled for initial user
+        [Authorize(Roles = "admin")]
         [HttpPost("create")]
         public async Task<ActionResult<Agent>> CreateAgent(Agent agent)
         {
+            
             _context.Agents.Add(agent);
             await _context.SaveChangesAsync();
 
@@ -79,6 +82,7 @@ namespace Escalator.API.Controllers
 
 
         //EDIT EXISTING AGENT
+        [Authorize(Roles = "admin")]
         [HttpPut("{id}")]
         public async Task<IActionResult> PutAgent(long id, Agent agent)
         {
@@ -110,6 +114,7 @@ namespace Escalator.API.Controllers
 
         // DELETE AGENT 
         // DELETE: api/Agent/5
+        [Authorize(Roles = "admin")]
         [HttpDelete("{id}")]
         public async Task<ActionResult<Agent>> DeleteAgent(long id)
         {
