@@ -1,11 +1,9 @@
 namespace Common.Models
 {
-    public enum TicketType
+    public class TicketType
     {
-        Escalation,
-        FaMove,
-        PaymentMove,
-        PaymentEdit,
-        DuplicateAccounts
+        public long Id { get; set;}
+        public string Type {get; set;}
+
     }
 }

@@ -13,7 +13,7 @@ namespace Escalator.WebInterface
     {
         public static void Main(string[] args)
         {
-            ApiHelper.InitializeClient();
+           // ApiHelper.InitializeClient();
             CreateHostBuilder(args).Build().Run();
         }
 

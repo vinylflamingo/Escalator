@@ -11,10 +11,12 @@ namespace WebInterface.Processors
 {
     public class TicketProcessor
     {
+        
         public static async Task<Ticket> LoadTicket(int ticketId)
         {
             string url = $"https://localhost:8081/api/Ticket/{ticketId}/";
-            using (HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync(url))
+            
+            using (HttpResponseMessage response = await apiHelper.ApiClient.GetAsync(url))
             {
                 if (response.IsSuccessStatusCode)
                 {

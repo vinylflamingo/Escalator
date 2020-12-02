@@ -14417,23 +14417,23 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "/Users/frankie/Documents/Escalator/WebInterface/Views/Ticket/New.cshtml",
+      "TargetPath": "Views\\Ticket\\New.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/Users/frankie/Documents/Escalator/WebInterface/Views/Shared/_Layout.cshtml",
       "TargetPath": "Views\\Shared\\_Layout.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/Users/frankie/Documents/Escalator/WebInterface/Views/Escalation/Index.cshtml",
-      "TargetPath": "Views\\Escalation\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/Users/frankie/Documents/Escalator/WebInterface/Views/Escalation/New.cshtml",
-      "TargetPath": "Views\\Escalation\\New.cshtml",
-      "FileKind": "mvc"
-    },
-    {
       "FilePath": "/Users/frankie/Documents/Escalator/WebInterface/Views/Shared/Error.cshtml",
       "TargetPath": "Views\\Shared\\Error.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/frankie/Documents/Escalator/WebInterface/Views/Ticket/Index.cshtml",
+      "TargetPath": "Views\\Ticket\\Index.cshtml",
       "FileKind": "mvc"
     }
   ],
