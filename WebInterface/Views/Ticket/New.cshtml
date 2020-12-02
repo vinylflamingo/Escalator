@@ -1,6 +1,6 @@
-@model Escalator.Common.Models.Escalation
+@model Escalator.Common.Models.Ticket
 @{
-    ViewBag.Title = "Create New Escalation";
+    ViewBag.Title = "Create New Ticket";
 
 }
 
@@ -15,10 +15,10 @@
         @Html.HiddenFor(model => model.Id)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Account, new { @class = "control-label col-md-2"})
+            @Html.LabelFor(model => model.OriginalAccount, new { @class = "control-label col-md-2"})
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Account)
-                @Html.ValidationMessageFor(model => model.Account)
+                @Html.EditorFor(model => model.OriginalAccount)
+                @Html.ValidationMessageFor(model => model.OriginalAccount)
             </div>
         </div>
 

@@ -8,17 +8,17 @@ using System;
 
 namespace WebInterface.Controllers
 {
-    public class EscalationController : Controller 
+    public class TicketController : Controller 
     {
 
-        //INDEX PAGE SHOWING ALL ESCALATIONS
+        //INDEX PAGE SHOWING ALL TICKETS
 
         public async Task<IActionResult> Index()
         {
 
-            EscalationsViewModel model = new EscalationsViewModel()
+            TicketsViewModel model = new TicketsViewModel()
             {
-                escalations = await EscalationProcessor.LoadEscalations(),
+                tickets = await TicketProcessor.LoadTickets(),
                 agents = 
                 {
                  //   new Agent(){ Id = 1, Username = "Agent One", }
@@ -43,9 +43,9 @@ namespace WebInterface.Controllers
         //CREATING A NEW ESCALATION
 
         [HttpPost]
-        public async Task<IActionResult> New(Escalation escalation)
+        public async Task<IActionResult> New(Ticket ticket)
         {
-            var result = await EscalationProcessor.SaveEscalation(escalation);
+            var result = await TicketProcessor.SaveTicket(ticket);
             return View();
 
             //more manual way of making model object from form collection.

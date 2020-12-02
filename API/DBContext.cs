@@ -11,7 +11,7 @@ namespace Escalator.API
         {           
         }     
 
-        public DbSet<Escalation> Escalations {get; set;}   
+        public DbSet<Ticket> Tickets {get; set;}   
         public DbSet<Agent> Agents {get; set;}
         public DbSet<Jurisdiction> Jurisdictions {get; set;}
 

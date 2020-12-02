@@ -5,10 +5,10 @@ namespace WebInterface.Models
 {
     public class CommonViewModel
     {
-        public IEnumerable<Escalation> Escalations;
+        public IEnumerable<Ticket> Tickets;
         public IEnumerable<Agent> Agents;
         public IEnumerable<Jurisdiction> Jurisdictions;
-        public Escalation Escalation;
+        public Ticket Ticket;
         public Agent Agent;
         public Jurisdiction Jurisdiction;
         

@@ -14,48 +14,48 @@ namespace Escalator.API.Controllers
     [Authorize]
     [Route("api/[controller]")]
     [ApiController]
-    public class EscalationController : ControllerBase
+    public class TicketController : ControllerBase
     {
         private readonly DBContext _context;
 
-        public EscalationController(DBContext context)
+        public TicketController(DBContext context)
         {
             _context = context;
         }
 
-        // GET: api/Escalation
+        // GET: api/Ticket
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Escalation>>> GetEscalations()
+        public async Task<ActionResult<IEnumerable<Ticket>>> GetTickets()
         {
-            return await _context.Escalations.ToListAsync();
+            return await _context.Tickets.ToListAsync();
         }
 
-        // GET: api/Escalation/5
+        // GET: api/Ticket/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Escalation>> GetEscalation(long id)
+        public async Task<ActionResult<Ticket>> GetTicket(long id)
         {
-            var escalation = await _context.Escalations.FindAsync(id);
+            var ticket = await _context.Tickets.FindAsync(id);
 
-            if (escalation == null)
+            if (ticket == null)
             {
                 return NotFound();
             }
 
-            return escalation;
+            return ticket;
         }
 
-        // PUT: api/Escalation/5
+        // PUT: api/Ticket/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutEscalation(long id, Escalation escalation)
+        public async Task<IActionResult> PutTicket(long id, Ticket ticket)
         {
-            if (id != escalation.Id)
+            if (id != ticket.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(escalation).State = EntityState.Modified;
+            _context.Entry(ticket).State = EntityState.Modified;
 
             try
             {
@@ -63,7 +63,7 @@ namespace Escalator.API.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!EscalationExists(id))
+                if (!TicketExists(id))
                 {
                     return NotFound();
                 }
@@ -76,39 +76,39 @@ namespace Escalator.API.Controllers
             return NoContent();
         }
 
-        // POST: api/Escalation
+        // POST: api/Ticket
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [AllowAnonymous]
         [HttpPost]
-        public async Task<ActionResult<Escalation>> PostEscalation(Escalation escalation)
+        public async Task<ActionResult<Ticket>> PostTicket(Ticket ticket)
         {
-            _context.Escalations.Add(escalation);
+            _context.Tickets.Add(ticket);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetEscalation", new { id = escalation.Id }, escalation);
+            return CreatedAtAction("GetTicket", new { id = ticket.Id }, ticket);
         }
 
-        // DELETE: api/Escalation/5
+        // DELETE: api/Ticket/5
         [Authorize(Roles = "admin")]
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Escalation>> DeleteEscalation(long id)
+        public async Task<ActionResult<Ticket>> DeleteTicket(long id)
         {
-            var escalation = await _context.Escalations.FindAsync(id);
-            if (escalation == null)
+            var ticket = await _context.Tickets.FindAsync(id);
+            if (ticket == null)
             {
                 return NotFound();
             }
 
-            _context.Escalations.Remove(escalation);
+            _context.Tickets.Remove(ticket);
             await _context.SaveChangesAsync();
 
-            return escalation;
+            return ticket;
         }
 
-        private bool EscalationExists(long id)
+        private bool TicketExists(long id)
         {
-            return _context.Escalations.Any(e => e.Id == id);
+            return _context.Tickets.Any(e => e.Id == id);
         }
     }
 }

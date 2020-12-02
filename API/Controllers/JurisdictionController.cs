@@ -82,7 +82,7 @@ namespace Escalator.API.Controllers
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [Authorize(Roles = "admin")]
         [HttpPost]
-        public async Task<ActionResult<Escalation>> PostJurisdiction(Jurisdiction jurisdiction)
+        public async Task<ActionResult<Jurisdiction>> PostJurisdiction(Jurisdiction jurisdiction)
         {
             _context.Jurisdictions.Add(jurisdiction);
             await _context.SaveChangesAsync();
@@ -90,7 +90,7 @@ namespace Escalator.API.Controllers
             return CreatedAtAction("GetJurisdiction", new { id = jurisdiction.Id }, jurisdiction);
         }
 
-        // DELETE: api/Escalation/5
+        // DELETE: api/Jurisdiction/5
         
         [HttpDelete("{id}")]
         public async Task<ActionResult<Jurisdiction>> DeleteJurisdiction(long id)
