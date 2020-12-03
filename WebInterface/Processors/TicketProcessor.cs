@@ -8,6 +8,7 @@ using Newtonsoft.Json;
 using System.Text;
 using System.Net.Http.Headers;
 using Microsoft.AspNetCore.Http;
+using System.Diagnostics;
 
 namespace WebInterface.Processors
 {
@@ -25,9 +26,11 @@ namespace WebInterface.Processors
             HttpClient apiHelper = new ApiHelper().InitializeClient();
             apiHelper.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue
             (
-                "bearer", 
+                "Bearer", 
                 _accessor.HttpContext.Session.GetString("token")
             );
+
+            Debug.WriteLine("RETRIEVE FROM STORAGE"+_accessor.HttpContext.Session.GetString("token"));
             string url = $"https://localhost:8081/api/Ticket/{ticketId}/";
             
             using (HttpResponseMessage response = await apiHelper.GetAsync(url))
@@ -48,15 +51,17 @@ namespace WebInterface.Processors
         public async Task<IEnumerable<Ticket>> LoadTickets()
         {
             HttpClient apiHelper = new ApiHelper().InitializeClient();
-            apiHelper.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue
+            apiHelper.DefaultRequestHeaders.Add
             (
-                "bearer", 
-                _accessor.HttpContext.Session.GetString("token")
+                "Authorization", 
+                string.Concat("Bearer ", _accessor.HttpContext.Session.GetString("token").Trim('"'))
             );            
             string url = $"https://localhost:8081/api/Ticket/";
+            Debug.WriteLine("RETRIEVE FROM STORAGE"+_accessor.HttpContext.Session.GetString("token"));
 
             using (HttpResponseMessage response = await apiHelper.GetAsync(url))
             {
+                Debug.WriteLine("HEADERS TO SEND" + response.Content.Headers.ToString());
                 if (response.IsSuccessStatusCode)
                 {
                     List<Ticket> tickets = await response.Content.ReadAsAsync<List<Ticket>>();
@@ -75,7 +80,7 @@ namespace WebInterface.Processors
             HttpClient apiHelper = new ApiHelper().InitializeClient();
             apiHelper.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue
             (
-                "bearer", 
+                "Bearer", 
                 _accessor.HttpContext.Session.GetString("token")
             );
             string url = $"https://localhost:8081/api/Ticket/";
@@ -95,7 +100,7 @@ namespace WebInterface.Processors
             HttpClient apiHelper = new ApiHelper().InitializeClient();
             apiHelper.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue
             (
-                "bearer", 
+                "Bearer", 
                 _accessor.HttpContext.Session.GetString("token")
             );
             string url = $"https://localhost:8081/api/Ticket/";

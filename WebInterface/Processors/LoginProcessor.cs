@@ -29,12 +29,13 @@ namespace WebInterface.Processors
             string url = $"https://localhost:8081/api/Agent/authenticate";
 
             var json = JsonConvert.SerializeObject(userCred);
-            Debug.WriteLine(json);
+            Debug.WriteLine("JSON : "+json);
             var data = new StringContent(json, Encoding.UTF8, "application/json");
             var response = await apiHelper.PostAsync(url, data);
-            Debug.WriteLine(response);
+            Debug.WriteLine("RESPONSE : "+response);
             string stringJWT = response.Content.ReadAsStringAsync().Result;
-            Debug.WriteLine(stringJWT);
+            stringJWT.Trim('\"');
+            Debug.WriteLine("STRINGJWT : "+stringJWT);
             _accessor.HttpContext.Session.SetString("token", stringJWT);
             return stringJWT;
         }

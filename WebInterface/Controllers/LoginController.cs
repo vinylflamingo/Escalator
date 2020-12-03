@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics;
 using System.Threading.Tasks;
 using Escalator.Common.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -26,8 +27,8 @@ namespace WebInterface.Controllers
         public async Task<IActionResult> Login(UserCred userCred)
         {
             var result = await _login.Login(userCred);
-            string s = "dog house";
-            ViewBag.Result = s;
+            Debug.WriteLine("RESULT : "+result);
+            ViewBag.Result = result;
             return View();
         }
 
