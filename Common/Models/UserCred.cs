@@ -1,4 +1,4 @@
-namespace Escalator.API
+namespace Escalator.Common.Models
 {
     public class UserCred
     {

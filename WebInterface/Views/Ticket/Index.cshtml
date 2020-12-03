@@ -1,19 +1,28 @@
-@model Escalator.Common.Models.Ticket
+@model WebInterface.Models.TicketsViewModel
 @{
 
-    ViewData["Title"] = "Ticket";
+    ViewData["Title"] = "Tickets";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+@{
+    foreach (var item in Model.tickets)
+    {
+        <div>
+            <h1>@item.Id</h1>
+            <td>@item.ticketType</td>
+            <td>@item.JurisdictionId</td>
+            <td>@item.AssignedAgent</td>
+            <td>@item.CompletedBy</td>
+            <td>@item.OpenDate</td>
+            <td>@item.CloseDate</td>
+            <td>@item.DueBy</td>
+            <td>@item.PhoneNumber</td>
+            <td>@item.EmailAddress</td>
+            <td>@item.OriginalAccount</td>
+            <td>@item.MoveToAccount</td>
+            <td>@item.Invoices</td>
+            <td>@item.Details</td>
+        </div>
+    }
 
-<div>
-    <h1>Model</h1>
-    <td>
-        @Model.Id;
-        @Model.JurisdictionId;
-    </td>
-
-</div>
+}

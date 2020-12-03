@@ -3,15 +3,17 @@ using System;
 using Escalator.API;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace EscalatorclassAPIEscalator.Migrations
 {
     [DbContext(typeof(DBContext))]
-    partial class DBContextModelSnapshot : ModelSnapshot
+    [Migration("20201203030152_AddingTypes")]
+    partial class AddingTypes
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -113,12 +115,12 @@ namespace EscalatorclassAPIEscalator.Migrations
                     b.Property<string>("PhoneNumber")
                         .HasColumnType("text");
 
-                    b.Property<long?>("ticketTypeId")
+                    b.Property<long?>("TypeId")
                         .HasColumnType("bigint");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ticketTypeId");
+                    b.HasIndex("TypeId");
 
                     b.ToTable("Tickets");
                 });
@@ -319,9 +321,9 @@ namespace EscalatorclassAPIEscalator.Migrations
 
             modelBuilder.Entity("Escalator.Common.Models.Ticket", b =>
                 {
-                    b.HasOne("Common.Models.TicketType", "ticketType")
+                    b.HasOne("Common.Models.TicketType", "Type")
                         .WithMany()
-                        .HasForeignKey("ticketTypeId");
+                        .HasForeignKey("TypeId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

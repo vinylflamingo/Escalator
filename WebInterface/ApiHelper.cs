@@ -5,12 +5,13 @@ namespace Escalator.WebInterface
 {
     public class ApiHelper
     {
-        public static HttpClient ApiClient { get; set; }
-        public static void InitializeClient() 
+        private string token { get; set;}
+        public HttpClient ApiClient { get; set; }
+        public HttpClient InitializeClient() 
         {
            ApiClient = new HttpClient(); 
-           ApiClient.DefaultRequestHeaders.Accept.Clear();
            ApiClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+           return ApiClient;
         }
     }
 }
