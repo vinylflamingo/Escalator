@@ -14435,6 +14435,11 @@
       "FilePath": "/Users/frankie/Documents/Escalator/WebInterface/Views/Ticket/Index.cshtml",
       "TargetPath": "Views\\Ticket\\Index.cshtml",
       "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/frankie/Documents/Escalator/WebInterface/Views/Login/Login.cshtml",
+      "TargetPath": "Views\\Login\\Login.cshtml",
+      "FileKind": "mvc"
     }
   ],
   "SerializationFormat": "0.2"

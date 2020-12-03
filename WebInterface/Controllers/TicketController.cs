@@ -10,6 +10,7 @@ namespace WebInterface.Controllers
 {
     public class TicketController : Controller 
     {
+        TicketProcessor ticketProcessor = new TicketProcessor();
 
         //INDEX PAGE SHOWING ALL TICKETS
 
@@ -18,7 +19,7 @@ namespace WebInterface.Controllers
 
             TicketsViewModel model = new TicketsViewModel()
             {
-                tickets = await TicketProcessor.LoadTickets(),
+                tickets = await ticketProcessor.LoadTickets(),
                 agents = 
                 {
                  //   new Agent(){ Id = 1, Username = "Agent One", }
@@ -45,7 +46,7 @@ namespace WebInterface.Controllers
         [HttpPost]
         public async Task<IActionResult> New(Ticket ticket)
         {
-            var result = await TicketProcessor.SaveTicket(ticket);
+            var result = await ticketProcessor.SaveTicket(ticket);
             return View();
 
             //more manual way of making model object from form collection.
