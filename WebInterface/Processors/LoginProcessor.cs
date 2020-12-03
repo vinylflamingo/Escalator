@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,8 +11,12 @@ namespace WebInterface.Processors
 {
     public class LoginProcessor
     {
-        IHttpContextAccessor httpContextAccessor = new HttpContextAccessor();
-    
+        private IHttpContextAccessor _accessor;
+
+        public LoginProcessor(IHttpContextAccessor accessor)
+        {
+            _accessor = accessor;
+        }
 
         // post that returns token and saves to header. 
 
@@ -24,16 +29,19 @@ namespace WebInterface.Processors
             string url = $"https://localhost:8081/api/Agent/authenticate";
 
             var json = JsonConvert.SerializeObject(userCred);
+            Debug.WriteLine(json);
             var data = new StringContent(json, Encoding.UTF8, "application/json");
             var response = await apiHelper.PostAsync(url, data);
+            Debug.WriteLine(response);
             string stringJWT = response.Content.ReadAsStringAsync().Result;
-            httpContextAccessor.HttpContext.Session.SetString("token", stringJWT);
-            return "ok";
+            Debug.WriteLine(stringJWT);
+            _accessor.HttpContext.Session.SetString("token", stringJWT);
+            return stringJWT;
         }
 
         public void Logout()
         {
-            httpContextAccessor.HttpContext.Session.Remove("token");
+            _accessor.HttpContext.Session.Remove("token");
         }
     }
 }

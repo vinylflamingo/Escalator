@@ -7,8 +7,13 @@ using WebInterface.Processors;
 namespace WebInterface.Controllers
 {
     public class LoginController : Controller
-    {
-        LoginProcessor loginProcessor = new LoginProcessor();
+    {   
+        private LoginProcessor _login;
+
+        public LoginController(LoginProcessor login)
+        {
+            _login = login;
+        }
 
         [HttpGet]
         public IActionResult Login()
@@ -20,10 +25,20 @@ namespace WebInterface.Controllers
         [HttpPost]
         public async Task<IActionResult> Login(UserCred userCred)
         {
-            var result = await loginProcessor.Login(userCred);
-            Console.WriteLine(result.ToString());
+            var result = await _login.Login(userCred);
+            string s = "dog house";
+            ViewBag.Result = s;
             return View();
         }
+
+        [HttpPost]
+        public IActionResult Logout()
+        {
+            _login.Logout();
+            return View();
+        }
+
+
 
 
     }

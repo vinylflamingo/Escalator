@@ -4,10 +4,12 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using WebInterface.Processors;
 
 namespace Escalator.WebInterface
 {
@@ -28,6 +30,10 @@ namespace Escalator.WebInterface
             //needed for storing token
             services.AddMemoryCache();
             services.AddSession();
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddSingleton<LoginProcessor>();
+            services.AddSingleton<TicketProcessor>();
+         //   services.AddSingleton<AgentProcessor>();
             //
         }
 

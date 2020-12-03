@@ -13,7 +13,12 @@ namespace WebInterface.Processors
 {
     public class TicketProcessor
     {
-        IHttpContextAccessor httpContextAccessor = new HttpContextAccessor();
+        private IHttpContextAccessor _accessor;
+
+        public TicketProcessor(IHttpContextAccessor accessor)
+        {
+            _accessor = accessor;
+        }
 
         public async Task<Ticket> LoadTicket(int ticketId)
         {
@@ -21,7 +26,7 @@ namespace WebInterface.Processors
             apiHelper.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue
             (
                 "bearer", 
-                httpContextAccessor.HttpContext.Session.GetString("token")
+                _accessor.HttpContext.Session.GetString("token")
             );
             string url = $"https://localhost:8081/api/Ticket/{ticketId}/";
             
@@ -46,7 +51,7 @@ namespace WebInterface.Processors
             apiHelper.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue
             (
                 "bearer", 
-                httpContextAccessor.HttpContext.Session.GetString("token")
+                _accessor.HttpContext.Session.GetString("token")
             );            
             string url = $"https://localhost:8081/api/Ticket/";
 
@@ -71,7 +76,7 @@ namespace WebInterface.Processors
             apiHelper.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue
             (
                 "bearer", 
-                httpContextAccessor.HttpContext.Session.GetString("token")
+                _accessor.HttpContext.Session.GetString("token")
             );
             string url = $"https://localhost:8081/api/Ticket/";
             
@@ -91,7 +96,7 @@ namespace WebInterface.Processors
             apiHelper.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue
             (
                 "bearer", 
-                httpContextAccessor.HttpContext.Session.GetString("token")
+                _accessor.HttpContext.Session.GetString("token")
             );
             string url = $"https://localhost:8081/api/Ticket/";
             
