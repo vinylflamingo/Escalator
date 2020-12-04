@@ -29,7 +29,7 @@ namespace WebInterface.Controllers
             var result = await _login.Login(userCred);
             Debug.WriteLine("RESULT : "+result);
             ViewBag.Result = result;
-            return View();
+            return RedirectToAction("Index", "Ticket");
         }
 
         [HttpPost]

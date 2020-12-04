@@ -4,34 +4,34 @@
 
 }
 
-<h2>Login</h2>
 
-@using (Html.BeginForm())
-{
-    <div class="form-horizontal">
-        <hr />
-        @Html.ValidationSummary(true)
-        <div class="form-group">
-            @Html.LabelFor(model => model.Username, new { @class = "control-label col-md-2"})
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Username)
-                @Html.ValidationMessageFor(model => model.Username)
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Password, new { @class = "control-label col-md-2"})
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Password)
-                @Html.ValidationMessageFor(model => model.Password)
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Submit" class="btn btn-default" />
+<div style="text-align: center;">
+    @using (Html.BeginForm())
+    {
+    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12" style="margin: auto;">
+        <div class="card">
+            @Html.ValidationSummary(true)
+            <h5 class="card-header">Login</h5>
+            <div class="card-body">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Username, new { @class = "control-label col-md-2"})
+                        @Html.EditorFor(model => model.Username)
+                        @Html.ValidationMessageFor(model => model.Username)
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Password, new { @class = "control-label col-md-2"})
+                        @Html.EditorFor(model => model.Password, new {@type = "password"})    
+                        @Html.ValidationMessageFor(model => model.Password)           
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 pl-0">
+                            <button type="submit" value="Submit" class="btn btn-space btn-primary">Submit</button>
+                        </div>
+                    </div>
             </div>
         </div>
     </div>
-}
+    }
+</div>
 
-<p> johnson and @ViewBag.Result</p>
+<p>@ViewBag.Result</p>

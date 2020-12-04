@@ -11,10 +11,13 @@ namespace WebInterface.Controllers
     public class TicketController : Controller 
     {
         private TicketProcessor _ticketProcessor;
+        private JurisdictionProcessor _jurisdictionProcessor;
 
-        public TicketController(TicketProcessor ticketProcessor)
+        public TicketController(TicketProcessor ticketProcessor, JurisdictionProcessor jurisdictionProcessor)
         {
             _ticketProcessor = ticketProcessor;
+            _jurisdictionProcessor = jurisdictionProcessor;
+
         }
 
         //INDEX PAGE SHOWING ALL TICKETS
@@ -25,12 +28,8 @@ namespace WebInterface.Controllers
             TicketsViewModel model = new TicketsViewModel()
             {
                 tickets = await _ticketProcessor.LoadTickets(),
-                agents = 
-                {
-                 //   new Agent(){ Id = 1, Username = "Agent One", }
-                }
-                
-
+                ticketTypes = await _ticketProcessor.LoadTypes(),
+                jurisdictions = await _jurisdictionProcessor.LoadJurisdictions()
             };
 
             return View(model);

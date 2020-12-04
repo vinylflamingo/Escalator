@@ -1,4 +1,4 @@
-namespace Common.Models
+namespace Escalator.Common.Models
 {
     public class TicketType
     {

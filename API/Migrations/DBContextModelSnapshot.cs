@@ -19,21 +19,6 @@ namespace EscalatorclassAPIEscalator.Migrations
                 .HasAnnotation("ProductVersion", "3.1.10")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
-            modelBuilder.Entity("Common.Models.TicketType", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint")
-                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
-
-                    b.Property<string>("Type")
-                        .HasColumnType("text");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("TicketType");
-                });
-
             modelBuilder.Entity("Escalator.Common.Models.Agent", b =>
                 {
                     b.Property<long>("Id")
@@ -113,14 +98,27 @@ namespace EscalatorclassAPIEscalator.Migrations
                     b.Property<string>("PhoneNumber")
                         .HasColumnType("text");
 
-                    b.Property<long?>("ticketTypeId")
+                    b.Property<long>("ticketType")
                         .HasColumnType("bigint");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ticketTypeId");
-
                     b.ToTable("Tickets");
+                });
+
+            modelBuilder.Entity("Escalator.Common.Models.TicketType", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+
+                    b.Property<string>("Type")
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("TicketType");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -315,13 +313,6 @@ namespace EscalatorclassAPIEscalator.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
-                });
-
-            modelBuilder.Entity("Escalator.Common.Models.Ticket", b =>
-                {
-                    b.HasOne("Common.Models.TicketType", "ticketType")
-                        .WithMany()
-                        .HasForeignKey("ticketTypeId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

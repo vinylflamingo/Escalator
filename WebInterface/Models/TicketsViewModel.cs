@@ -9,6 +9,7 @@ namespace WebInterface.Models
         public IEnumerable<Ticket> tickets {get; set;}
         public IEnumerable<Jurisdiction> jurisdictions {get; set;}
         public IEnumerable<Agent> agents {get; set;}
+        public IEnumerable<TicketType> ticketTypes {get; set;}
 
     }
 }
