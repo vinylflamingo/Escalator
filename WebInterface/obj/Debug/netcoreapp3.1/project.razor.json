@@ -14392,6 +14392,11 @@
   "RootNamespace": "WebInterface",
   "Documents": [
     {
+      "FilePath": "/Users/frankie/Documents/Escalator/WebInterface/Views/Ticket/AdminEdit.cshtml",
+      "TargetPath": "Views\\Ticket\\AdminEdit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/Users/frankie/Documents/Escalator/WebInterface/Views/Home/Index.cshtml",
       "TargetPath": "Views\\Home\\Index.cshtml",
       "FileKind": "mvc"
@@ -14424,6 +14429,11 @@
     {
       "FilePath": "/Users/frankie/Documents/Escalator/WebInterface/Views/Shared/_Layout.cshtml",
       "TargetPath": "Views\\Shared\\_Layout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/frankie/Documents/Escalator/WebInterface/Views/Shared/ORIGINAL LAYOUT REFERENCE ONLY.cshtml",
+      "TargetPath": "Views\\Shared\\ORIGINAL LAYOUT REFERENCE ONLY.cshtml",
       "FileKind": "mvc"
     },
     {

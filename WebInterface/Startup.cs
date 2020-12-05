@@ -33,6 +33,8 @@ namespace Escalator.WebInterface
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddSingleton<LoginProcessor>();
             services.AddSingleton<TicketProcessor>();
+            services.AddSingleton<AgentProcessor>();
+            services.AddSingleton<JurisdictionProcessor>();
          //   services.AddSingleton<AgentProcessor>();
             //
         }

@@ -11,10 +11,15 @@ namespace WebInterface.Controllers
     public class TicketController : Controller 
     {
         private TicketProcessor _ticketProcessor;
+        private JurisdictionProcessor _jurisdictionProcessor;
+        private AgentProcessor _agentProcessor;
 
-        public TicketController(TicketProcessor ticketProcessor)
+        public TicketController(TicketProcessor ticketProcessor, JurisdictionProcessor jurisdictionProcessor, AgentProcessor agentProcessor)
         {
             _ticketProcessor = ticketProcessor;
+            _jurisdictionProcessor = jurisdictionProcessor;
+            _agentProcessor = agentProcessor;
+
         }
 
         //INDEX PAGE SHOWING ALL TICKETS
@@ -25,12 +30,8 @@ namespace WebInterface.Controllers
             TicketsViewModel model = new TicketsViewModel()
             {
                 tickets = await _ticketProcessor.LoadTickets(),
-                agents = 
-                {
-                 //   new Agent(){ Id = 1, Username = "Agent One", }
-                }
-                
-
+                ticketTypes = await _ticketProcessor.LoadTypes(),
+                jurisdictions = await _jurisdictionProcessor.LoadJurisdictions()
             };
 
             return View(model);
@@ -39,11 +40,30 @@ namespace WebInterface.Controllers
         //PAGE SHOWING FORM TO CREATE NEW RECORD
 
         [HttpGet]
-        public IActionResult New()
+        public async Task<IActionResult> New()
         {
-            return View();
+
+            TicketViewModel model = new TicketViewModel()
+            {
+                ticketTypes = await _ticketProcessor.LoadTypes(),
+                jurisdictions = await _jurisdictionProcessor.LoadJurisdictions()
+            };
+            return View(model);
         }
 
+        [HttpGet]
+        public async Task<IActionResult> AdminEdit(int ticketId)
+        {
+
+            TicketViewModel model = new TicketViewModel()
+            {
+                ticket = await _ticketProcessor.LoadTicket(ticketId),
+                ticketTypes = await _ticketProcessor.LoadTypes(),
+                jurisdictions = await _jurisdictionProcessor.LoadJurisdictions(),
+                agents = await _agentProcessor.LoadAgents()
+            };
+            return View(model);
+        }
 
 
         //CREATING A NEW ESCALATION
@@ -51,8 +71,9 @@ namespace WebInterface.Controllers
         [HttpPost]
         public async Task<IActionResult> New(Ticket ticket)
         {
+            
             var result = await _ticketProcessor.SaveTicket(ticket);
-            return View();
+            return RedirectToAction("Index");
 
             //more manual way of making model object from form collection.
             //Trying more efficient methods and only using this as backup
@@ -64,6 +85,13 @@ namespace WebInterface.Controllers
             //    Account = collection["Account"],
             //    DueBy = ),
             //};
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AdminEdit(Ticket ticket)
+        {
+            var result = await _ticketProcessor.EditTicket(ticket);
+            return RedirectToAction("Index");
         }
 
 

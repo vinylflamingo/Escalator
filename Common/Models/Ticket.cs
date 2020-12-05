@@ -1,12 +1,11 @@
 using System;
-using Common.Models;
 
 namespace Escalator.Common.Models
 {
     public class Ticket
     {
         public long Id { get; set; }
-        public TicketType ticketType {get; set;}
+        public long ticketType {get; set;}
         public long JurisdictionId {get; set;}
         public long AssignedAgent {get; set;}
         public long CompletedBy {get; set;}

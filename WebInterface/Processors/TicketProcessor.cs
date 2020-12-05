@@ -24,11 +24,18 @@ namespace WebInterface.Processors
         public async Task<Ticket> LoadTicket(int ticketId)
         {
             HttpClient apiHelper = new ApiHelper().InitializeClient();
-            apiHelper.DefaultRequestHeaders.Add
-            (
-                "Authorization", 
-                string.Concat("Bearer ", _accessor.HttpContext.Session.GetString("token").Trim('"'))
-            );  
+            try
+            {
+                apiHelper.DefaultRequestHeaders.Add
+                (
+                    "Authorization", 
+                    string.Concat("Bearer ", _accessor.HttpContext.Session.GetString("token").Trim('"'))
+                );  
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e);
+            }  
 
             string url = $"https://localhost:8081/api/Ticket/{ticketId}/";
             
@@ -46,15 +53,53 @@ namespace WebInterface.Processors
             }
         }
 
+        public async Task<IEnumerable<TicketType>> LoadTypes()
+        {
+            HttpClient apiHelper = new ApiHelper().InitializeClient();
+            try
+            {
+                apiHelper.DefaultRequestHeaders.Add
+                (
+                    "Authorization", 
+                    string.Concat("Bearer ", _accessor.HttpContext.Session.GetString("token").Trim('"'))
+                );  
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e);
+            }
+          
+            string url = $"https://localhost:8081/api/TicketType/";
+
+            using (HttpResponseMessage response = await apiHelper.GetAsync(url))
+            {
+                if (response.IsSuccessStatusCode)
+                {
+                    List<TicketType> ticketTypes = await response.Content.ReadAsAsync<List<TicketType>>();
+                    return ticketTypes;
+                }
+                else
+                {
+                    throw new Exception(response.ReasonPhrase);
+                }
+            }
+        }
 
         public async Task<IEnumerable<Ticket>> LoadTickets()
         {
             HttpClient apiHelper = new ApiHelper().InitializeClient();
-            apiHelper.DefaultRequestHeaders.Add
-            (
-                "Authorization", 
-                string.Concat("Bearer ", _accessor.HttpContext.Session.GetString("token").Trim('"'))
-            );            
+            try
+            {
+                apiHelper.DefaultRequestHeaders.Add
+                (
+                    "Authorization", 
+                    string.Concat("Bearer ", _accessor.HttpContext.Session.GetString("token").Trim('"'))
+                );  
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e);
+            }            
             string url = $"https://localhost:8081/api/Ticket/";
 
             using (HttpResponseMessage response = await apiHelper.GetAsync(url))
@@ -75,13 +120,22 @@ namespace WebInterface.Processors
         public async Task<string> SaveTicket(Ticket ticket)
         {
             HttpClient apiHelper = new ApiHelper().InitializeClient();
-            apiHelper.DefaultRequestHeaders.Add
-            (
-                "Authorization", 
-                string.Concat("Bearer ", _accessor.HttpContext.Session.GetString("token").Trim('"'))
-            );  
+            try
+            {
+                apiHelper.DefaultRequestHeaders.Add
+                (
+                    "Authorization", 
+                    string.Concat("Bearer ", _accessor.HttpContext.Session.GetString("token").Trim('"'))
+                );  
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e);
+            }  
             string url = $"https://localhost:8081/api/Ticket/";
             
+            ticket.OpenDate = DateTime.Now;
+
             var json = JsonConvert.SerializeObject(ticket);
             var data = new StringContent(json, Encoding.UTF8, "application/json");
 
@@ -95,17 +149,24 @@ namespace WebInterface.Processors
         public async Task<string> EditTicket(Ticket ticket)
         {
             HttpClient apiHelper = new ApiHelper().InitializeClient();
-            apiHelper.DefaultRequestHeaders.Add
-            (
-                "Authorization", 
-                string.Concat("Bearer ", _accessor.HttpContext.Session.GetString("token").Trim('"'))
-            );  
-            string url = $"https://localhost:8081/api/Ticket/";
+            try
+            {
+                apiHelper.DefaultRequestHeaders.Add
+                (
+                    "Authorization", 
+                    string.Concat("Bearer ", _accessor.HttpContext.Session.GetString("token").Trim('"'))
+                );  
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e);
+            }  
+            string url = $"https://localhost:8081/api/Ticket/{ticket.Id}";
             
             var json = JsonConvert.SerializeObject(ticket);
             var data = new StringContent(json, Encoding.UTF8, "application/json");
 
-            var response = await apiHelper.PutAsync(url, data);
+            var response = await apiHelper.PostAsync(url, data);
             string result = response.Content.ReadAsStringAsync().Result;
             Console.WriteLine(result);
             return result;

@@ -24,6 +24,7 @@ namespace Escalator.API.Controllers
         }
 
         // GET: api/Jurisdiction
+        [AllowAnonymous]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Jurisdiction>>> GetJurisdictions()
         {
@@ -91,7 +92,7 @@ namespace Escalator.API.Controllers
         }
 
         // DELETE: api/Jurisdiction/5
-        
+        [Authorize(Roles = "admin")]
         [HttpDelete("{id}")]
         public async Task<ActionResult<Jurisdiction>> DeleteJurisdiction(long id)
         {
