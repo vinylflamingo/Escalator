@@ -12,11 +12,13 @@ namespace WebInterface.Controllers
     {
         private TicketProcessor _ticketProcessor;
         private JurisdictionProcessor _jurisdictionProcessor;
+        private AgentProcessor _agentProcessor;
 
-        public TicketController(TicketProcessor ticketProcessor, JurisdictionProcessor jurisdictionProcessor)
+        public TicketController(TicketProcessor ticketProcessor, JurisdictionProcessor jurisdictionProcessor, AgentProcessor agentProcessor)
         {
             _ticketProcessor = ticketProcessor;
             _jurisdictionProcessor = jurisdictionProcessor;
+            _agentProcessor = agentProcessor;
 
         }
 
@@ -38,11 +40,30 @@ namespace WebInterface.Controllers
         //PAGE SHOWING FORM TO CREATE NEW RECORD
 
         [HttpGet]
-        public IActionResult New()
+        public async Task<IActionResult> New()
         {
-            return View();
+
+            TicketViewModel model = new TicketViewModel()
+            {
+                ticketTypes = await _ticketProcessor.LoadTypes(),
+                jurisdictions = await _jurisdictionProcessor.LoadJurisdictions()
+            };
+            return View(model);
         }
 
+        [HttpGet]
+        public async Task<IActionResult> AdminEdit(int ticketId)
+        {
+
+            TicketViewModel model = new TicketViewModel()
+            {
+                ticket = await _ticketProcessor.LoadTicket(ticketId),
+                ticketTypes = await _ticketProcessor.LoadTypes(),
+                jurisdictions = await _jurisdictionProcessor.LoadJurisdictions(),
+                agents = await _agentProcessor.LoadAgents()
+            };
+            return View(model);
+        }
 
 
         //CREATING A NEW ESCALATION
@@ -50,8 +71,9 @@ namespace WebInterface.Controllers
         [HttpPost]
         public async Task<IActionResult> New(Ticket ticket)
         {
+            
             var result = await _ticketProcessor.SaveTicket(ticket);
-            return View();
+            return RedirectToAction("Index");
 
             //more manual way of making model object from form collection.
             //Trying more efficient methods and only using this as backup
@@ -63,6 +85,13 @@ namespace WebInterface.Controllers
             //    Account = collection["Account"],
             //    DueBy = ),
             //};
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AdminEdit(Ticket ticket)
+        {
+            var result = await _ticketProcessor.EditTicket(ticket);
+            return RedirectToAction("Index");
         }
 
 

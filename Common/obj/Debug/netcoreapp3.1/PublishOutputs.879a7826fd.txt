@@ -1,0 +1,3 @@
+/Users/frankie/Documents/Escalator/Common/bin/Debug/netcoreapp3.1/publish/Common.dll
+/Users/frankie/Documents/Escalator/Common/bin/Debug/netcoreapp3.1/publish/Common.deps.json
+/Users/frankie/Documents/Escalator/Common/bin/Debug/netcoreapp3.1/publish/Common.pdb

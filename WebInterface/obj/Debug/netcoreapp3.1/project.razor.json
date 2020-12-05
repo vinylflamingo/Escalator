@@ -14392,6 +14392,11 @@
   "RootNamespace": "WebInterface",
   "Documents": [
     {
+      "FilePath": "/Users/frankie/Documents/Escalator/WebInterface/Views/Ticket/AdminEdit.cshtml",
+      "TargetPath": "Views\\Ticket\\AdminEdit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/Users/frankie/Documents/Escalator/WebInterface/Views/Home/Index.cshtml",
       "TargetPath": "Views\\Home\\Index.cshtml",
       "FileKind": "mvc"

@@ -11,7 +11,6 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace Escalator.API.Controllers
 {
-    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class TicketTypeController : ControllerBase
@@ -47,6 +46,7 @@ namespace Escalator.API.Controllers
         // PUT: api/TicketType/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
+        [Authorize(Roles = "admin")]
         [HttpPut("{id}")]
         public async Task<IActionResult> PutTicketType(long id, TicketType ticket)
         {
@@ -79,7 +79,7 @@ namespace Escalator.API.Controllers
         // POST: api/TicketType
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
-        [AllowAnonymous]
+        [Authorize(Roles = "admin")]
         [HttpPost]
         public async Task<ActionResult<TicketType>> PostTicketType(TicketType ticket)
         {

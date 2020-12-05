@@ -1,30 +1,16 @@
-/Users/frankie/Documents/Escalator/WebInterface/obj/Debug/netcoreapp3.1/WebInterface.csprojAssemblyReference.cache
-/Users/frankie/Documents/Escalator/WebInterface/obj/Debug/netcoreapp3.1/WebInterface.AssemblyInfoInputs.cache
-/Users/frankie/Documents/Escalator/WebInterface/obj/Debug/netcoreapp3.1/WebInterface.AssemblyInfo.cs
-/Users/frankie/Documents/Escalator/WebInterface/obj/Debug/netcoreapp3.1/WebInterface.csproj.CoreCompileInputs.cache
-/Users/frankie/Documents/Escalator/WebInterface/obj/Debug/netcoreapp3.1/WebInterface.MvcApplicationPartsAssemblyInfo.cs
-/Users/frankie/Documents/Escalator/WebInterface/obj/Debug/netcoreapp3.1/WebInterface.MvcApplicationPartsAssemblyInfo.cache
-/Users/frankie/Documents/Escalator/WebInterface/obj/Debug/netcoreapp3.1/WebInterface.RazorAssemblyInfo.cache
-/Users/frankie/Documents/Escalator/WebInterface/obj/Debug/netcoreapp3.1/WebInterface.RazorAssemblyInfo.cs
-/Users/frankie/Documents/Escalator/WebInterface/obj/Debug/netcoreapp3.1/staticwebassets/WebInterface.StaticWebAssets.Manifest.cache
-/Users/frankie/Documents/Escalator/WebInterface/obj/Debug/netcoreapp3.1/staticwebassets/WebInterface.StaticWebAssets.xml
-/Users/frankie/Documents/Escalator/WebInterface/obj/Debug/netcoreapp3.1/scopedcss/bundle/WebInterface.styles.css
-/Users/frankie/Documents/Escalator/WebInterface/obj/Debug/netcoreapp3.1/WebInterface.TagHelpers.input.cache
-/Users/frankie/Documents/Escalator/WebInterface/obj/Debug/netcoreapp3.1/WebInterface.TagHelpers.output.cache
-/Users/frankie/Documents/Escalator/WebInterface/obj/Debug/netcoreapp3.1/WebInterface.RazorCoreGenerate.cache
-/Users/frankie/Documents/Escalator/WebInterface/obj/Debug/netcoreapp3.1/Razor/Views/Home/Index.cshtml.g.cs
-/Users/frankie/Documents/Escalator/WebInterface/obj/Debug/netcoreapp3.1/Razor/Views/Home/Privacy.cshtml.g.cs
-/Users/frankie/Documents/Escalator/WebInterface/obj/Debug/netcoreapp3.1/Razor/Views/Shared/Error.cshtml.g.cs
-/Users/frankie/Documents/Escalator/WebInterface/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_Layout.cshtml.g.cs
-/Users/frankie/Documents/Escalator/WebInterface/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_ValidationScriptsPartial.cshtml.g.cs
-/Users/frankie/Documents/Escalator/WebInterface/obj/Debug/netcoreapp3.1/Razor/Views/_ViewImports.cshtml.g.cs
-/Users/frankie/Documents/Escalator/WebInterface/obj/Debug/netcoreapp3.1/Razor/Views/_ViewStart.cshtml.g.cs
-/Users/frankie/Documents/Escalator/WebInterface/obj/Debug/netcoreapp3.1/WebInterface.RazorTargetAssemblyInfo.cache
-/Users/frankie/Documents/Escalator/WebInterface/obj/Debug/netcoreapp3.1/WebInterface.RazorTargetAssemblyInfo.cs
-/Users/frankie/Documents/Escalator/WebInterface/obj/Debug/netcoreapp3.1/WebInterface.dll
-/Users/frankie/Documents/Escalator/WebInterface/obj/Debug/netcoreapp3.1/WebInterface.pdb
+C:/Users/francisco.costoya/Desktop/Portfolio Projects for GitHub/False-Alarm-Heat-Map/Escalator/WebInterface/obj/Debug/netcoreapp3.1/WebInterface.dll
+C:/Users/francisco.costoya/Desktop/Portfolio Projects for GitHub/False-Alarm-Heat-Map/Escalator/WebInterface/obj/Debug/netcoreapp3.1/WebInterface.pdb
+C:/Users/francisco.costoya/Desktop/Portfolio Projects for GitHub/False-Alarm-Heat-Map/Escalator/WebInterface/obj/Debug/netcoreapp3.1/WebInterface.csprojAssemblyReference.cache
+C:/Users/francisco.costoya/Desktop/Portfolio Projects for GitHub/False-Alarm-Heat-Map/Escalator/WebInterface/obj/Debug/netcoreapp3.1/WebInterface.AssemblyInfoInputs.cache
+C:/Users/francisco.costoya/Desktop/Portfolio Projects for GitHub/False-Alarm-Heat-Map/Escalator/WebInterface/obj/Debug/netcoreapp3.1/WebInterface.AssemblyInfo.cs
+C:/Users/francisco.costoya/Desktop/Portfolio Projects for GitHub/False-Alarm-Heat-Map/Escalator/WebInterface/obj/Debug/netcoreapp3.1/WebInterface.csproj.CoreCompileInputs.cache
+C:/Users/francisco.costoya/Desktop/Portfolio Projects for GitHub/False-Alarm-Heat-Map/Escalator/WebInterface/obj/Debug/netcoreapp3.1/WebInterface.MvcApplicationPartsAssemblyInfo.cs
+C:/Users/francisco.costoya/Desktop/Portfolio Projects for GitHub/False-Alarm-Heat-Map/Escalator/WebInterface/obj/Debug/netcoreapp3.1/WebInterface.MvcApplicationPartsAssemblyInfo.cache
+C:/Users/francisco.costoya/Desktop/Portfolio Projects for GitHub/False-Alarm-Heat-Map/Escalator/WebInterface/obj/Debug/netcoreapp3.1/WebInterface.RazorAssemblyInfo.cache
+C:/Users/francisco.costoya/Desktop/Portfolio Projects for GitHub/False-Alarm-Heat-Map/Escalator/WebInterface/obj/Debug/netcoreapp3.1/WebInterface.RazorAssemblyInfo.cs
 /Users/frankie/Documents/Escalator/WebInterface/bin/Debug/netcoreapp3.1/appsettings.Development.json
 /Users/frankie/Documents/Escalator/WebInterface/bin/Debug/netcoreapp3.1/appsettings.json
+/Users/frankie/Documents/Escalator/WebInterface/bin/Debug/netcoreapp3.1/WebInterface.StaticWebAssets.xml
 /Users/frankie/Documents/Escalator/WebInterface/bin/Debug/netcoreapp3.1/WebInterface.deps.json
 /Users/frankie/Documents/Escalator/WebInterface/bin/Debug/netcoreapp3.1/WebInterface.runtimeconfig.json
 /Users/frankie/Documents/Escalator/WebInterface/bin/Debug/netcoreapp3.1/WebInterface.runtimeconfig.dev.json
@@ -34,6 +20,13 @@
 /Users/frankie/Documents/Escalator/WebInterface/bin/Debug/netcoreapp3.1/WebInterface.Views.pdb
 /Users/frankie/Documents/Escalator/WebInterface/bin/Debug/netcoreapp3.1/Humanizer.dll
 /Users/frankie/Documents/Escalator/WebInterface/bin/Debug/netcoreapp3.1/System.Net.Http.Formatting.dll
+/Users/frankie/Documents/Escalator/WebInterface/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Authentication.JwtBearer.dll
+/Users/frankie/Documents/Escalator/WebInterface/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Cryptography.Internal.dll
+/Users/frankie/Documents/Escalator/WebInterface/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+/Users/frankie/Documents/Escalator/WebInterface/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+/Users/frankie/Documents/Escalator/WebInterface/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Identity.UI.Views.V3.dll
+/Users/frankie/Documents/Escalator/WebInterface/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Identity.UI.Views.V4.dll
+/Users/frankie/Documents/Escalator/WebInterface/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Identity.UI.dll
 /Users/frankie/Documents/Escalator/WebInterface/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Razor.Language.dll
 /Users/frankie/Documents/Escalator/WebInterface/bin/Debug/netcoreapp3.1/Microsoft.CodeAnalysis.dll
 /Users/frankie/Documents/Escalator/WebInterface/bin/Debug/netcoreapp3.1/Microsoft.CodeAnalysis.CSharp.dll
@@ -51,6 +44,10 @@
 /Users/frankie/Documents/Escalator/WebInterface/bin/Debug/netcoreapp3.1/Microsoft.Extensions.Configuration.Abstractions.dll
 /Users/frankie/Documents/Escalator/WebInterface/bin/Debug/netcoreapp3.1/Microsoft.Extensions.DependencyInjection.dll
 /Users/frankie/Documents/Escalator/WebInterface/bin/Debug/netcoreapp3.1/Microsoft.Extensions.DependencyInjection.Abstractions.dll
+/Users/frankie/Documents/Escalator/WebInterface/bin/Debug/netcoreapp3.1/Microsoft.Extensions.FileProviders.Abstractions.dll
+/Users/frankie/Documents/Escalator/WebInterface/bin/Debug/netcoreapp3.1/Microsoft.Extensions.FileProviders.Embedded.dll
+/Users/frankie/Documents/Escalator/WebInterface/bin/Debug/netcoreapp3.1/Microsoft.Extensions.Identity.Core.dll
+/Users/frankie/Documents/Escalator/WebInterface/bin/Debug/netcoreapp3.1/Microsoft.Extensions.Identity.Stores.dll
 /Users/frankie/Documents/Escalator/WebInterface/bin/Debug/netcoreapp3.1/Microsoft.Extensions.Logging.dll
 /Users/frankie/Documents/Escalator/WebInterface/bin/Debug/netcoreapp3.1/Microsoft.Extensions.Logging.Abstractions.dll
 /Users/frankie/Documents/Escalator/WebInterface/bin/Debug/netcoreapp3.1/Microsoft.Extensions.Options.dll
@@ -150,33 +147,37 @@
 /Users/frankie/Documents/Escalator/WebInterface/bin/Debug/netcoreapp3.1/Common.dll
 /Users/frankie/Documents/Escalator/WebInterface/bin/Debug/netcoreapp3.1/Common.pdb
 /Users/frankie/Documents/Escalator/WebInterface/bin/Debug/netcoreapp3.1/API.pdb
-/Users/frankie/Documents/Escalator/WebInterface/obj/Debug/netcoreapp3.1/WebInterface.Views.pdb
-/Users/frankie/Documents/Escalator/WebInterface/obj/Debug/netcoreapp3.1/WebInterface.csproj.CopyComplete
-/Users/frankie/Documents/Escalator/WebInterface/obj/Debug/netcoreapp3.1/WebInterface.genruntimeconfig.cache
-C:/Users/francisco.costoya/Desktop/Portfolio Projects for GitHub/False-Alarm-Heat-Map/Escalator/WebInterface/obj/Debug/netcoreapp3.1/WebInterface.dll
-C:/Users/francisco.costoya/Desktop/Portfolio Projects for GitHub/False-Alarm-Heat-Map/Escalator/WebInterface/obj/Debug/netcoreapp3.1/WebInterface.pdb
-C:/Users/francisco.costoya/Desktop/Portfolio Projects for GitHub/False-Alarm-Heat-Map/Escalator/WebInterface/obj/Debug/netcoreapp3.1/WebInterface.csprojAssemblyReference.cache
-C:/Users/francisco.costoya/Desktop/Portfolio Projects for GitHub/False-Alarm-Heat-Map/Escalator/WebInterface/obj/Debug/netcoreapp3.1/WebInterface.AssemblyInfoInputs.cache
-C:/Users/francisco.costoya/Desktop/Portfolio Projects for GitHub/False-Alarm-Heat-Map/Escalator/WebInterface/obj/Debug/netcoreapp3.1/WebInterface.AssemblyInfo.cs
-C:/Users/francisco.costoya/Desktop/Portfolio Projects for GitHub/False-Alarm-Heat-Map/Escalator/WebInterface/obj/Debug/netcoreapp3.1/WebInterface.csproj.CoreCompileInputs.cache
-C:/Users/francisco.costoya/Desktop/Portfolio Projects for GitHub/False-Alarm-Heat-Map/Escalator/WebInterface/obj/Debug/netcoreapp3.1/WebInterface.MvcApplicationPartsAssemblyInfo.cs
-C:/Users/francisco.costoya/Desktop/Portfolio Projects for GitHub/False-Alarm-Heat-Map/Escalator/WebInterface/obj/Debug/netcoreapp3.1/WebInterface.MvcApplicationPartsAssemblyInfo.cache
-C:/Users/francisco.costoya/Desktop/Portfolio Projects for GitHub/False-Alarm-Heat-Map/Escalator/WebInterface/obj/Debug/netcoreapp3.1/WebInterface.RazorAssemblyInfo.cache
-C:/Users/francisco.costoya/Desktop/Portfolio Projects for GitHub/False-Alarm-Heat-Map/Escalator/WebInterface/obj/Debug/netcoreapp3.1/WebInterface.RazorAssemblyInfo.cs
-/Users/frankie/Documents/Escalator/WebInterface/bin/Debug/netcoreapp3.1/API.StaticWebAssets.xml
-/Users/frankie/Documents/Escalator/WebInterface/bin/Debug/netcoreapp3.1/WebInterface.StaticWebAssets.xml
-/Users/frankie/Documents/Escalator/WebInterface/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Authentication.JwtBearer.dll
-/Users/frankie/Documents/Escalator/WebInterface/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Cryptography.Internal.dll
-/Users/frankie/Documents/Escalator/WebInterface/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
-/Users/frankie/Documents/Escalator/WebInterface/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
-/Users/frankie/Documents/Escalator/WebInterface/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Identity.UI.Views.V3.dll
-/Users/frankie/Documents/Escalator/WebInterface/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Identity.UI.Views.V4.dll
-/Users/frankie/Documents/Escalator/WebInterface/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Identity.UI.dll
-/Users/frankie/Documents/Escalator/WebInterface/bin/Debug/netcoreapp3.1/Microsoft.Extensions.FileProviders.Abstractions.dll
-/Users/frankie/Documents/Escalator/WebInterface/bin/Debug/netcoreapp3.1/Microsoft.Extensions.FileProviders.Embedded.dll
-/Users/frankie/Documents/Escalator/WebInterface/bin/Debug/netcoreapp3.1/Microsoft.Extensions.Identity.Core.dll
-/Users/frankie/Documents/Escalator/WebInterface/bin/Debug/netcoreapp3.1/Microsoft.Extensions.Identity.Stores.dll
+/Users/frankie/Documents/Escalator/WebInterface/obj/Debug/netcoreapp3.1/WebInterface.csprojAssemblyReference.cache
+/Users/frankie/Documents/Escalator/WebInterface/obj/Debug/netcoreapp3.1/WebInterface.AssemblyInfoInputs.cache
+/Users/frankie/Documents/Escalator/WebInterface/obj/Debug/netcoreapp3.1/WebInterface.AssemblyInfo.cs
+/Users/frankie/Documents/Escalator/WebInterface/obj/Debug/netcoreapp3.1/WebInterface.csproj.CoreCompileInputs.cache
+/Users/frankie/Documents/Escalator/WebInterface/obj/Debug/netcoreapp3.1/WebInterface.MvcApplicationPartsAssemblyInfo.cs
+/Users/frankie/Documents/Escalator/WebInterface/obj/Debug/netcoreapp3.1/WebInterface.MvcApplicationPartsAssemblyInfo.cache
+/Users/frankie/Documents/Escalator/WebInterface/obj/Debug/netcoreapp3.1/WebInterface.RazorAssemblyInfo.cache
+/Users/frankie/Documents/Escalator/WebInterface/obj/Debug/netcoreapp3.1/WebInterface.RazorAssemblyInfo.cs
+/Users/frankie/Documents/Escalator/WebInterface/obj/Debug/netcoreapp3.1/staticwebassets/WebInterface.StaticWebAssets.Manifest.cache
+/Users/frankie/Documents/Escalator/WebInterface/obj/Debug/netcoreapp3.1/staticwebassets/WebInterface.StaticWebAssets.xml
+/Users/frankie/Documents/Escalator/WebInterface/obj/Debug/netcoreapp3.1/scopedcss/bundle/WebInterface.styles.css
+/Users/frankie/Documents/Escalator/WebInterface/obj/Debug/netcoreapp3.1/WebInterface.TagHelpers.input.cache
+/Users/frankie/Documents/Escalator/WebInterface/obj/Debug/netcoreapp3.1/WebInterface.TagHelpers.output.cache
+/Users/frankie/Documents/Escalator/WebInterface/obj/Debug/netcoreapp3.1/WebInterface.RazorCoreGenerate.cache
+/Users/frankie/Documents/Escalator/WebInterface/obj/Debug/netcoreapp3.1/Razor/Views/Home/Index.cshtml.g.cs
+/Users/frankie/Documents/Escalator/WebInterface/obj/Debug/netcoreapp3.1/Razor/Views/Home/Privacy.cshtml.g.cs
+/Users/frankie/Documents/Escalator/WebInterface/obj/Debug/netcoreapp3.1/Razor/Views/Login/Login.cshtml.g.cs
+/Users/frankie/Documents/Escalator/WebInterface/obj/Debug/netcoreapp3.1/Razor/Views/Shared/Error.cshtml.g.cs
+/Users/frankie/Documents/Escalator/WebInterface/obj/Debug/netcoreapp3.1/Razor/Views/Shared/ORIGINAL LAYOUT REFERENCE ONLY.cshtml.g.cs
+/Users/frankie/Documents/Escalator/WebInterface/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_Layout.cshtml.g.cs
+/Users/frankie/Documents/Escalator/WebInterface/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_ValidationScriptsPartial.cshtml.g.cs
 /Users/frankie/Documents/Escalator/WebInterface/obj/Debug/netcoreapp3.1/Razor/Views/Ticket/Index.cshtml.g.cs
 /Users/frankie/Documents/Escalator/WebInterface/obj/Debug/netcoreapp3.1/Razor/Views/Ticket/New.cshtml.g.cs
-/Users/frankie/Documents/Escalator/WebInterface/obj/Debug/netcoreapp3.1/Razor/Views/Login/Login.cshtml.g.cs
-/Users/frankie/Documents/Escalator/WebInterface/obj/Debug/netcoreapp3.1/Razor/Views/Shared/ORIGINAL LAYOUT REFERENCE ONLY.cshtml.g.cs
+/Users/frankie/Documents/Escalator/WebInterface/obj/Debug/netcoreapp3.1/Razor/Views/_ViewImports.cshtml.g.cs
+/Users/frankie/Documents/Escalator/WebInterface/obj/Debug/netcoreapp3.1/Razor/Views/_ViewStart.cshtml.g.cs
+/Users/frankie/Documents/Escalator/WebInterface/obj/Debug/netcoreapp3.1/WebInterface.RazorTargetAssemblyInfo.cache
+/Users/frankie/Documents/Escalator/WebInterface/obj/Debug/netcoreapp3.1/WebInterface.RazorTargetAssemblyInfo.cs
+/Users/frankie/Documents/Escalator/WebInterface/obj/Debug/netcoreapp3.1/WebInterface.Views.pdb
+/Users/frankie/Documents/Escalator/WebInterface/obj/Debug/netcoreapp3.1/WebInterface.csproj.CopyComplete
+/Users/frankie/Documents/Escalator/WebInterface/obj/Debug/netcoreapp3.1/WebInterface.dll
+/Users/frankie/Documents/Escalator/WebInterface/obj/Debug/netcoreapp3.1/WebInterface.pdb
+/Users/frankie/Documents/Escalator/WebInterface/obj/Debug/netcoreapp3.1/WebInterface.genruntimeconfig.cache
+/Users/frankie/Documents/Escalator/WebInterface/bin/Debug/netcoreapp3.1/API.StaticWebAssets.xml
+/Users/frankie/Documents/Escalator/WebInterface/obj/Debug/netcoreapp3.1/Razor/Views/Ticket/AdminEdit.cshtml.g.cs

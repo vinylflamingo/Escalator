@@ -28,12 +28,10 @@ namespace Escalator.API.Controllers
 
         //GET A LIST OF ALL AGENTS
         // GET: api/Agent
-        [Authorize]
+        [AllowAnonymous]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Agent>>> GetAgents()
         {
-
-            
             return await _context.Agents.ToListAsync();
         }
 
