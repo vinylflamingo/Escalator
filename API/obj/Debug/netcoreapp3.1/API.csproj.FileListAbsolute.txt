@@ -152,3 +152,7 @@ C:/Users/francisco.costoya/Desktop/Portfolio Projects for GitHub/False-Alarm-Hea
 /Users/frankie/Documents/Escalator/API/obj/Debug/netcoreapp3.1/API.dll
 /Users/frankie/Documents/Escalator/API/obj/Debug/netcoreapp3.1/API.pdb
 /Users/frankie/Documents/Escalator/API/obj/Debug/netcoreapp3.1/API.genruntimeconfig.cache
+/Users/frankie/Documents/Escalator/API/bin/Debug/netcoreapp3.1/Microsoft.OpenApi.dll
+/Users/frankie/Documents/Escalator/API/bin/Debug/netcoreapp3.1/Swashbuckle.AspNetCore.Swagger.dll
+/Users/frankie/Documents/Escalator/API/bin/Debug/netcoreapp3.1/Swashbuckle.AspNetCore.SwaggerGen.dll
+/Users/frankie/Documents/Escalator/API/bin/Debug/netcoreapp3.1/Swashbuckle.AspNetCore.SwaggerUI.dll
