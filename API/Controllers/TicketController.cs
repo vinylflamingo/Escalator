@@ -48,11 +48,16 @@ namespace Escalator.API.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost("{id}")]
-        public async Task<IActionResult> PostTicket(long id, Ticket ticket)
+        public async Task<IActionResult> PostTicket(long id, Ticket input)
         {
-            if (id != ticket.Id)
+            if (id != input.Id)
             {
                 return BadRequest();
+            }
+            var ticket = _context.Tickets.FirstOrDefault(x => x.Id == id);
+            if (ticket != null && ModelState.IsValid)
+            {
+                ticket = input;
             }
 
             _context.Entry(ticket).State = EntityState.Modified;

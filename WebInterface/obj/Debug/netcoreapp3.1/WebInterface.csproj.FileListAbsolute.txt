@@ -181,3 +181,7 @@ C:/Users/francisco.costoya/Desktop/Portfolio Projects for GitHub/False-Alarm-Hea
 /Users/frankie/Documents/Escalator/WebInterface/obj/Debug/netcoreapp3.1/WebInterface.genruntimeconfig.cache
 /Users/frankie/Documents/Escalator/WebInterface/bin/Debug/netcoreapp3.1/API.StaticWebAssets.xml
 /Users/frankie/Documents/Escalator/WebInterface/obj/Debug/netcoreapp3.1/Razor/Views/Ticket/AdminEdit.cshtml.g.cs
+/Users/frankie/Documents/Escalator/WebInterface/bin/Debug/netcoreapp3.1/Microsoft.OpenApi.dll
+/Users/frankie/Documents/Escalator/WebInterface/bin/Debug/netcoreapp3.1/Swashbuckle.AspNetCore.Swagger.dll
+/Users/frankie/Documents/Escalator/WebInterface/bin/Debug/netcoreapp3.1/Swashbuckle.AspNetCore.SwaggerGen.dll
+/Users/frankie/Documents/Escalator/WebInterface/bin/Debug/netcoreapp3.1/Swashbuckle.AspNetCore.SwaggerUI.dll

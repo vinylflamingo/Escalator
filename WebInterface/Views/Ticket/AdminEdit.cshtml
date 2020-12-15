@@ -11,6 +11,7 @@
         <div class="card">
             @Html.ValidationSummary(true)
             <h3>TICKET NUMBER: @Html.LabelFor(model => model.ticket.Id) </h3>
+            @Html.HiddenFor(model => model.ticket.Id)
             <h5 class="card-header">Edit</h5>
             <div class="card-body">
                 <div class="form-group">
