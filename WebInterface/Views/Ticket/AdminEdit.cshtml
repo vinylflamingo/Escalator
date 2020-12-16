@@ -10,29 +10,29 @@
     <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12" style="margin: auto;">
         <div class="card">
             @Html.ValidationSummary(true)
-            <h3>TICKET NUMBER: @Html.LabelFor(model => model.ticket.Id) </h3>
+            <h3>TICKET NUMBER: @Html.ValueFor(model => model.ticket.Id) </h3>
             @Html.HiddenFor(model => model.ticket.Id)
             <h5 class="card-header">Edit</h5>
             <div class="card-body">
                 <div class="form-group">
                     @Html.LabelFor(model => model.ticket.ticketType, new { @class = "control-label col-md-2"})
-                    @Html.DropDownListFor(m => m.ticketTypes, new SelectList(Model.ticketTypes, "Id", "Type"))
+                    @Html.DropDownListFor(m => m.ticket.ticketType, new SelectList(Model.ticketTypes, "Id", "Type"))
                     @Html.ValidationMessageFor(model => model.ticket.ticketType)
                 </div>
                 <div class="form-group">
                     @Html.LabelFor(model => model.ticket.JurisdictionId, new { @class = "control-label col-md-2"})
-                    @Html.DropDownListFor(m => m.jurisdictions, new SelectList(Model.jurisdictions, "Id", "Name"))                      
+                    @Html.DropDownListFor(m => m.ticket.JurisdictionId, new SelectList(Model.jurisdictions, "Id", "Name"))                      
                     @Html.ValidationMessageFor(model => model.ticket.JurisdictionId)           
                 </div>
                 <div class="form-group">
                     @Html.LabelFor(model => model.ticket.AssignedAgent, new { @class = "control-label col-md-2"})
-                    @Html.DropDownListFor(m => m.agents, new SelectList(Model.agents, "Id", "Username"))                      
+                    @Html.DropDownListFor(m => m.ticket.AssignedAgent, new SelectList(Model.agents, "Id", "Username"))                      
                     @Html.ValidationMessageFor(model => model.ticket.AssignedAgent)           
                 </div>
 
                 <div class="form-group">
                     @Html.LabelFor(model => model.ticket.CompletedBy, new { @class = "control-label col-md-2"})
-                    @Html.DropDownListFor(m => m.agents, new SelectList(Model.agents, "Id", "Username"))                      
+                    @Html.DropDownListFor(m => m.ticket.CompletedBy, new SelectList(Model.agents, "Id", "Username"))                      
                     @Html.ValidationMessageFor(model => model.ticket.CompletedBy)           
                 </div>
 
@@ -110,6 +110,7 @@
                     <div class="form-group">
                         <div class="col-md-offset-2 col-md-10">
                             <input type="submit" value="Save" class="btn btn-default" />
+                            
                         </div>
                     </div>
                 </div>

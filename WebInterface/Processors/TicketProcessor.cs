@@ -166,7 +166,7 @@ namespace WebInterface.Processors
             var json = JsonConvert.SerializeObject(ticket);
             var data = new StringContent(json, Encoding.UTF8, "application/json");
 
-            var response = await apiHelper.PostAsync(url, data);
+            var response = await apiHelper.PutAsync(url, data);
             string result = response.Content.ReadAsStringAsync().Result;
             Console.WriteLine(result);
             return result;
