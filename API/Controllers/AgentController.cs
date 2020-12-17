@@ -67,7 +67,7 @@ namespace Escalator.API.Controllers
 
         // POST/CREATE NEW AGENT
        // [AllowAnonymous] only needs to be enabled for initial user
-        [Authorize]
+        [Authorize(Roles = "admin")]
         [HttpPost("create")]
         public async Task<ActionResult<Agent>> CreateAgent(Agent agent)
         {
