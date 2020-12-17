@@ -15,12 +15,12 @@
             <div class="card-body">
                 <div class="form-group">
                     @Html.LabelFor(model => model.ticket.ticketType, new { @class = "control-label col-md-2"})
-                    @Html.DropDownListFor(m => m.ticketTypes, new SelectList(Model.ticketTypes, "Id", "Type"))
+                    @Html.DropDownListFor(m => m.ticket.ticketType, new SelectList(Model.ticketTypes, "Id", "Type"))
                     @Html.ValidationMessageFor(model => model.ticket.ticketType)
                 </div>
                 <div class="form-group">
                     @Html.LabelFor(model => model.ticket.JurisdictionId, new { @class = "control-label col-md-2"})
-                    @Html.DropDownListFor(m => m.jurisdictions, new SelectList(Model.jurisdictions, "Id", "Name"))                      
+                    @Html.DropDownListFor(m => m.ticket.JurisdictionId, new SelectList(Model.jurisdictions, "Id", "Name"))                      
                     @Html.ValidationMessageFor(model => model.ticket.JurisdictionId)           
                 </div>
                 <div class="form-group">
