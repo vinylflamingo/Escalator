@@ -48,7 +48,7 @@ namespace WebInterface.Processors
                 }
                 else
                 {
-                    throw new Exception(response.ReasonPhrase);
+                    return null;
                 }
             }
         }
@@ -111,7 +111,7 @@ namespace WebInterface.Processors
                 }
                 else
                 {
-                    throw new Exception(response.ReasonPhrase);
+                    return null;
                 }
             }
         }

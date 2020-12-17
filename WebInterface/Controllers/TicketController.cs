@@ -34,6 +34,11 @@ namespace WebInterface.Controllers
                 jurisdictions = await _jurisdictionProcessor.LoadJurisdictions()
             };
 
+            if (model.tickets == null)
+            {
+                return RedirectToAction("Login", "Login");
+            }
+
             return View(model);
         }
 
@@ -86,6 +91,11 @@ namespace WebInterface.Controllers
                 jurisdictions = await _jurisdictionProcessor.LoadJurisdictions(),
                 agents = await _agentProcessor.LoadAgents()
             };
+
+            if (model.ticket == null)
+            {
+                return RedirectToAction("Login", "Login");
+            }
             return View(model);
         }
 

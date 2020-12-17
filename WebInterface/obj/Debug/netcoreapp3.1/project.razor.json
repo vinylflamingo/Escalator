@@ -14402,8 +14402,8 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/Users/frankie/Documents/Escalator/WebInterface/Views/Jurisdiction/index.cshtml",
-      "TargetPath": "Views\\Jurisdiction\\index.cshtml",
+      "FilePath": "/Users/frankie/Documents/Escalator/WebInterface/Views/Jurisdiction/Index.cshtml",
+      "TargetPath": "Views\\Jurisdiction\\Index.cshtml",
       "FileKind": "mvc"
     },
     {

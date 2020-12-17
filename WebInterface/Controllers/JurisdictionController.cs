@@ -34,10 +34,15 @@ namespace WebInterface.Controllers
 
         }
 
+
         [HttpPost]
         public async Task<IActionResult> New(Jurisdiction jurisdiction)
         {       
             var result = await _jurisdictionProcessor.SaveJurisdiction(jurisdiction);
+            if (result == null)
+            {
+                return RedirectToAction("Login", "Login");
+            }
             return RedirectToAction("Index");
 
         }

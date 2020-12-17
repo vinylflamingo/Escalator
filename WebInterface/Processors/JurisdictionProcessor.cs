@@ -74,6 +74,11 @@ namespace WebInterface.Processors
             var data = new StringContent(json, Encoding.UTF8, "application/json");
 
             var response = await apiHelper.PostAsync(url, data);
+
+            if (!response.IsSuccessStatusCode)
+            {
+                return null;
+            }
             string result = response.Content.ReadAsStringAsync().Result;
             Console.WriteLine(result);
             return result;
