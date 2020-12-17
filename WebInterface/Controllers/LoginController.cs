@@ -10,10 +10,12 @@ namespace WebInterface.Controllers
     public class LoginController : Controller
     {   
         private LoginProcessor _login;
+        private AgentProcessor _agentProcessor;
 
-        public LoginController(LoginProcessor login)
+        public LoginController(LoginProcessor login, AgentProcessor agentProcessor)
         {
             _login = login;
+            _agentProcessor = agentProcessor;
         }
 
         [HttpGet]
@@ -27,8 +29,12 @@ namespace WebInterface.Controllers
         public async Task<IActionResult> Login(UserCred userCred)
         {
             var result = await _login.Login(userCred);
-            Debug.WriteLine("RESULT : "+result);
-            ViewBag.Result = result;
+            Debug.WriteLine("RESULT : "+result); 
+            var agent = _agentProcessor.LoadAgent(userCred.Username);
+            if (agent.Result.NeedsNewPassword)
+            {
+                return RedirectToAction("ResetPassword", "Agent", agent.Result);
+            }
             return RedirectToAction("Index", "Ticket");
         }
 

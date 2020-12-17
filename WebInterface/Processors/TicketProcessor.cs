@@ -171,5 +171,33 @@ namespace WebInterface.Processors
             Console.WriteLine(result);
             return result;
         }
+        
+        public async Task<string> DeleteTicket(Ticket ticket)
+        {
+            HttpClient apiHelper = new ApiHelper().InitializeClient();
+            try
+            {
+                apiHelper.DefaultRequestHeaders.Add
+                (
+                    "Authorization", 
+                    string.Concat("Bearer ", _accessor.HttpContext.Session.GetString("token").Trim('"'))
+                );  
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e);
+            }  
+            string url = $"https://localhost:8081/api/Ticket/{ticket.Id}";
+
+            var json = JsonConvert.SerializeObject(ticket);
+            var data = new StringContent(json, Encoding.UTF8, "application/json");
+
+            var response = await apiHelper.DeleteAsync(url);
+            string result = response.Content.ReadAsStringAsync().Result;
+            Console.WriteLine(result);
+            return result;
+        }
+   
+   
     }
 }

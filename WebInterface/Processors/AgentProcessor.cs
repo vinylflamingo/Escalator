@@ -48,10 +48,43 @@ namespace WebInterface.Processors
                 }
                 else
                 {
-                    throw new Exception(response.ReasonPhrase);
+                    return null;
                 }
             }
         }
+        
+        public async Task<Agent> LoadAgent(string username)
+        {
+            HttpClient apiHelper = new ApiHelper().InitializeClient();
+            try
+            {
+                apiHelper.DefaultRequestHeaders.Add
+                (
+                    "Authorization", 
+                    string.Concat("Bearer ", _accessor.HttpContext.Session.GetString("token").Trim('"'))
+                );  
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e);
+            }
+          
+            string url = $"https://localhost:8081/api/Agent/{username}";
+
+            using (HttpResponseMessage response = await apiHelper.GetAsync(url))
+            {
+                if (response.IsSuccessStatusCode)
+                {
+                    Agent agent = await response.Content.ReadAsAsync<Agent>();
+                    return agent;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+        }
+        
         
         public async Task<string> SaveAgent(Agent agent)
         {
@@ -68,18 +101,53 @@ namespace WebInterface.Processors
             {
                 Debug.WriteLine(e);
             }  
-            string url = $"https://localhost:8081/api/Agent";
+            string url = $"https://localhost:8081/api/Agent/Create";
 
 
             var json = JsonConvert.SerializeObject(agent);
             var data = new StringContent(json, Encoding.UTF8, "application/json");
 
             var response = await apiHelper.PostAsync(url, data);
+            if (!response.IsSuccessStatusCode)
+            {
+                return null;
+            }
             string result = response.Content.ReadAsStringAsync().Result;
             Console.WriteLine(result);
             return result;
         }
 
+        public async Task<string> NewPassword(Agent agent)
+        {
+            HttpClient apiHelper = new ApiHelper().InitializeClient();
+            try
+            {
+                apiHelper.DefaultRequestHeaders.Add
+                (
+                    "Authorization", 
+                    string.Concat("Bearer ", _accessor.HttpContext.Session.GetString("token").Trim('"'))
+                );  
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e);
+            }  
+            string url = $"https://localhost:8081/api/Agent/put";
+
+            agent.NeedsNewPassword = false;
+
+            var json = JsonConvert.SerializeObject(agent);
+            var data = new StringContent(json, Encoding.UTF8, "application/json");
+
+            var response = await apiHelper.PutAsync(url, data);
+            if (!response.IsSuccessStatusCode)
+            {
+                return null;
+            }
+            string result = response.Content.ReadAsStringAsync().Result;
+            Console.WriteLine(result);
+            return result;
+        }
 
     }
 } 

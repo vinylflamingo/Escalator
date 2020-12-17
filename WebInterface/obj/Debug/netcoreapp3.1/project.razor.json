@@ -14417,6 +14417,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "/Users/frankie/Documents/Escalator/WebInterface/Views/Agent/Index.cshtml",
+      "TargetPath": "Views\\Agent\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/Users/frankie/Documents/Escalator/WebInterface/Views/Home/Privacy.cshtml",
       "TargetPath": "Views\\Home\\Privacy.cshtml",
       "FileKind": "mvc"
@@ -14437,6 +14442,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "/Users/frankie/Documents/Escalator/WebInterface/Views/Agent/ResetPassword.cshtml",
+      "TargetPath": "Views\\Agent\\ResetPassword.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/Users/frankie/Documents/Escalator/WebInterface/Views/Shared/ORIGINAL LAYOUT REFERENCE ONLY.cshtml",
       "TargetPath": "Views\\Shared\\ORIGINAL LAYOUT REFERENCE ONLY.cshtml",
       "FileKind": "mvc"
@@ -14452,8 +14462,18 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "/Users/frankie/Documents/Escalator/WebInterface/Views/Ticket/FullHistory.cshtml",
+      "TargetPath": "Views\\Ticket\\FullHistory.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/Users/frankie/Documents/Escalator/WebInterface/Views/Ticket/Index.cshtml",
       "TargetPath": "Views\\Ticket\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/frankie/Documents/Escalator/WebInterface/Views/Agent/New.cshtml",
+      "TargetPath": "Views\\Agent\\New.cshtml",
       "FileKind": "mvc"
     },
     {

@@ -20,7 +20,7 @@ namespace WebInterface.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            return RedirectToAction("New", "Ticket");
         }
 
         public IActionResult Privacy()

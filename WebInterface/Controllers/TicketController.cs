@@ -42,6 +42,24 @@ namespace WebInterface.Controllers
             return View(model);
         }
 
+        public async Task<IActionResult> FullHistory()
+        {
+
+            TicketsViewModel model = new TicketsViewModel()
+            {
+                tickets = await _ticketProcessor.LoadTickets(),
+                ticketTypes = await _ticketProcessor.LoadTypes(),
+                jurisdictions = await _jurisdictionProcessor.LoadJurisdictions()
+            };
+
+            if (model.tickets == null)
+            {
+                return RedirectToAction("Login", "Login");
+            }
+
+            return View(model);
+        }
+
         //PAGE SHOWING FORM TO CREATE NEW RECORD
 
         [HttpGet]
@@ -104,6 +122,13 @@ namespace WebInterface.Controllers
         public async Task<IActionResult> AdminEdit(Ticket ticket)
         {
             var result = await _ticketProcessor.EditTicket(ticket);
+            return RedirectToAction("Index");
+        }
+
+        [HttpDelete]
+        public IActionResult DeleteTicket(Ticket ticket)
+        {
+            var result = _ticketProcessor.DeleteTicket(ticket);
             return RedirectToAction("Index");
         }
 

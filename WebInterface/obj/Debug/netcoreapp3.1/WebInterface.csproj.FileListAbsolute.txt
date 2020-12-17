@@ -187,3 +187,7 @@ C:/Users/francisco.costoya/Desktop/Portfolio Projects for GitHub/False-Alarm-Hea
 /Users/frankie/Documents/Escalator/WebInterface/bin/Debug/netcoreapp3.1/Swashbuckle.AspNetCore.SwaggerUI.dll
 /Users/frankie/Documents/Escalator/WebInterface/obj/Debug/netcoreapp3.1/Razor/Views/Jurisdiction/Index.cshtml.g.cs
 /Users/frankie/Documents/Escalator/WebInterface/obj/Debug/netcoreapp3.1/Razor/Views/Jurisdiction/New.cshtml.g.cs
+/Users/frankie/Documents/Escalator/WebInterface/obj/Debug/netcoreapp3.1/Razor/Views/Ticket/FullHistory.cshtml.g.cs
+/Users/frankie/Documents/Escalator/WebInterface/obj/Debug/netcoreapp3.1/Razor/Views/Agent/Index.cshtml.g.cs
+/Users/frankie/Documents/Escalator/WebInterface/obj/Debug/netcoreapp3.1/Razor/Views/Agent/New.cshtml.g.cs
+/Users/frankie/Documents/Escalator/WebInterface/obj/Debug/netcoreapp3.1/Razor/Views/Agent/ResetPassword.cshtml.g.cs

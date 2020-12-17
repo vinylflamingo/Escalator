@@ -38,10 +38,10 @@ namespace Escalator.API.Controllers
         // GET INFO FOR SINGLE AGENT
         // GET: api/Agent/5
         [Authorize]
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Agent>> GetAgent(long id)
+        [HttpGet("{username}")]
+        public ActionResult<Agent> GetAgent(string username)
         {
-            var agent = await _context.Agents.FindAsync(id);
+            var agent = _context.Agents.Where(u => u.Username == username).First();
 
             if (agent == null)
             {
@@ -67,7 +67,7 @@ namespace Escalator.API.Controllers
 
         // POST/CREATE NEW AGENT
        // [AllowAnonymous] only needs to be enabled for initial user
-        [Authorize(Roles = "admin")]
+        [Authorize]
         [HttpPost("create")]
         public async Task<ActionResult<Agent>> CreateAgent(Agent agent)
         {
@@ -75,19 +75,15 @@ namespace Escalator.API.Controllers
             _context.Agents.Add(agent);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetAgent", new { id = agent.Id }, agent);
+            return Ok();
         }
 
 
         //EDIT EXISTING AGENT
-        [Authorize(Roles = "admin")]
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutAgent(long id, Agent agent)
+        [Authorize]
+        [HttpPut("put")]
+        public async Task<IActionResult> PutAgent(Agent agent)
         {
-            if (id != agent.Id)
-            {
-                return BadRequest();
-            }
 
             _context.Entry(agent).State = EntityState.Modified;
 
@@ -97,7 +93,7 @@ namespace Escalator.API.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!AgentExists(id))
+                if (!AgentExists(agent.Id))
                 {
                     return NotFound();
                 }
@@ -107,12 +103,12 @@ namespace Escalator.API.Controllers
                 }
             }
 
-            return NoContent();
+            return Ok();
         }
 
         // DELETE AGENT 
         // DELETE: api/Agent/5
-        [Authorize(Roles = "admin")]
+        [Authorize]
         [HttpDelete("{id}")]
         public async Task<ActionResult<Agent>> DeleteAgent(long id)
         {

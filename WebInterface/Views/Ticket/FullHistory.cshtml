@@ -24,9 +24,7 @@
                     @{
                         foreach (var item in Model.tickets)
                         {
-                            if (item.IsCompleted == false)
-                            {
-                                <tr>
+                            <tr>
                                 <td>@item.Id</td>
                                 <td>@Model.ticketTypes.ElementAt((int)item.ticketType).Type</td>
                                 <td>@Model.jurisdictions.ElementAt((int)item.JurisdictionId).Name</td>
@@ -34,8 +32,7 @@
                                 <td>@item.OriginalAccount</td>
                                 <td><a asp-controller="Ticket" asp-action="AdminEdit" asp-route-ticketId=@item.Id>Details</a></td>
                             </tr> 
-                            }      
-                        }
+                        }      
                     }
                     </tbody>
                 </table>
