@@ -51,21 +51,6 @@ namespace WebInterface.Controllers
             return View(model);
         }
 
-        [HttpGet]
-        public async Task<IActionResult> AdminEdit(int ticketId)
-        {
-
-            TicketViewModel model = new TicketViewModel()
-            {
-                ticket = await _ticketProcessor.LoadTicket(ticketId),
-                ticketTypes = await _ticketProcessor.LoadTypes(),
-                jurisdictions = await _jurisdictionProcessor.LoadJurisdictions(),
-                agents = await _agentProcessor.LoadAgents()
-            };
-            return View(model);
-        }
-
-
         //CREATING A NEW ESCALATION
 
         [HttpPost]
@@ -87,12 +72,32 @@ namespace WebInterface.Controllers
             //};
         }
 
+        
+        //LOADS SINGLE TICKET EDIT FORM 
+
+        [HttpGet]
+        public async Task<IActionResult> AdminEdit(int ticketId)
+        {
+
+            TicketViewModel model = new TicketViewModel()
+            {
+                ticket = await _ticketProcessor.LoadTicket(ticketId),
+                ticketTypes = await _ticketProcessor.LoadTypes(),
+                jurisdictions = await _jurisdictionProcessor.LoadJurisdictions(),
+                agents = await _agentProcessor.LoadAgents()
+            };
+            return View(model);
+        }
+
+        // POST ACTION TO SAVE TICKET EDITS 
         [HttpPost]
         public async Task<IActionResult> AdminEdit(Ticket ticket)
         {
             var result = await _ticketProcessor.EditTicket(ticket);
             return RedirectToAction("Index");
         }
+
+
 
 
         

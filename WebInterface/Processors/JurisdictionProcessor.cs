@@ -2,10 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
+using System.Text;
 using System.Threading.Tasks;
 using Escalator.Common.Models;
 using Escalator.WebInterface;
 using Microsoft.AspNetCore.Http;
+using Newtonsoft.Json;
 
 namespace WebInterface.Processors
 {
@@ -50,5 +52,33 @@ namespace WebInterface.Processors
                 }
             }
         }   
+
+        public async Task<string> SaveJurisdiction(Jurisdiction jurisdiction)
+        {
+            HttpClient apiHelper = new ApiHelper().InitializeClient();
+            try
+            {
+                apiHelper.DefaultRequestHeaders.Add
+                (
+                    "Authorization", 
+                    string.Concat("Bearer ", _accessor.HttpContext.Session.GetString("token").Trim('"'))
+                );  
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e);
+            }  
+            string url = $"https://localhost:8081/api/Jurisdiction/";
+
+            var json = JsonConvert.SerializeObject(jurisdiction);
+            var data = new StringContent(json, Encoding.UTF8, "application/json");
+
+            var response = await apiHelper.PostAsync(url, data);
+            string result = response.Content.ReadAsStringAsync().Result;
+            Console.WriteLine(result);
+            return result;
+        }
+   
+   
     }
 }
