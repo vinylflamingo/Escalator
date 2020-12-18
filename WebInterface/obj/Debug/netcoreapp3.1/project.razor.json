@@ -14467,6 +14467,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "/Users/frankie/Documents/Escalator/WebInterface/Views/Home/ReleaseNotes.cshtml",
+      "TargetPath": "Views\\Home\\ReleaseNotes.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/Users/frankie/Documents/Escalator/WebInterface/Views/Jurisdiction/New.cshtml",
       "TargetPath": "Views\\Jurisdiction\\New.cshtml",
       "FileKind": "mvc"

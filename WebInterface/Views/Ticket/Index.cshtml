@@ -17,6 +17,7 @@
                             <th>Jurisdiction</th>
                             <th>Opened</th>
                             <th>Account</th>
+                            <th>Submitted By</th>
                             <th>Details</th>
                         </tr>
                     </thead>
@@ -32,6 +33,7 @@
                                 <td>@Model.jurisdictions.ElementAt((int)item.JurisdictionId).Name</td>
                                 <td>@item.OpenDate</td>
                                 <td>@item.OriginalAccount</td>
+                                <td>@item.WhoSubmitted</td>
                                 <td><a asp-controller="Ticket" asp-action="AdminEdit" asp-route-ticketId=@item.Id>Details</a></td>
                             </tr> 
                             }      

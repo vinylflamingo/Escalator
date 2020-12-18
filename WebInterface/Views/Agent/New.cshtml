@@ -7,55 +7,49 @@
 
 }
 
-<div style="text-align: center;">
+<div style="display: grid; place-items: center;">
     @using (Html.BeginForm())
     {
-    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12" style="margin: auto;">
-        <div class="card">
-            @Html.ValidationSummary(true)
-            <h5 class="card-header">New Agent</h5>
+    <div class="card" style="width: 70em;">
+        @Html.ValidationSummary(true)
+        <h5 class="card-header">New Agent</h5>
 
-            <div class="card-body">
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Username, new { @class = "control-label col-md-2"})
-                    @Html.EditorFor(model => model.Username)                    
-                    @Html.ValidationMessageFor(model => model.Username)           
-                </div>
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Password, new { @class = "control-label col-md-2"})
-                    @Html.EditorFor(model => model.Password)                    
-                    @Html.ValidationMessageFor(model => model.Password)           
-                </div>
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.NeedsNewPassword, new { @class = "control-label col-md-2"})
-                    @Html.CheckBoxFor(model => model.NeedsNewPassword)                    
-                    @Html.ValidationMessageFor(model => model.NeedsNewPassword)           
-                </div>
-
-                
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Email, new { @class = "control-label col-md-2"})
-                    @Html.EditorFor(model => model.Email)                    
-                    @Html.ValidationMessageFor(model => model.Email)           
-                </div>
-                
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Role, new { @class = "control-label col-md-2"})
-                    @Html.DropDownListFor(model => model.Role, new SelectList(roles))                    
-                    @Html.ValidationMessageFor(model => model.Role)           
-                </div>               
-
-                <div class="row">
-                    <div class="form-group">
-                        <div class="col-md-offset-2 col-md-10">
-                            <input type="submit" value="Save" class="btn btn-default" />
-                        </div>
-                    </div>
-                </div>
+        <div class="card-body" style="text-align: center;">
+            <div class="row" style="display: grid; place-items: center; padding-top: 1em;"> 
+                @Html.LabelFor(model => model.Username, new { @class = "control-label col-md-2"})
+                @Html.EditorFor(model => model.Username, new {htmlAttributes = new {@style = "width:20em;"}})                    
+                @Html.ValidationMessageFor(model => model.Username)           
             </div>
+
+            <div class="row" style="display: grid; place-items: center; padding-top: 1em;"> 
+                @Html.LabelFor(model => model.Password, new { @class = "control-label col-md-2"})
+                @Html.EditorFor(model => model.Password, new {htmlAttributes = new {@style = "width:20em;"}})                    
+                @Html.ValidationMessageFor(model => model.Password)           
+            </div>
+
+            <div class="row" style="display: grid; place-items: center; padding-top: 1em;"> 
+                @Html.LabelFor(model => model.NeedsNewPassword,"Reset Password On First Login", new { @class = "control-label col-md-2", @style = "width:20em;"})
+                @Html.CheckBoxFor(model => model.NeedsNewPassword)                    
+                @Html.ValidationMessageFor(model => model.NeedsNewPassword)           
+            </div>
+
+            
+
+            <div class="row" style="display: grid; place-items: center; padding-top: 1em;"> 
+                @Html.LabelFor(model => model.Email, new { @class = "control-label col-md-2"})
+                @Html.EditorFor(model => model.Email, new {htmlAttributes = new {@style = "width:20em;"}})                    
+                @Html.ValidationMessageFor(model => model.Email)           
+            </div>
+            
+            <div class="row" style="display: grid; place-items: center; padding-top: 1em;"> 
+                @Html.LabelFor(model => model.Role, new { @class = "control-label col-md-2"})
+                @Html.DropDownListFor(model => model.Role, new SelectList(roles), new {@style = "width:20em;"})                    
+                @Html.ValidationMessageFor(model => model.Role)           
+            </div>               
+            <div class="row" style="display: grid; place-items: center; padding-top: 1em;"> 
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+          
         </div>
     </div>
     }

@@ -4,27 +4,24 @@
 
 }
 
-<div style="text-align: center;">
+<div style="display: grid; place-items: center;">
     @using (Html.BeginForm())
     {
-    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12" style="margin: auto;">
-        <div class="card">
-            @Html.ValidationSummary(true)
-            <h5 class="card-header">New Jurisdiction</h5>
+    <div class="card" style="width: 70em;">
+        @Html.ValidationSummary(true)
+        <h5 class="card-header">New Jurisdiction</h5>
 
-            <div class="card-body">
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Name, new { @class = "control-label col-md-2"})
-                    @Html.EditorFor(model => model.Name)                    
-                    @Html.ValidationMessageFor(model => model.Name)           
-                </div>
-
-                <div class="row">
-                    <div class="form-group">
-                        <input type="submit" value="Save" class="btn btn-default" />
-                    </div>
-                </div>
+        <div class="card-body" style="text-align: center;">
+            <div class="row" style="display: grid; place-items: center; padding-top: 1em;"> 
+                @Html.LabelFor(model => model.Name, new { @class = "control-label col-md-2"})
+                @Html.EditorFor(model => model.Name)                    
+                @Html.ValidationMessageFor(model => model.Name)           
             </div>
+
+            <div class="row" style="display: grid; place-items: center; padding-top: 1em;"> 
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+
         </div>
     </div>
     }

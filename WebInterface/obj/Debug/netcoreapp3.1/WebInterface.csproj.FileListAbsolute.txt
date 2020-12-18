@@ -194,3 +194,4 @@ C:/Users/francisco.costoya/Desktop/Portfolio Projects for GitHub/False-Alarm-Hea
 /Users/frankie/Documents/Escalator/WebInterface/obj/Debug/netcoreapp3.1/Razor/Views/Admin/Index.cshtml.g.cs
 /Users/frankie/Documents/Escalator/WebInterface/obj/Debug/netcoreapp3.1/Razor/Views/Home/Success.cshtml.g.cs
 /Users/frankie/Documents/Escalator/WebInterface/obj/Debug/netcoreapp3.1/Razor/Views/Home/NoAccess.cshtml.g.cs
+/Users/frankie/Documents/Escalator/WebInterface/obj/Debug/netcoreapp3.1/Razor/Views/Home/ReleaseNotes.cshtml.g.cs

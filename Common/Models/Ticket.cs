@@ -18,5 +18,6 @@ namespace Escalator.Common.Models
         public string MoveToAccount {get; set;}
         public string Invoices {get; set;}
         public string Details {get; set;}
+        public string WhoSubmitted {get; set;}
     }
 }
