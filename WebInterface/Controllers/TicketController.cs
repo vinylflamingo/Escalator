@@ -39,7 +39,7 @@ namespace WebInterface.Controllers
 
             if (model.tickets == null)
             {
-                return RedirectToAction("Login", "Login");
+                return RedirectToAction("NoAccess", "Home");
             }
 
             return View(model);

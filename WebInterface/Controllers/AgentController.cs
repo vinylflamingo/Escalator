@@ -41,7 +41,7 @@ namespace WebInterface.Controllers
             var result = await _agentProcessor.SaveAgent(agent);
             if (result == null)
             {
-                return RedirectToAction("Login", "Login");
+                return RedirectToAction("NoAccess", "Home");
             }
             return RedirectToAction("Index");
 

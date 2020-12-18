@@ -14432,6 +14432,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "/Users/frankie/Documents/Escalator/WebInterface/Views/Home/NoAccess.cshtml",
+      "TargetPath": "Views\\Home\\NoAccess.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/Users/frankie/Documents/Escalator/WebInterface/Views/Ticket/New.cshtml",
       "TargetPath": "Views\\Ticket\\New.cshtml",
       "FileKind": "mvc"

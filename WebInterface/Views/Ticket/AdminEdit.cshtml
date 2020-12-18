@@ -1,4 +1,4 @@
-@model WebInterface.Models.TicketViewModel
+@*@model WebInterface.Models.TicketViewModel
 @{
     ViewBag.Title = "Admin Ticket Editor";
 
@@ -117,5 +117,87 @@
     }
 </div>
 
-@*@Html.DropDownList("ConstructionType", new SelectList(Model.Construction.Distinct().ToList(), "ConstructionID", "ConstructionType", item.ConstructionID))
-@Html.DropDownListFor(m => m.BANK_NAME, new SelectList(Model.BANKS, "ID", "Name"))*@
+*@
+@model WebInterface.Models.TicketViewModel
+@{
+    ViewBag.Title = "Admin Ticket Editor";
+
+}
+
+<div style="display: grid; place-items: center;">
+    @using (Html.BeginForm())
+    {
+        <div class="card" style="width: 70em;">
+            @Html.ValidationSummary(true)
+            @Html.HiddenFor(model => model.ticket.Id)
+            @Html.HiddenFor(mode => Model.ticket.OpenDate)
+            <h5 class="card-header">Edit Ticket</h5>
+            <div class="card-body" style="text-align: center;">
+                <div>
+                    <div class="row" style="display: grid; place-items: center; padding-top: 1em;"> 
+                        @Html.LabelFor(model => model.ticket.ticketType, "Type of Ticket", new { @class = "control-label col-md-2"})
+                        @Html.DropDownListFor(m => m.ticket.ticketType, new SelectList(Model.ticketTypes, "Id", "Type"), new {@style = "width:20em;"})
+                        @Html.ValidationMessageFor(model => model.ticket.ticketType)
+                    </div>
+                    <div class="row" style="display: grid; place-items: center; padding-top: 1em;">
+                        @Html.LabelFor(model => model.ticket.JurisdictionId, "Jurisdiction", new { @class = "control-label col-md-2"})
+                        @Html.DropDownListFor(m => m.ticket.JurisdictionId, new SelectList(Model.jurisdictions, "Id", "Name"), new {@style = "width:20em;"})                      
+                        @Html.ValidationMessageFor(model => model.ticket.JurisdictionId)           
+                    </div>
+                    <div class="row" style="display: grid; place-items: center; padding-top: 1em;">
+                        @Html.LabelFor(model => model.ticket.AssignedAgent, "Assigned Agent", new { @class = "control-label col-md-2"})
+                        @Html.DropDownListFor(m => m.ticket.AssignedAgent, new SelectList(Model.agents, "Id", "Username"), new {@style = "width:20em;"})                      
+                        @Html.ValidationMessageFor(model => model.ticket.AssignedAgent)           
+                    </div>
+                    <div class="row" style="display: grid; place-items: center; padding-top: 1em;">
+                        @Html.LabelFor(model => model.ticket.CompletedBy, "Completed By", new { @class = "control-label col-md-2"})
+                        @Html.DropDownListFor(m => m.ticket.CompletedBy, new SelectList(Model.agents, "Id", "Username"), new {@style = "width:20em;"})                      
+                        @Html.ValidationMessageFor(model => model.ticket.CompletedBy)           
+                    </div>
+                    <div class="row" style="display: grid; place-items: center; padding-top: 1em;">
+                        @Html.LabelFor(model => model.ticket.DueBy, "Due Date", new { @class = "control-label col-md-2"})
+                        @Html.EditorFor(model => model.ticket.DueBy, new {htmlAttributes = new {@style = "width:20em;"}})
+                        @Html.ValidationMessageFor(model => model.ticket.DueBy)
+                    </div>
+                    <div class="row" style="display: grid; place-items: center; padding-top: 1em;">
+                        @Html.LabelFor(model => model.ticket.PhoneNumber,"Phone Number", new { @class = "control-label col-md-2"})
+                        @Html.EditorFor(model => model.ticket.PhoneNumber, new {htmlAttributes = new {@style = "width:20em;"}})
+                        @Html.ValidationMessageFor(model => model.ticket.PhoneNumber)
+                    
+                    </div>
+                    <div class="row" style="display: grid; place-items: center; padding-top: 1em;">
+                        @Html.LabelFor(model => model.ticket.EmailAddress,"Email Address", new { @class = "control-label col-md-2"})
+                        @Html.EditorFor(model => model.ticket.EmailAddress, new {htmlAttributes = new {@style = "width:20em;"}})
+                        @Html.ValidationMessageFor(model => model.ticket.EmailAddress)
+                    
+                    </div>
+                    <div class="row" style="display: grid; place-items: center; padding-top: 1em;">
+                        @Html.LabelFor(model => model.ticket.OriginalAccount,"Original Account", new { @class = "control-label col-md-2"})
+                        @Html.EditorFor(model => model.ticket.OriginalAccount, new {htmlAttributes = new {@style = "width:20em;"}})
+                        @Html.ValidationMessageFor(model => model.ticket.OriginalAccount)
+                    </div>
+                    <div class="row" style="display: grid; place-items: center; padding-top: 1em;">
+                        @Html.LabelFor(model => model.ticket.MoveToAccount,"Move To Account", new { @class = "control-label col-md-2"})
+                        @Html.EditorFor(model => model.ticket.MoveToAccount, new {htmlAttributes = new {@style = "width:20em;"}})
+                        @Html.ValidationMessageFor(model => model.ticket.MoveToAccount)
+                    </div>
+                    <div class="row" style="display: grid; place-items: center; padding-top: 1em;">
+                        @Html.LabelFor(model => model.ticket.Invoices,"Invoices #'s", new { @class = "control-label col-md-2"})
+                        @Html.EditorFor(model => model.ticket.Invoices, new {htmlAttributes = new {@style = "width:20em;"}})
+                        @Html.ValidationMessageFor(model => model.ticket.Invoices)
+                    </div>
+                    <div class="row" style="display: grid; place-items: center; padding-top: 1em;">
+                        @Html.LabelFor(model => model.ticket.Details,"Details", new { @class = "control-label col-md-2"})
+                        @Html.TextAreaFor(model => model.ticket.Details, new {@style = "width:40em; height:20em"})
+                        @Html.ValidationMessageFor(model => model.ticket.Details)
+                    
+                    </div>
+                </div>
+                <div class="row" style="display: grid; place-items: center; padding-top: 1em;">
+                    <input type="submit" value="Save" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
