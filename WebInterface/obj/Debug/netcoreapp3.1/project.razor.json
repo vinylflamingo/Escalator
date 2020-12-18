@@ -14447,6 +14447,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "/Users/frankie/Documents/Escalator/WebInterface/Views/Home/Success.cshtml",
+      "TargetPath": "Views\\Home\\Success.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/Users/frankie/Documents/Escalator/WebInterface/Views/Shared/ORIGINAL LAYOUT REFERENCE ONLY.cshtml",
       "TargetPath": "Views\\Shared\\ORIGINAL LAYOUT REFERENCE ONLY.cshtml",
       "FileKind": "mvc"
@@ -14459,6 +14464,11 @@
     {
       "FilePath": "/Users/frankie/Documents/Escalator/WebInterface/Views/Jurisdiction/New.cshtml",
       "TargetPath": "Views\\Jurisdiction\\New.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/frankie/Documents/Escalator/WebInterface/Views/Admin/index.cshtml",
+      "TargetPath": "Views\\Admin\\index.cshtml",
       "FileKind": "mvc"
     },
     {

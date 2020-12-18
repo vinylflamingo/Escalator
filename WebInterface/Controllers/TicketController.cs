@@ -13,12 +13,15 @@ namespace WebInterface.Controllers
         private TicketProcessor _ticketProcessor;
         private JurisdictionProcessor _jurisdictionProcessor;
         private AgentProcessor _agentProcessor;
+        private IHttpContextAccessor _accessor;
 
-        public TicketController(TicketProcessor ticketProcessor, JurisdictionProcessor jurisdictionProcessor, AgentProcessor agentProcessor)
+
+        public TicketController(TicketProcessor ticketProcessor, JurisdictionProcessor jurisdictionProcessor, AgentProcessor agentProcessor, IHttpContextAccessor accessor)
         {
             _ticketProcessor = ticketProcessor;
             _jurisdictionProcessor = jurisdictionProcessor;
             _agentProcessor = agentProcessor;
+            _accessor = accessor;
 
         }
 
@@ -81,6 +84,11 @@ namespace WebInterface.Controllers
         {
             
             var result = await _ticketProcessor.SaveTicket(ticket);
+            var x = _accessor.HttpContext.Session.GetString("token");
+            if(x == null)
+            {
+                return RedirectToAction("Success", "Home");
+            }
             return RedirectToAction("Index");
 
             //more manual way of making model object from form collection.

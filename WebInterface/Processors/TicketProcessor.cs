@@ -135,6 +135,7 @@ namespace WebInterface.Processors
             string url = $"https://localhost:8081/api/Ticket/";
             
             ticket.OpenDate = DateTime.Now;
+            ticket.IsCompleted = false;
 
             var json = JsonConvert.SerializeObject(ticket);
             var data = new StringContent(json, Encoding.UTF8, "application/json");

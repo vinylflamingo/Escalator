@@ -3229,7 +3229,10 @@ btn-link
     font-size: 14px;
 }
 
-.card-body {}
+.card-body {
+    display: grid;
+    place-items:center;
+}
 
 .card-text {}
 
@@ -6981,6 +6984,12 @@ Media Query
 
 
 
+
+
+.automatic-center{
+    display: grid;
+    place-items: center;
+}
 
 /* Custom, iPhone Retina */
 @media only screen and (max-width:320px) {}

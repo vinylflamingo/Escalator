@@ -57,7 +57,7 @@ namespace WebInterface.Controllers
         public IActionResult PostNewPassword(Agent agent)
         {
             var result = _agentProcessor.NewPassword(agent);
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", "Ticket");
         }
 
 
