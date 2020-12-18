@@ -121,7 +121,6 @@ namespace WebInterface.Processors
             }
         }
 
-
         public async Task<string> SaveTicket(Ticket ticket)
         {
             HttpClient apiHelper = new ApiHelper().InitializeClient();
@@ -150,7 +149,6 @@ namespace WebInterface.Processors
             Console.WriteLine(result);
             return result;
         }
-
 
         public async Task<string> EditTicket(Ticket ticket)
         {
@@ -203,7 +201,6 @@ namespace WebInterface.Processors
             Console.WriteLine(result);
             return result;
         }
-   
    
     }
 }

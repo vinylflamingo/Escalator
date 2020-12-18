@@ -3230,8 +3230,6 @@ btn-link
 }
 
 .card-body {
-    display: grid;
-    place-items:center;
 }
 
 .card-text {}

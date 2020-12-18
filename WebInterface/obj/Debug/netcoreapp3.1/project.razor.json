@@ -14472,8 +14472,8 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/Users/frankie/Documents/Escalator/WebInterface/Views/Admin/index.cshtml",
-      "TargetPath": "Views\\Admin\\index.cshtml",
+      "FilePath": "/Users/frankie/Documents/Escalator/WebInterface/Views/Admin/Index.cshtml",
+      "TargetPath": "Views\\Admin\\Index.cshtml",
       "FileKind": "mvc"
     },
     {

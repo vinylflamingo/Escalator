@@ -39,9 +39,13 @@
 /Users/frankie/Documents/Escalator/API/bin/Debug/netcoreapp3.1/publish/Microsoft.IdentityModel.Protocols.dll
 /Users/frankie/Documents/Escalator/API/bin/Debug/netcoreapp3.1/publish/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 /Users/frankie/Documents/Escalator/API/bin/Debug/netcoreapp3.1/publish/Microsoft.IdentityModel.Tokens.dll
+/Users/frankie/Documents/Escalator/API/bin/Debug/netcoreapp3.1/publish/Microsoft.OpenApi.dll
 /Users/frankie/Documents/Escalator/API/bin/Debug/netcoreapp3.1/publish/Newtonsoft.Json.dll
 /Users/frankie/Documents/Escalator/API/bin/Debug/netcoreapp3.1/publish/Npgsql.dll
 /Users/frankie/Documents/Escalator/API/bin/Debug/netcoreapp3.1/publish/Npgsql.EntityFrameworkCore.PostgreSQL.dll
+/Users/frankie/Documents/Escalator/API/bin/Debug/netcoreapp3.1/publish/Swashbuckle.AspNetCore.Swagger.dll
+/Users/frankie/Documents/Escalator/API/bin/Debug/netcoreapp3.1/publish/Swashbuckle.AspNetCore.SwaggerGen.dll
+/Users/frankie/Documents/Escalator/API/bin/Debug/netcoreapp3.1/publish/Swashbuckle.AspNetCore.SwaggerUI.dll
 /Users/frankie/Documents/Escalator/API/bin/Debug/netcoreapp3.1/publish/System.Collections.Immutable.dll
 /Users/frankie/Documents/Escalator/API/bin/Debug/netcoreapp3.1/publish/System.Configuration.ConfigurationManager.dll
 /Users/frankie/Documents/Escalator/API/bin/Debug/netcoreapp3.1/publish/System.Diagnostics.DiagnosticSource.dll
