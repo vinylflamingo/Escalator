@@ -9,16 +9,21 @@ using System.Text;
 using System.Net.Http.Headers;
 using Microsoft.AspNetCore.Http;
 using System.Diagnostics;
+using Microsoft.Extensions.Configuration;
 
 namespace WebInterface.Processors
 {
     public class TicketProcessor
     {
         private IHttpContextAccessor _accessor;
+        private readonly IConfiguration Configuration;
+        private string apiUrl;
 
-        public TicketProcessor(IHttpContextAccessor accessor)
+        public TicketProcessor(IHttpContextAccessor accessor, IConfiguration configuration)
         {
             _accessor = accessor;
+            Configuration = configuration;
+            apiUrl = Configuration["ServerUrl"];
         }
 
         public async Task<Ticket> LoadTicket(int ticketId)
@@ -37,7 +42,7 @@ namespace WebInterface.Processors
                 Debug.WriteLine(e);
             }  
 
-            string url = $"https://localhost:8081/api/Ticket/{ticketId}/";
+            string url = $"https://{apiUrl}/api/Ticket/{ticketId}/";
             
             using (HttpResponseMessage response = await apiHelper.GetAsync(url))
             {
@@ -69,7 +74,7 @@ namespace WebInterface.Processors
                 Debug.WriteLine(e);
             }
           
-            string url = $"https://localhost:8081/api/TicketType/";
+            string url = $"https://{apiUrl}/api/TicketType/";
 
             using (HttpResponseMessage response = await apiHelper.GetAsync(url))
             {
@@ -100,7 +105,7 @@ namespace WebInterface.Processors
             {
                 Debug.WriteLine(e);
             }            
-            string url = $"https://localhost:8081/api/Ticket/";
+            string url = $"https://{apiUrl}/api/Ticket/";
 
             using (HttpResponseMessage response = await apiHelper.GetAsync(url))
             {
@@ -132,7 +137,7 @@ namespace WebInterface.Processors
             {
                 Debug.WriteLine(e);
             }  
-            string url = $"https://localhost:8081/api/Ticket/";
+            string url = $"https://{apiUrl}/api/Ticket/";
             
             ticket.OpenDate = DateTime.Now;
             ticket.IsCompleted = false;
@@ -162,7 +167,7 @@ namespace WebInterface.Processors
             {
                 Debug.WriteLine(e);
             }  
-            string url = $"https://localhost:8081/api/Ticket/{ticket.Id}";
+            string url = $"https://{apiUrl}/api/Ticket/{ticket.Id}";
             
             var json = JsonConvert.SerializeObject(ticket);
             var data = new StringContent(json, Encoding.UTF8, "application/json");
@@ -188,7 +193,7 @@ namespace WebInterface.Processors
             {
                 Debug.WriteLine(e);
             }  
-            string url = $"https://localhost:8081/api/Ticket/{ticket.Id}";
+            string url = $"https://{apiUrl}/api/Ticket/{ticket.Id}";
 
             var json = JsonConvert.SerializeObject(ticket);
             var data = new StringContent(json, Encoding.UTF8, "application/json");

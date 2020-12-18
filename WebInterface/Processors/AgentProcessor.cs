@@ -8,6 +8,7 @@ using Newtonsoft.Json;
 using System.Text;
 using Microsoft.AspNetCore.Http;
 using System.Diagnostics;
+using Microsoft.Extensions.Configuration;
 
 namespace WebInterface.Processors
 {
@@ -15,10 +16,14 @@ namespace WebInterface.Processors
     {
 
         private IHttpContextAccessor _accessor;
+        private readonly IConfiguration Configuration;
+        private string apiUrl;
 
-        public AgentProcessor(IHttpContextAccessor accessor)
+        public AgentProcessor(IHttpContextAccessor accessor, IConfiguration configuration)
         {
             _accessor = accessor;
+            Configuration = configuration;
+            apiUrl = Configuration["ServerUrl"];
         }
         
         public async Task<IEnumerable<Agent>> LoadAgents()
@@ -37,7 +42,7 @@ namespace WebInterface.Processors
                 Debug.WriteLine(e);
             }
           
-            string url = $"https://localhost:8081/api/Agent/";
+            string url = $"https://{apiUrl}/api/Agent/";
 
             using (HttpResponseMessage response = await apiHelper.GetAsync(url))
             {
@@ -69,7 +74,7 @@ namespace WebInterface.Processors
                 Debug.WriteLine(e);
             }
           
-            string url = $"https://localhost:8081/api/Agent/{username}";
+            string url = $"https://{apiUrl}/api/Agent/{username}";
 
             using (HttpResponseMessage response = await apiHelper.GetAsync(url))
             {
@@ -101,7 +106,7 @@ namespace WebInterface.Processors
             {
                 Debug.WriteLine(e);
             }  
-            string url = $"https://localhost:8081/api/Agent/Create";
+            string url = $"https://{apiUrl}/api/Agent/Create";
 
 
             var json = JsonConvert.SerializeObject(agent);
@@ -132,7 +137,7 @@ namespace WebInterface.Processors
             {
                 Debug.WriteLine(e);
             }  
-            string url = $"https://localhost:8081/api/Agent/put";
+            string url = $"https://{apiUrl}/api/Agent/put";
 
             agent.NeedsNewPassword = false;
 

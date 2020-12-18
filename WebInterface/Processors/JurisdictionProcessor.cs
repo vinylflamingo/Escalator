@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Escalator.Common.Models;
 using Escalator.WebInterface;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
 
 namespace WebInterface.Processors
@@ -15,10 +16,14 @@ namespace WebInterface.Processors
     {
 
         private IHttpContextAccessor _accessor;
+        private readonly IConfiguration Configuration;
+        private string apiUrl;
 
-        public JurisdictionProcessor(IHttpContextAccessor accessor)
+        public JurisdictionProcessor(IHttpContextAccessor accessor, IConfiguration configuration)
         {
             _accessor = accessor;
+            Configuration = configuration;
+            apiUrl = Configuration["ServerUrl"];
         }
 
 
@@ -37,7 +42,7 @@ namespace WebInterface.Processors
             {
                 Debug.WriteLine(e);
             }             
-            string url = $"https://localhost:8081/api/Jurisdiction/";
+            string url = $"https://{apiUrl}/api/Jurisdiction/";
 
             using (HttpResponseMessage response = await apiHelper.GetAsync(url))
             {
@@ -68,7 +73,7 @@ namespace WebInterface.Processors
             {
                 Debug.WriteLine(e);
             }  
-            string url = $"https://localhost:8081/api/Jurisdiction/";
+            string url = $"https://{apiUrl}/api/Jurisdiction/";
 
             var json = JsonConvert.SerializeObject(jurisdiction);
             var data = new StringContent(json, Encoding.UTF8, "application/json");
