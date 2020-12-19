@@ -29,8 +29,12 @@
                             {
                                 <tr>
                                 <td>@item.Id</td>
-                                <td>@Model.ticketTypes.ElementAt((int)item.ticketType).Type</td>
-                                <td>@Model.jurisdictions.ElementAt((int)item.JurisdictionId).Name</td>
+                                <td>@Model.ticketTypes.Where(x => x.Id == item.ticketType).First().Type</td>
+                                <td>@Model.jurisdictions.Where(x => x.Id == item.JurisdictionId).First().Name</td>
+                              
+                              
+                                @*<td>@Model.ticketTypes.ElementAt((int)item.ticketType).Type</td>
+                                <td>@Model.jurisdictions.ElementAt((int)item.JurisdictionId).Name</td>*@
                                 <td>@item.OpenDate</td>
                                 <td>@item.OriginalAccount</td>
                                 <td>@item.WhoSubmitted</td>
