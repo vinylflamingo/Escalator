@@ -59,7 +59,7 @@ namespace Escalator.API
                 };
             });
             services.AddSingleton<IJwtAuthenticationManager>(new JwtAuthenticationManager(key));
-            services.AddSingleton<IEmailService>(new EmailService(Configuration));
+            services.AddSingleton<EmailService>();
             services.AddSwaggerGen();
         }
 

@@ -38,7 +38,7 @@ namespace Escalator.API.Email
             //send email
 
             using var smtp = new SmtpClient();
-            smtp.Connect(host, port, SecureSocketOptions.StartTls);
+            smtp.Connect(host, port, SecureSocketOptions.StartTlsWhenAvailable);
             smtp.Authenticate(user, password);
             smtp.Send(email);
             smtp.Disconnect(true);
