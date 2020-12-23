@@ -4,6 +4,7 @@ using MimeKit;
 using MimeKit.Text;
 using Escalator.API.Interfaces;
 using Microsoft.Extensions.Configuration;
+using System.Threading.Tasks;
 
 namespace Escalator.API.Email
 {
@@ -26,7 +27,7 @@ namespace Escalator.API.Email
             password = _configuration["EmailServer:SmtpPassword"];
         }
 
-        public string Send(string to, string subject, string html)
+        public async Task<string> Send(string to, string subject, string html)
         {
             //create message
             var email = new MimeMessage();
@@ -40,10 +41,8 @@ namespace Escalator.API.Email
             using var smtp = new SmtpClient();
             smtp.Connect(host, port, SecureSocketOptions.StartTlsWhenAvailable);
             smtp.Authenticate(user, password);
-            smtp.Send(email);
+            await smtp.SendAsync(email);
             smtp.Disconnect(true);
-
-
 
             return "";
         }

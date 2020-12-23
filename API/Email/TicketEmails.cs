@@ -3,6 +3,7 @@ using Escalator.Common.Models;
 using System;
 using System.Diagnostics;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Escalator.API.Email
 {
@@ -12,7 +13,7 @@ namespace Escalator.API.Email
         private readonly DBContext _context;
         private IEmailService _emailService;
 
-        private string interfaceUrl = "https://www.escalatorwebinterface-alpha.azurewebsites.net";
+        private string interfaceUrl = "escalatorwebinterface-alpha.azurewebsites.net";
         public TicketEmails(EmailService emailService, DBContext context)
         {
             _emailService = emailService;
