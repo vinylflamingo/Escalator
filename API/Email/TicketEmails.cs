@@ -20,7 +20,7 @@ namespace Escalator.API.Email
             _context = context;
         }
 
-        public void sendNewTicketEmail(Ticket ticket)
+        public async Task<string> sendNewTicketEmail(Ticket ticket)
         {
             var jurisdiction = _context.Jurisdictions.Where(j => j.Id == ticket.JurisdictionId).First().Name.ToString();
             var agent = _context.Agents.Where(u => u.Id == ticket.AssignedAgent).First();
@@ -36,12 +36,14 @@ namespace Escalator.API.Email
                              <a href=""{interfaceUrl}/Ticket/AdminEdit?ticketId={ticket.Id}"" <p>View this ticket</p> </a>";
             try 
             {
-              _emailService.Send(agentEmail, subject, content);
+              await _emailService.Send(agentEmail, subject, content);
             }
             catch (Exception e)
             {
                 Debug.WriteLine(e);
             }
+
+            return "";
         }
     }
 }

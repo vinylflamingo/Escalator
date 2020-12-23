@@ -85,7 +85,7 @@ namespace Escalator.API.Controllers
             ticket.AssignedAgent = _context.Jurisdictions.Where(x => x.Id == ticket.JurisdictionId).First().DefaultAgentId;
             _context.Tickets.Add(ticket);
             await _context.SaveChangesAsync();
-            ticketEmails.sendNewTicketEmail(ticket);
+            await ticketEmails.sendNewTicketEmail(ticket);
             return CreatedAtAction("GetTicket", new { id = ticket.Id }, ticket);
         }
 
