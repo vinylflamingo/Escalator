@@ -1,4 +1,4 @@
-@model Escalator.Common.Models.Jurisdiction
+@model WebInterface.Models.JurisdictionViewModel
 @{
     ViewBag.Title = "Create New Jurisdictions";
 
@@ -13,9 +13,14 @@
 
         <div class="card-body" style="text-align: center;">
             <div class="row" style="display: grid; place-items: center; padding-top: 1em;"> 
-                @Html.LabelFor(model => model.Name, new { @class = "control-label col-md-2"})
-                @Html.EditorFor(model => model.Name)                    
-                @Html.ValidationMessageFor(model => model.Name)           
+                @Html.LabelFor(model => model.jurisdiction.Name, new { @class = "control-label col-md-2"})
+                @Html.EditorFor(model => model.jurisdiction.Name)                    
+                @Html.ValidationMessageFor(model => model.jurisdiction.Name)           
+            </div>
+            <div class="row" style="display: grid; place-items: center; padding-top: 1em;"> 
+                @Html.LabelFor(model => model.jurisdiction.DefaultAgentId, "Select a default agent.", new { @class = "control-label col-md-2"})
+                @Html.DropDownListFor(m => m.jurisdiction.DefaultAgentId, new SelectList(Model.agents, "Id", "Username"), new {@style = "width:20em;"})                    
+                @Html.ValidationMessageFor(model => model.jurisdiction.DefaultAgentId)           
             </div>
 
             <div class="row" style="display: grid; place-items: center; padding-top: 1em;"> 

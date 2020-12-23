@@ -9,10 +9,12 @@ namespace WebInterface.Controllers
     public class JurisdictionController : Controller
     {
         private JurisdictionProcessor _jurisdictionProcessor;
+        private AgentProcessor _agentProcessor;
 
-        public JurisdictionController(JurisdictionProcessor jurisdictionProcessor)
+        public JurisdictionController(JurisdictionProcessor jurisdictionProcessor, AgentProcessor agentProcessor)
         {
             _jurisdictionProcessor = jurisdictionProcessor;
+            _agentProcessor = agentProcessor;
 
         }
         
@@ -30,7 +32,11 @@ namespace WebInterface.Controllers
         [HttpGet]
         public IActionResult New()
         {
-            return View();
+            JurisdictionViewModel model = new JurisdictionViewModel()
+            {
+                agents = _agentProcessor.LoadAgents().Result
+            };
+            return View(model);
 
         }
 

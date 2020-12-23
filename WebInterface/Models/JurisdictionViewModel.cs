@@ -3,9 +3,9 @@ using Escalator.Common.Models;
 
 namespace WebInterface.Models
 {
-    public class JurisdictionsViewModel
+    public class JurisdictionViewModel
     {
-        public IEnumerable<Jurisdiction> jurisdictions {get; set;}
+        public Jurisdiction jurisdiction {get; set;}
         public IEnumerable<Agent> agents {get; set;}
     }
 }
