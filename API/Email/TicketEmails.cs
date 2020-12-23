@@ -12,7 +12,7 @@ namespace Escalator.API.Email
         private readonly DBContext _context;
         private IEmailService _emailService;
 
-        private string interfaceUrl = "https://www.escalatorwebinterface-alpha.azurewebsites.net";
+        private string interfaceUrl = "https://escalatorwebinterface-alpha.azurewebsites.net/";
         public TicketEmails(EmailService emailService, DBContext context)
         {
             _emailService = emailService;
@@ -32,7 +32,7 @@ namespace Escalator.API.Email
                              <p>ID: {ticket.Id}</p>
                              <p>OPENED: {ticket.OpenDate.ToString()}</p>
                              <p>DUE: {ticket.DueBy.ToString()}</p>
-                             <a href=""{interfaceUrl}/Ticket/AdminEdit?ticketId={ticket.Id}"" <p>View this ticket</p> </a>";
+                             <a href=""{interfaceUrl}Ticket/AdminEdit?ticketId={ticket.Id}""><p>View this ticket</p></a>";
             try 
             {
               _emailService.Send(agentEmail, subject, content);
