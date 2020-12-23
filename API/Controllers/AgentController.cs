@@ -9,6 +9,7 @@ using Escalator;
 using Escalator.Common.Models;
 using Escalator.API;
 using Microsoft.AspNetCore.Authorization;
+using Escalator.API.Interfaces;
 
 namespace Escalator.API.Controllers
 {

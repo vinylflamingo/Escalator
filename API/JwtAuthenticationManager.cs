@@ -5,6 +5,7 @@ using System.Text;
 using System.Collections.Generic;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
+using Escalator.API.Interfaces;
 
 namespace Escalator.API
 {

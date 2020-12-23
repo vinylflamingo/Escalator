@@ -8,6 +8,8 @@ using Microsoft.EntityFrameworkCore;
 using Escalator;
 using Escalator.Common.Models;
 using Microsoft.AspNetCore.Authorization;
+using Escalator.API.Email;
+using Escalator.API.Interfaces;
 
 namespace Escalator.API.Controllers
 {
@@ -17,10 +19,12 @@ namespace Escalator.API.Controllers
     public class TicketController : ControllerBase
     {
         private readonly DBContext _context;
+        public TicketEmails ticketEmails;
 
-        public TicketController(DBContext context)
+        public TicketController(DBContext context, EmailService emailService)
         {
             _context = context;
+            ticketEmails = new TicketEmails(emailService, context);
         }
 
         // GET: api/Ticket
@@ -78,9 +82,10 @@ namespace Escalator.API.Controllers
         [HttpPost]
         public async Task<ActionResult<Ticket>> PostTicket(Ticket ticket)
         {
+            ticket.AssignedAgent = _context.Jurisdictions.Where(x => x.Id == ticket.JurisdictionId).First().DefaultAgentId;
             _context.Tickets.Add(ticket);
             await _context.SaveChangesAsync();
-
+            ticketEmails.sendNewTicketEmail(ticket);
             return CreatedAtAction("GetTicket", new { id = ticket.Id }, ticket);
         }
 

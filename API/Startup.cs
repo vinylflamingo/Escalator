@@ -15,6 +15,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using Escalator.API.Interfaces;
+using Escalator.API.Email;
 
 
 namespace Escalator.API
@@ -57,6 +59,7 @@ namespace Escalator.API
                 };
             });
             services.AddSingleton<IJwtAuthenticationManager>(new JwtAuthenticationManager(key));
+            services.AddSingleton<IEmailService>(new EmailService(Configuration));
             services.AddSwaggerGen();
         }
 

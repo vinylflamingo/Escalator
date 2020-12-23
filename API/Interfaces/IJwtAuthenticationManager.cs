@@ -1,4 +1,4 @@
-namespace Escalator.API
+namespace Escalator.API.Interfaces
 {
     public interface IJwtAuthenticationManager
     {
