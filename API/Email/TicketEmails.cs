@@ -14,7 +14,7 @@ namespace Escalator.API.Email
         private IEmailService _emailService;
 
 
-        private string interfaceUrl = "escalatorwebinterface-alpha.azurewebsites.net";
+        private string interfaceUrl = "https://escalatorwebinterface-alpha.azurewebsites.net";
         public TicketEmails(EmailService emailService, DBContext context)
         {
             _emailService = emailService;

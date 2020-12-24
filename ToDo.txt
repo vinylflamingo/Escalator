@@ -11,3 +11,7 @@ For Later:
     4. Admin reporting for Jess "Will it track length of ticket before closure? 
                                  Number of tickets per individual?  
                                  Number of tickets per agency?"
+    5. Route for email links. If auth, go to ticket, if not auth login then redirect to ticket.
+
+
+https://escalatorwebinterface-alpha.azurewebsites.net/
