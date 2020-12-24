@@ -35,7 +35,7 @@ namespace WebInterface.Controllers
             {
                 return RedirectToAction("ResetPassword", "Agent", agent.Result);
             }
-            return RedirectToAction("Index", "Ticket");
+            return RedirectToAction("MyTickets", "Ticket");
         }
 
         [HttpPost]
