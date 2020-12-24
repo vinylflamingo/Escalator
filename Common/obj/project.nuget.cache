@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "6rf+qq+fAFKm595hRjoXGpbk4kRPhmdQfUo/2KqhUX6uLG7H3Iv7dPVXACfClbPRDeKpsyYJOMIkJ4SEZVfFPQ==",
+  "dgSpecHash": "f226o3hMwE5JTVneqXxGlaomivDRMEFfnYygUUQMYMJUibPeCHyfiU5ZA8V/DfRDa457iQZl6sc3wO42qJdXVw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\francisco.costoya\\Documents\\Escalator\\Common\\Common.csproj",
+  "projectFilePath": "/Users/frankie/Documents/Escalator/Common/Common.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
