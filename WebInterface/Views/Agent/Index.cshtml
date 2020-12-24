@@ -16,6 +16,7 @@
                             <th>Username</th>
                             <th>Role</th>
                             <th>Email</th>
+                            <th>Edit</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -27,6 +28,7 @@
                                 <td>@item.Username</td>
                                 <td>@item.Role</td>
                                 <td>@item.Email</td>
+                                <td><a asp-controller="Agent" asp-action="Edit" asp-route-username=@item.Username>Details</a></td>
                             </tr>           
                         }
                     }

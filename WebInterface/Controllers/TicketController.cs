@@ -109,17 +109,6 @@ namespace WebInterface.Controllers
                 return RedirectToAction("Success", "Home");
             }
             return RedirectToAction("Index");
-
-            //more manual way of making model object from form collection.
-            //Trying more efficient methods and only using this as backup
-
-
-            //Escalation escalation = new Escalation()
-            //{
-            //    JurisdictionID = Convert.ToInt32(collection["JurisdictionID"]),
-            //    Account = collection["Account"],
-            //    DueBy = ),
-            //};
         }
 
         

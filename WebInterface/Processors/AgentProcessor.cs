@@ -89,8 +89,38 @@ namespace WebInterface.Processors
                 }
             }
         }
-        
-        
+
+        public async Task<string> DeleteAgent(Agent agent)
+        {
+            HttpClient apiHelper = new ApiHelper().InitializeClient();
+            try
+            {
+                apiHelper.DefaultRequestHeaders.Add
+                (
+                    "Authorization", 
+                    string.Concat("Bearer ", _accessor.HttpContext.Session.GetString("token").Trim('"'))
+                );  
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e);
+            }  
+            string url = $"https://{apiUrl}/api/Agent/{agent.Id}";
+
+
+            var json = JsonConvert.SerializeObject(agent);
+            var data = new StringContent(json, Encoding.UTF8, "application/json");
+
+            var response = await apiHelper.DeleteAsync(url);
+            if (!response.IsSuccessStatusCode)
+            {
+                return null;
+            }
+            string result = response.Content.ReadAsStringAsync().Result;
+            Console.WriteLine(result);
+            return result;
+        }
+
         public async Task<string> SaveAgent(Agent agent)
         {
             HttpClient apiHelper = new ApiHelper().InitializeClient();
@@ -113,6 +143,37 @@ namespace WebInterface.Processors
             var data = new StringContent(json, Encoding.UTF8, "application/json");
 
             var response = await apiHelper.PostAsync(url, data);
+            if (!response.IsSuccessStatusCode)
+            {
+                return null;
+            }
+            string result = response.Content.ReadAsStringAsync().Result;
+            Console.WriteLine(result);
+            return result;
+        }
+
+        public async Task<string> EditAgent(Agent agent)
+        {
+            HttpClient apiHelper = new ApiHelper().InitializeClient();
+            try
+            {
+                apiHelper.DefaultRequestHeaders.Add
+                (
+                    "Authorization", 
+                    string.Concat("Bearer ", _accessor.HttpContext.Session.GetString("token").Trim('"'))
+                );  
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e);
+            }  
+            string url = $"https://{apiUrl}/api/Agent/put";
+
+
+            var json = JsonConvert.SerializeObject(agent);
+            var data = new StringContent(json, Encoding.UTF8, "application/json");
+
+            var response = await apiHelper.PutAsync(url, data);
             if (!response.IsSuccessStatusCode)
             {
                 return null;
