@@ -35,7 +35,7 @@ namespace WebInterface.Controllers
             var result = await _login.Login(userCred);
             if (result == null)
             {
-                return RedirectToAction("Login", "Login", 1);
+                return RedirectToAction("Login", "Login", new { code = 1});
             }
 
             Debug.WriteLine("RESULT : "+result); 
