@@ -23,7 +23,7 @@
                     @Html.PasswordFor(model => model.Password, new {@type = "password"})    
                     @Html.ValidationMessageFor(model => model.Password)           
                 </div>
-                <p>ViewBag.Message</p>
+                <p>@ViewBag.Message</p>
                 <div class="row" style="display: grid; place-items: center; padding-top: 1em;"> 
                     <button type="submit" value="Submit" class="btn btn-space btn-primary">Submit</button>
                 </div>

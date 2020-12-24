@@ -167,3 +167,13 @@ C:/Users/francisco.costoya/Documents/Escalator/API/bin/Debug/netcoreapp3.1/Bounc
 /Users/frankie/Documents/Escalator/API/bin/Debug/netcoreapp3.1/MailKit.dll
 /Users/frankie/Documents/Escalator/API/bin/Debug/netcoreapp3.1/MimeKit.dll
 /Users/frankie/Documents/Escalator/API/bin/Debug/netcoreapp3.1/BouncyCastle.Crypto.dll
+/Users/frankie/Documents/Escalator/API/bin/Debug/netcoreapp3.1/publish/web.config
+/Users/frankie/Documents/Escalator/API/bin/Debug/netcoreapp3.1/publish/API.deps.json
+/Users/frankie/Documents/Escalator/API/bin/Debug/netcoreapp3.1/publish/API.runtimeconfig.json
+/Users/frankie/Documents/Escalator/API/bin/Debug/netcoreapp3.1/publish/appsettings.Development.json
+/Users/frankie/Documents/Escalator/API/bin/Debug/netcoreapp3.1/publish/appsettings.json
+/Users/frankie/Documents/Escalator/API/bin/Debug/netcoreapp3.1/publish/publish/web.config
+/Users/frankie/Documents/Escalator/API/bin/Debug/netcoreapp3.1/publish/publish/API.deps.json
+/Users/frankie/Documents/Escalator/API/bin/Debug/netcoreapp3.1/publish/publish/API.runtimeconfig.json
+/Users/frankie/Documents/Escalator/API/bin/Debug/netcoreapp3.1/publish/publish/appsettings.Development.json
+/Users/frankie/Documents/Escalator/API/bin/Debug/netcoreapp3.1/publish/publish/appsettings.json

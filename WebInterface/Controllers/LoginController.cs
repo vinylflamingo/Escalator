@@ -19,16 +19,9 @@ namespace WebInterface.Controllers
         }
 
         [HttpGet]
-        public IActionResult Login()
+        public IActionResult Login(int? code)
         {
-            UserCred model = new UserCred();
-            return View(model);
-        }
-
-        [HttpGet]
-        public IActionResult Login(int code)
-        {
-            if(code == 0)
+            if(code == 1)
             {
                 ViewBag.Message = "Invalid credentials. Please try again.";
             }
@@ -42,7 +35,7 @@ namespace WebInterface.Controllers
             var result = await _login.Login(userCred);
             if (result == null)
             {
-                return RedirectToAction("Login", "Login", 0);
+                return RedirectToAction("Login", "Login", 1);
             }
 
             Debug.WriteLine("RESULT : "+result); 
