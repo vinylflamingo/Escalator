@@ -34,10 +34,17 @@ namespace WebInterface.Processors
             var json = JsonConvert.SerializeObject(userCred);
             var data = new StringContent(json, Encoding.UTF8, "application/json");
             var response = await apiHelper.PostAsync(url, data);
-            string stringJWT = response.Content.ReadAsStringAsync().Result;
-            _accessor.HttpContext.Session.SetString("token", stringJWT);
-            _accessor.HttpContext.Session.SetString("username", userCred.Username);
-            return stringJWT;
+            if (response.IsSuccessStatusCode)
+            {
+                string stringJWT = response.Content.ReadAsStringAsync().Result;
+                _accessor.HttpContext.Session.SetString("token", stringJWT);
+                _accessor.HttpContext.Session.SetString("username", userCred.Username);
+                return stringJWT;
+            }
+            else
+            {
+                return null;
+            }
         }
 
 

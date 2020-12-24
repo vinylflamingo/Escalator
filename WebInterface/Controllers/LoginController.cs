@@ -25,10 +25,26 @@ namespace WebInterface.Controllers
             return View(model);
         }
 
+        [HttpGet]
+        public IActionResult Login(int code)
+        {
+            if(code == 0)
+            {
+                ViewBag.Message = "Invalid credentials. Please try again.";
+            }
+            UserCred model = new UserCred();
+            return View(model);
+        }
+
         [HttpPost]
         public async Task<IActionResult> Login(UserCred userCred)
         {
             var result = await _login.Login(userCred);
+            if (result == null)
+            {
+                return RedirectToAction("Login", "Login", 0);
+            }
+
             Debug.WriteLine("RESULT : "+result); 
             var agent = _agentProcessor.LoadAgent(userCred.Username);
             if (agent.Result.NeedsNewPassword)
