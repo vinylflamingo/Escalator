@@ -1,5 +1,6 @@
 Do Now:
     1. Manage Juridictions and delete jurisdictions.
+    2. Move business logic in processors to api. keep out of interface.
     3. User summary email. Create console service for this. 
 
 
