@@ -2,12 +2,31 @@
 
 <h2>Release Notes</h2>
 
-<p>Note A</p>
-<p>Note B</p>
+<h3>Version 0.1</h3>
+<h4>This version includes the basic functions for the program.</h4>
 <ul>
-    <li>item 1</li>
-    <li>item 2</li>
-    <li>item 3</li>
-    <li>item 4</li>
-    <li>item 5</li>
+    <li>Ticketing system - Allows to create, edit, and delete ticket. </li>
+    <li>Authentication - 3 levels of auth. 1. anonymous - can submit new tickets. 2. manager - can edit tickets 3. admin - can add/edit users, jurisdictions, and other top level functions  </li>
+    <li>Database - Postgres</li>
+    <li>Email system - currently sends email to default agent for selected jurisdiction</li>
 </ul>
+
+<h4>Coming Soon:</h4>
+<p>To do soon:</p>
+<ul>
+    <li>Manage Juridictions and delete jurisdictions interface</li>
+    <li>Move business logic in processors to api.</li>
+    <li>User summary email. </li>
+</ul>
+
+<p>Later development:</p>
+<ul>
+    <li>Switch db service to sql server instead of postgres.</li>
+    <li>When IT sets up a internal email, setup that instead of gmail.</li>
+    <li>create encryptor for password, so they wont be exposed in AppSettings.</li>
+    <li>Admin reporting for Jess "Will it track length of ticket before closure? 
+                                 Number of tickets per individual?  
+                                 Number of tickets per agency?"</li>
+    <li>Route for email links. If auth, go to ticket, if not auth login then redirect to ticket.</li>
+</ul>
+
