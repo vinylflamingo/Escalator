@@ -13,6 +13,7 @@ namespace Escalator.API.Email
         private readonly DBContext _context;
         private IEmailService _emailService;
 
+
         private string interfaceUrl = "escalatorwebinterface-alpha.azurewebsites.net";
         public TicketEmails(EmailService emailService, DBContext context)
         {
