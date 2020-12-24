@@ -63,6 +63,25 @@ namespace WebInterface.Controllers
             return View(model);
         }
 
+        public async Task<IActionResult> MyTickets()
+        {
+
+            MyTicketsViewModel model = new MyTicketsViewModel()
+            {
+                tickets = await _ticketProcessor.LoadTickets(),
+                ticketTypes = await _ticketProcessor.LoadTypes(),
+                jurisdictions = await _jurisdictionProcessor.LoadJurisdictions(),
+                AgentId = _agentProcessor.LoadAgent(_accessor.HttpContext.Session.GetString("username")).Result.Id
+            };
+
+            if (model.tickets == null)
+            {
+                return RedirectToAction("Login", "Login");
+            }
+
+            return View(model);
+        }
+
         //PAGE SHOWING FORM TO CREATE NEW RECORD
 
         [HttpGet]

@@ -33,6 +33,8 @@ namespace Escalator.API.Email
                              <p>ID: {ticket.Id}</p>
                              <p>OPENED: {ticket.OpenDate.ToString()}</p>
                              <p>DUE: {ticket.DueBy.ToString()}</p>
+                             <p>ACCOUNT: {ticket.OriginalAccount}</p>
+                             <p>DETAILS: {ticket.Details}</p>
                              <a href=""{interfaceUrl}/Ticket/AdminEdit?ticketId={ticket.Id}"" <p>View this ticket</p> </a>";
             try 
             {

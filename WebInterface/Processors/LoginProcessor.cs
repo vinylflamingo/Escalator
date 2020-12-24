@@ -36,6 +36,7 @@ namespace WebInterface.Processors
             var response = await apiHelper.PostAsync(url, data);
             string stringJWT = response.Content.ReadAsStringAsync().Result;
             _accessor.HttpContext.Session.SetString("token", stringJWT);
+            _accessor.HttpContext.Session.SetString("username", userCred.Username);
             return stringJWT;
         }
 
