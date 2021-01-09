@@ -188,6 +188,11 @@
                         @Html.ValidationMessageFor(model => model.ticket.Invoices)
                     </div>
                     <div class="row" style="display: grid; place-items: center; padding-top: 1em;">
+                        @Html.LabelFor(model => model.ticket.IsCompleted,"Mark Complete", new { @class = "control-label"})
+                        @Html.CheckBoxFor(model => model.ticket.IsCompleted)
+                    </div>
+
+                    <div class="row" style="display: grid; place-items: center; padding-top: 1em;">
                         @Html.LabelFor(model => model.ticket.Details,"Details", new { @class = "control-label col-md-2"})
                         @Html.TextAreaFor(model => model.ticket.Details, new {@style = "width:40em; height:20em"})
                         @Html.ValidationMessageFor(model => model.ticket.Details)
