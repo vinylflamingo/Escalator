@@ -83,6 +83,8 @@ namespace Escalator.API.Controllers
         public async Task<ActionResult<Ticket>> PostTicket(Ticket ticket)
         {
             ticket.AssignedAgent = _context.Jurisdictions.Where(x => x.Id == ticket.JurisdictionId).First().DefaultAgentId;
+            ticket.OpenDate = DateTime.Now;
+            ticket.IsCompleted = false;
             _context.Tickets.Add(ticket);
             await _context.SaveChangesAsync();
             await ticketEmails.sendNewTicketEmail(ticket);

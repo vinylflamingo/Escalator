@@ -132,7 +132,10 @@ namespace WebInterface.Processors
             
             string url = $"https://{apiUrl}/api/Agent/put";
 
-            agent.NeedsNewPassword = false;
+            agent.NeedsNewPassword = false;   //I think even though this is business logic-esque i'm going ot leave it here for now.
+                                              //The method it calls in the api is the same updating ANY agent info, I dont want an email change
+                                              //for example to change this password flag. As I dive deeper into the auth system and creating normal
+                                              //submission users, maybe this will be something to revisit.
 
             var json = JsonConvert.SerializeObject(agent);
             var data = new StringContent(json, Encoding.UTF8, "application/json");
