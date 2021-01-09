@@ -31,6 +31,7 @@ bld/
 #Custom directories
 bin/
 obj/
+API/appsettings.json
 
 
 
