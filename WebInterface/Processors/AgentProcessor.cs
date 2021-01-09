@@ -28,19 +28,7 @@ namespace WebInterface.Processors
         
         public async Task<IEnumerable<Agent>> LoadAgents()
         {
-            HttpClient apiHelper = new ApiHelper().InitializeClient();
-            try
-            {
-                apiHelper.DefaultRequestHeaders.Add
-                (
-                    "Authorization", 
-                    string.Concat("Bearer ", _accessor.HttpContext.Session.GetString("token").Trim('"'))
-                );  
-            }
-            catch (Exception e)
-            {
-                Debug.WriteLine(e);
-            }
+            HttpClient apiHelper = new ApiHelper(_accessor).InitializeClient();
           
             string url = $"https://{apiUrl}/api/Agent/";
 
@@ -60,19 +48,7 @@ namespace WebInterface.Processors
         
         public async Task<Agent> LoadAgent(string username)
         {
-            HttpClient apiHelper = new ApiHelper().InitializeClient();
-            try
-            {
-                apiHelper.DefaultRequestHeaders.Add
-                (
-                    "Authorization", 
-                    string.Concat("Bearer ", _accessor.HttpContext.Session.GetString("token").Trim('"'))
-                );  
-            }
-            catch (Exception e)
-            {
-                Debug.WriteLine(e);
-            }
+            HttpClient apiHelper = new ApiHelper(_accessor).InitializeClient();
           
             string url = $"https://{apiUrl}/api/Agent/{username}";
 
@@ -92,19 +68,8 @@ namespace WebInterface.Processors
 
         public async Task<string> DeleteAgent(Agent agent)
         {
-            HttpClient apiHelper = new ApiHelper().InitializeClient();
-            try
-            {
-                apiHelper.DefaultRequestHeaders.Add
-                (
-                    "Authorization", 
-                    string.Concat("Bearer ", _accessor.HttpContext.Session.GetString("token").Trim('"'))
-                );  
-            }
-            catch (Exception e)
-            {
-                Debug.WriteLine(e);
-            }  
+            HttpClient apiHelper = new ApiHelper(_accessor).InitializeClient();
+
             string url = $"https://{apiUrl}/api/Agent/{agent.Id}";
 
 
@@ -123,19 +88,8 @@ namespace WebInterface.Processors
 
         public async Task<string> SaveAgent(Agent agent)
         {
-            HttpClient apiHelper = new ApiHelper().InitializeClient();
-            try
-            {
-                apiHelper.DefaultRequestHeaders.Add
-                (
-                    "Authorization", 
-                    string.Concat("Bearer ", _accessor.HttpContext.Session.GetString("token").Trim('"'))
-                );  
-            }
-            catch (Exception e)
-            {
-                Debug.WriteLine(e);
-            }  
+            HttpClient apiHelper = new ApiHelper(_accessor).InitializeClient();
+
             string url = $"https://{apiUrl}/api/Agent/Create";
 
 
@@ -154,19 +108,8 @@ namespace WebInterface.Processors
 
         public async Task<string> EditAgent(Agent agent)
         {
-            HttpClient apiHelper = new ApiHelper().InitializeClient();
-            try
-            {
-                apiHelper.DefaultRequestHeaders.Add
-                (
-                    "Authorization", 
-                    string.Concat("Bearer ", _accessor.HttpContext.Session.GetString("token").Trim('"'))
-                );  
-            }
-            catch (Exception e)
-            {
-                Debug.WriteLine(e);
-            }  
+            HttpClient apiHelper = new ApiHelper(_accessor).InitializeClient();
+
             string url = $"https://{apiUrl}/api/Agent/put";
 
 
@@ -185,22 +128,14 @@ namespace WebInterface.Processors
 
         public async Task<string> NewPassword(Agent agent)
         {
-            HttpClient apiHelper = new ApiHelper().InitializeClient();
-            try
-            {
-                apiHelper.DefaultRequestHeaders.Add
-                (
-                    "Authorization", 
-                    string.Concat("Bearer ", _accessor.HttpContext.Session.GetString("token").Trim('"'))
-                );  
-            }
-            catch (Exception e)
-            {
-                Debug.WriteLine(e);
-            }  
+            HttpClient apiHelper = new ApiHelper(_accessor).InitializeClient();
+            
             string url = $"https://{apiUrl}/api/Agent/put";
 
-            agent.NeedsNewPassword = false;
+            agent.NeedsNewPassword = false;   //I think even though this is business logic-esque i'm going ot leave it here for now.
+                                              //The method it calls in the api is the same updating ANY agent info, I dont want an email change
+                                              //for example to change this password flag. As I dive deeper into the auth system and creating normal
+                                              //submission users, maybe this will be something to revisit.
 
             var json = JsonConvert.SerializeObject(agent);
             var data = new StringContent(json, Encoding.UTF8, "application/json");

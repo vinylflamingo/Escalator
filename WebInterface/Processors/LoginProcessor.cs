@@ -29,7 +29,7 @@ namespace WebInterface.Processors
 
         public async Task<string> Login(UserCred userCred)
         {
-            HttpClient apiHelper = new ApiHelper().InitializeClient();
+            HttpClient apiHelper = new ApiHelper(_accessor).InitializeClient();
             string url = $"https://{apiUrl}/api/Agent/authenticate";
             var json = JsonConvert.SerializeObject(userCred);
             var data = new StringContent(json, Encoding.UTF8, "application/json");

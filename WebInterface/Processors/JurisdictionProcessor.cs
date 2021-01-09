@@ -29,19 +29,8 @@ namespace WebInterface.Processors
 
      public async Task<IEnumerable<Jurisdiction>> LoadJurisdictions()
         {
-           HttpClient apiHelper = new ApiHelper().InitializeClient();
-            try
-            {
-                apiHelper.DefaultRequestHeaders.Add
-                (
-                    "Authorization", 
-                    string.Concat("Bearer ", _accessor.HttpContext.Session.GetString("token").Trim('"'))
-                );  
-            }
-            catch (Exception e)
-            {
-                Debug.WriteLine(e);
-            }             
+           HttpClient apiHelper = new ApiHelper(_accessor).InitializeClient();
+           
             string url = $"https://{apiUrl}/api/Jurisdiction/";
 
             using (HttpResponseMessage response = await apiHelper.GetAsync(url))
@@ -60,19 +49,8 @@ namespace WebInterface.Processors
 
         public async Task<string> SaveJurisdiction(Jurisdiction jurisdiction)
         {
-            HttpClient apiHelper = new ApiHelper().InitializeClient();
-            try
-            {
-                apiHelper.DefaultRequestHeaders.Add
-                (
-                    "Authorization", 
-                    string.Concat("Bearer ", _accessor.HttpContext.Session.GetString("token").Trim('"'))
-                );  
-            }
-            catch (Exception e)
-            {
-                Debug.WriteLine(e);
-            }  
+            HttpClient apiHelper = new ApiHelper(_accessor).InitializeClient();
+ 
             string url = $"https://{apiUrl}/api/Jurisdiction/";
 
             var json = JsonConvert.SerializeObject(jurisdiction);
