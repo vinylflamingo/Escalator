@@ -17,7 +17,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Escalator.API.Interfaces;
 using Escalator.API.Email;
-
+using System.Diagnostics;
 
 namespace Escalator.API
 { 
@@ -33,7 +33,26 @@ namespace Escalator.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<DBContext>(options => options.UseNpgsql(Configuration.GetConnectionString("Local")));
+            services.AddDbContext<DBContext>(options => 
+
+            {
+                var dbType = Configuration["DatabaseType"];
+                if (dbType == "SQLSERVER")
+                {
+                    options.UseSqlServer(Configuration.GetConnectionString("SqlServer"));
+                }
+                if (dbType == "POSTGRES")
+                {
+                    options.UseNpgsql(Configuration.GetConnectionString("Local"));
+                }
+                else
+                {
+                    Debug.WriteLine("Invalid Database Option. Please view configuration.");
+                }
+            }
+            );
+
+
             services.AddIdentity<IdentityUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = true)
                     .AddEntityFrameworkStores<DBContext>();
             
