@@ -1,17 +1,28 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
-using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
-namespace EscalatorclassAPIEscalator.Migrations
+namespace EscalatorclassAPI.Migrations
 {
-    public partial class roles : Migration
+    public partial class sqlserver : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AddColumn<string>(
-                name: "Role",
-                table: "Agents",
-                nullable: true);
+            migrationBuilder.CreateTable(
+                name: "Agents",
+                columns: table => new
+                {
+                    Id = table.Column<long>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Username = table.Column<string>(nullable: true),
+                    Password = table.Column<string>(nullable: true),
+                    Role = table.Column<string>(nullable: true),
+                    Email = table.Column<string>(nullable: true),
+                    NeedsNewPassword = table.Column<bool>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Agents", x => x.Id);
+                });
 
             migrationBuilder.CreateTable(
                 name: "AspNetRoles",
@@ -53,11 +64,64 @@ namespace EscalatorclassAPIEscalator.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Jurisdictions",
+                columns: table => new
+                {
+                    Id = table.Column<long>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(nullable: true),
+                    DefaultAgentId = table.Column<long>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Jurisdictions", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Tickets",
+                columns: table => new
+                {
+                    Id = table.Column<long>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ticketType = table.Column<long>(nullable: false),
+                    JurisdictionId = table.Column<long>(nullable: false),
+                    AssignedAgent = table.Column<long>(nullable: false),
+                    CompletedBy = table.Column<long>(nullable: false),
+                    OpenDate = table.Column<DateTime>(nullable: false),
+                    IsCompleted = table.Column<bool>(nullable: false),
+                    DueBy = table.Column<DateTime>(nullable: false),
+                    PhoneNumber = table.Column<string>(nullable: true),
+                    EmailAddress = table.Column<string>(nullable: true),
+                    OriginalAccount = table.Column<string>(nullable: true),
+                    MoveToAccount = table.Column<string>(nullable: true),
+                    Invoices = table.Column<string>(nullable: true),
+                    Details = table.Column<string>(nullable: true),
+                    WhoSubmitted = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Tickets", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "TicketType",
+                columns: table => new
+                {
+                    Id = table.Column<long>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Type = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_TicketType", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "AspNetRoleClaims",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     RoleId = table.Column<string>(nullable: false),
                     ClaimType = table.Column<string>(nullable: true),
                     ClaimValue = table.Column<string>(nullable: true)
@@ -78,7 +142,7 @@ namespace EscalatorclassAPIEscalator.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     UserId = table.Column<string>(nullable: false),
                     ClaimType = table.Column<string>(nullable: true),
                     ClaimValue = table.Column<string>(nullable: true)
@@ -167,7 +231,8 @@ namespace EscalatorclassAPIEscalator.Migrations
                 name: "RoleNameIndex",
                 table: "AspNetRoles",
                 column: "NormalizedName",
-                unique: true);
+                unique: true,
+                filter: "[NormalizedName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetUserClaims_UserId",
@@ -193,11 +258,15 @@ namespace EscalatorclassAPIEscalator.Migrations
                 name: "UserNameIndex",
                 table: "AspNetUsers",
                 column: "NormalizedUserName",
-                unique: true);
+                unique: true,
+                filter: "[NormalizedUserName] IS NOT NULL");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "Agents");
+
             migrationBuilder.DropTable(
                 name: "AspNetRoleClaims");
 
@@ -214,14 +283,19 @@ namespace EscalatorclassAPIEscalator.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
+                name: "Jurisdictions");
+
+            migrationBuilder.DropTable(
+                name: "Tickets");
+
+            migrationBuilder.DropTable(
+                name: "TicketType");
+
+            migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
-
-            migrationBuilder.DropColumn(
-                name: "Role",
-                table: "Agents");
         }
     }
 }
