@@ -34,16 +34,16 @@ namespace Escalator.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<DBContext>(options => 
-
             {
+                var connectionString = Configuration.GetConnectionString("SqlServer");
                 var dbType = Configuration["DatabaseType"];
                 if (dbType == "SQLSERVER")
                 {
-                    options.UseSqlServer(Configuration.GetConnectionString("SqlServer"));
+                    options.UseSqlServer(connectionString);
                 }
                 else if (dbType == "POSTGRES")
                 {
-                    options.UseNpgsql(Configuration.GetConnectionString("Local"));
+                    options.UseNpgsql(connectionString);
                 }
                 else
                 {

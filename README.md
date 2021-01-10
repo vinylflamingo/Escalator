@@ -1,3 +1,3 @@
 # Escalator
 
-A ticketing system for escalations, and manager assisted actions within a support organization.
+[VIEW THE DOCS](https://github.com/vinylflamingo/Escalator/tree/master/Docs)
