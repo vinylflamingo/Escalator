@@ -42,6 +42,7 @@ Processors. Otherwise the project is quite similair to most MVC projects.
 
 ::: PROJECTS :::
 
+
     :: API ::
 
     The API project is a .NET Core 3.1 API Project. It follows standard API 
@@ -54,7 +55,8 @@ Processors. Otherwise the project is quite similair to most MVC projects.
         You can pick between either postgres or SQL Server for the database 
         service. Entity framework can easily switch between both. 
     
-        To select between the database types, you will modify the projects appsettings.json
+        To select between the database types, you will modify the projects 
+        appsettings.json
 
         DatabaseType : "SQLSERVER" OR "POSTGRES"
 
@@ -63,16 +65,69 @@ Processors. Otherwise the project is quite similair to most MVC projects.
 
         ConnectionStrings : {}
 
-        ConnectionStings will store different connections. You will select through 
-        the different stored strings by changing the connectionString variable 
-        in the Startup.cs file. Entity framework handles the database interactions
-        so besides this, there should be no difference in code for specific databases.
+        ConnectionStings will store different connections. You will select 
+        through the different stored strings by changing the connectionString 
+        variable in the Startup.cs file. Entity framework handles the database 
+        interactions so besides this, there should be no difference in code 
+        for specific databases.
 
         : EMAIL :
-        The email service allows emails to be sent from Escaltor. The EmailService class 
-        pulls the configuration from the appsettings. The app settings for smtp are quite standard.
-        The FromAddress field does not need to be filled. 
+        The email service allows emails to be sent from Escalator. The 
+        EmailService class pulls the configuration from the appsettings. 
+        The app settings for smtp are quite standard. The TicketEmail class 
+        creates the formatting and execuets the sending of ticket related 
+        emails. A ReportEmail class  will soon be implemented to generate 
+        reports. The email service is a singleton registered in the services 
+        in Startup.cs.
 
+        : JWT AUTH :
+        The authentication system makes use of Jwt generated tokens. The 
+        key for the Jwt token system is located in the Startup.CS file 
+        directly above authentication. The Jwt authentication is also a
+        singleton registered as a service. The majority of the code for 
+        the Jwt authentication is in JwtAuthenticationManager.cs. This class 
+        is called upon a login request. It will check the database to see 
+        if the credentials are correct. If so it will also find the agents 
+        authentication level and encrypt that into the token. On the UI side, 
+        the token is currently store in the session information. This may not 
+        be permanent, and is still in research. Tokens last for 4 horus before 
+        expiring.
+    
+
+    :: COMMON :: 
+
+    This is a simple class library sharing the standard types for the project. 
+    All other main projects reference this project, insuring type integrity 
+    between all. It only consist of one folder: Models. In the future, 
+    it may be possible that I might put some other functions in there that both 
+    projects may use. 
+
+    :: DOCS ::
+
+    Where your at now! Just text describing the application.
+
+    :: HTML_TEMPLATE_FILES ::
+
+    The UI uses a template. This is the original template files to reference.
+    They are not used in any of the projects, and are not included in a any build.
+    Purely for reference only. 
+
+    :: WebInterface :: 
+
+    This is the main UI project. It uses ASP.NET CORE 3.1 MVC. It follow the standard 
+    path for a MVC project. The only main difference is there is no DbContext. Instead 
+    data is sent and retrieved by Processors that make HTTP request. This is done so 
+    to completely decouple the UI from the Backend. And in the future, make it easier to
+    move to another UI platform, say for example if I wanted to use a javascript framework
+    like react or vue. The app settings really only contains one setting. The application
+    needs to know where the API is located, so it can be called by the ApiHelper class.
+    The processors handle all the data calls. The Login processor, is unique in that it
+    strictly only handles the login procedures and storing of session informaiton.
+    The sessions stores two fields 1. The Jwt Token. 2. The username who is using said token.
+    The plan is control some auth on the UI side by using the role stored in the token, or 
+    possibly by adding a third field in the session titled role. 
+
+    
 
 
 
