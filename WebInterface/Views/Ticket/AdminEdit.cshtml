@@ -1,124 +1,3 @@
-@*@model WebInterface.Models.TicketViewModel
-@{
-    ViewBag.Title = "Admin Ticket Editor";
-
-}
-
-
-<div style="text-align: center;">
-    @using (Html.BeginForm())
-    {
-    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12" style="margin: auto;">
-        <div class="card">
-            @Html.ValidationSummary(true)
-            <h3>TICKET NUMBER: @Html.ValueFor(model => model.ticket.Id) </h3>
-            @Html.HiddenFor(model => model.ticket.Id)
-            <h5 class="card-header">Edit</h5>
-            <div class="card-body">
-                <div class="form-group">
-                    @Html.LabelFor(model => model.ticket.ticketType, new { @class = "control-label col-md-2"})
-                    @Html.DropDownListFor(m => m.ticket.ticketType, new SelectList(Model.ticketTypes, "Id", "Type"))
-                    @Html.ValidationMessageFor(model => model.ticket.ticketType)
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(model => model.ticket.JurisdictionId, new { @class = "control-label col-md-2"})
-                    @Html.DropDownListFor(m => m.ticket.JurisdictionId, new SelectList(Model.jurisdictions, "Id", "Name"))                      
-                    @Html.ValidationMessageFor(model => model.ticket.JurisdictionId)           
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(model => model.ticket.AssignedAgent, new { @class = "control-label col-md-2"})
-                    @Html.DropDownListFor(m => m.ticket.AssignedAgent, new SelectList(Model.agents, "Id", "Username"))                      
-                    @Html.ValidationMessageFor(model => model.ticket.AssignedAgent)           
-                </div>
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.ticket.CompletedBy, new { @class = "control-label col-md-2"})
-                    @Html.DropDownListFor(m => m.ticket.CompletedBy, new SelectList(Model.agents, "Id", "Username"))                      
-                    @Html.ValidationMessageFor(model => model.ticket.CompletedBy)           
-                </div>
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.ticket.OpenDate, new { @class = "control-label col-md-2"})
-                    @Html.EditorFor(model => model.ticket.OpenDate)
-                    @Html.ValidationMessageFor(model => model.ticket.OpenDate)
-                </div>
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.ticket.IsCompleted, new { @class = "control-label col-md-2"})
-                    @Html.CheckBoxFor(model => model.ticket.IsCompleted)
-                    @Html.ValidationMessageFor(model => model.ticket.IsCompleted)
-                </div>
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.ticket.DueBy, new { @class = "control-label col-md-2"})
-                    @Html.EditorFor(model => model.ticket.DueBy)
-                    @Html.ValidationMessageFor(model => model.ticket.DueBy)
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(model => model.ticket.PhoneNumber, new { @class = "control-label col-md-2"})
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.ticket.PhoneNumber)
-                        @Html.ValidationMessageFor(model => model.ticket.PhoneNumber)
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.ticket.EmailAddress, new { @class = "control-label col-md-2"})
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.ticket.EmailAddress)
-                        @Html.ValidationMessageFor(model => model.ticket.EmailAddress)
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.ticket.OriginalAccount, new { @class = "control-label col-md-2"})
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.ticket.OriginalAccount)
-                        @Html.ValidationMessageFor(model => model.ticket.OriginalAccount)
-                    </div>
-                </div>
-             
-                <div class="form-group">
-                    @Html.LabelFor(model => model.ticket.MoveToAccount, new { @class = "control-label col-md-2"})
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.ticket.MoveToAccount)
-                        @Html.ValidationMessageFor(model => model.ticket.MoveToAccount)
-                    </div>
-                </div>
-
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.ticket.Invoices, new { @class = "control-label col-md-2"})
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.ticket.Invoices)
-                        @Html.ValidationMessageFor(model => model.ticket.Invoices)
-                    </div>
-                </div>
-
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.ticket.Details, new { @class = "control-label col-md-2"})
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.ticket.Details)
-                        @Html.ValidationMessageFor(model => model.ticket.Details)
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="form-group">
-                        <div class="col-md-offset-2 col-md-10">
-                            <input type="submit" value="Save" class="btn btn-default" />
-                            
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    }
-</div>
-
-*@
 @model WebInterface.Models.TicketViewModel
 @{
     ViewBag.Title = "Admin Ticket Editor";
@@ -144,6 +23,11 @@
                         @Html.LabelFor(model => model.ticket.JurisdictionId, "Jurisdiction", new { @class = "control-label col-md-2"})
                         @Html.DropDownListFor(m => m.ticket.JurisdictionId, new SelectList(Model.jurisdictions, "Id", "Name"), new {@style = "width:20em;"})                      
                         @Html.ValidationMessageFor(model => model.ticket.JurisdictionId)           
+                    </div>
+                    <div class="row" style="display: grid; place-items: center; padding-top: 1em;">
+                        @Html.LabelFor(model => model.ticket.Severity, "Severity", new { @class = "control-label col-md-2"})
+                        @Html.DropDownListFor(m => m.ticket.Severity, Html.GetEnumSelectList(typeof(Escalator.Common.Models.Severity)), new {@style = "width:20em;"})                  
+                        @Html.ValidationMessageFor(model => model.ticket.Severity)           
                     </div>
                     <div class="row" style="display: grid; place-items: center; padding-top: 1em;">
                         @Html.LabelFor(model => model.ticket.AssignedAgent, "Assigned Agent", new { @class = "control-label col-md-2"})

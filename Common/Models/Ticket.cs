@@ -19,5 +19,6 @@ namespace Escalator.Common.Models
         public string Invoices {get; set;}
         public string Details {get; set;}
         public string WhoSubmitted {get; set;}
+        public Severity Severity {get; set;}
     }
 }

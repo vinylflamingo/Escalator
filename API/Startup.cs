@@ -41,7 +41,7 @@ namespace Escalator.API
                 {
                     options.UseSqlServer(Configuration.GetConnectionString("SqlServer"));
                 }
-                if (dbType == "POSTGRES")
+                else if (dbType == "POSTGRES")
                 {
                     options.UseNpgsql(Configuration.GetConnectionString("Local"));
                 }

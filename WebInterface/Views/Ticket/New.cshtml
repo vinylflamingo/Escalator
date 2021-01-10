@@ -1,6 +1,6 @@
 @model WebInterface.Models.TicketViewModel
 @{
-    ViewBag.Title = "Create New Ticket";
+    ViewBag.Title = "Create New Ticket";  
 
 }
 
@@ -22,6 +22,12 @@
                         @Html.LabelFor(model => model.ticket.JurisdictionId, "Jurisdiction", new { @class = "control-label col-md-2"})
                         @Html.DropDownListFor(m => m.ticket.JurisdictionId, new SelectList(Model.jurisdictions, "Id", "Name"), new {@style = "width:20em;"})                      
                         @Html.ValidationMessageFor(model => model.ticket.JurisdictionId)           
+                    </div>
+
+                    <div class="row" style="display: grid; place-items: center; padding-top: 1em;">
+                        @Html.LabelFor(model => model.ticket.Severity, "Severity", new { @class = "control-label col-md-2"})
+                        @Html.DropDownListFor(m => m.ticket.Severity, Html.GetEnumSelectList(typeof(Escalator.Common.Models.Severity)), new {@style = "width:20em;"})                  
+                        @Html.ValidationMessageFor(model => model.ticket.Severity)           
                     </div>
                     <div class="row" style="display: grid; place-items: center; padding-top: 1em;">
                         @Html.LabelFor(model => model.ticket.DueBy, "Due Date", new { @class = "control-label col-md-2"})
