@@ -127,6 +127,21 @@ Processors. Otherwise the project is quite similair to most MVC projects.
     The plan is control some auth on the UI side by using the role stored in the token, or 
     possibly by adding a third field in the session titled role. 
 
+
+
+
+
+    USELFUL CLI COMMANDS:
+    dotnet build - build project
+    dotnet ef migrations add *nameHere* - add migration for next db update
+    dotnet ef database update - update database according to migrations
+    dotnet dev-certs https --clean  - removes certs 
+    dotnet dev-certs https --trust  - creates new local cert
+    dotnet publish -c Release -o ./publish/0.2  - publish new version. the 0.2 is a version number. 
+    git rm --cached WebInterface/appsettings.json - remove from git tracking
+
+
+
     
 
 
