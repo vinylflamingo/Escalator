@@ -32,6 +32,8 @@ bld/
 bin/
 obj/
 API/appsettings.json
+WebInterface/appsettings.json
+publish/
 
 
 
