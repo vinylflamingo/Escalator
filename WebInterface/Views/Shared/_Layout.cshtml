@@ -1,4 +1,10 @@
-﻿<!DOCTYPE html>
+﻿@{
+    @using Microsoft.AspNetCore.Http;
+    var username = Context.Session.GetString("username");
+    var role = Context.Session.GetString("role");
+}
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -65,20 +71,56 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav flex-column">
                         <li class="nav-divider">
-                            Menu
+                            Menu 
+                            @if(!String.IsNullOrEmpty(username))
+                            {
+                                <p style="padding-right: 15px;">Hello: @username</p>
+                            }
                         </li>
-                        <li class="nav-item ">
-                            <a class="nav-link" asp-controller="Ticket" asp-action="New"><i class="fab fa-fw fa-wpforms"></i>New Ticket</a>
-                        </li>  
+
+                        @if (!String.IsNullOrEmpty(role))  
+                        {
+                            <li class="nav-item ">
+                                <a class="nav-link" asp-controller="Ticket" asp-action="New"><i class="fab fa-fw fa-wpforms"></i>New Ticket</a>
+                            </li>  
+
+                            <li class="nav-item">
+                                <a class="nav-link" asp-controller="Ticket" asp-action="MySubmissions"><i class="fas fa-fw fa-chart-pie"></i>My Submissions</a>
+                            </li> 
+                        }
+
+                        @if (role == "manager" || role == "admin")
+                        {
                         <li class="nav-item">
-                            <a class="nav-link" asp-controller="Ticket" asp-action="Index"><i class="fas fa-fw fa-chart-pie"></i>Open Tickets</a>
-                        </li>                        
+                            <a class="nav-link" asp-controller="Ticket" asp-action="Index"><i class="fas fa-fw fa-chart-pie"></i>All Open Tickets</a>
+                        </li> 
+
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Ticket" asp-action="MyTickets"><i class="fas fa-fw fa-chart-pie"></i>My Assigned Tickets</a>
+                        </li> 
+                        }
+
+                        @if (role == "admin")
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" asp-controller="Admin" asp-action="Index"><i class="fa fa-fw fa-rocket"></i>Admin</a>
+                            </li>
+                        }
+
+
+                        @if (String.IsNullOrEmpty(role))  
+                        {
                         <li class="nav-item ">
                             <a class="nav-link" asp-controller="Login" asp-action="Login"><i class="fa fa-fw fa-user-circle"></i>Login</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-controller="Admin" asp-action="Index"><i class="fa fa-fw fa-rocket"></i>Admin</a>
+                        }      
+                        else 
+                        {
+                        <li class="nav-item ">
+                            <a class="nav-link" asp-controller="Login" asp-action="Logout"><i class="fa fa-fw fa-user-circle"></i>Logout</a>
                         </li>
+                        }          
+                        
 
 
                     </ul>

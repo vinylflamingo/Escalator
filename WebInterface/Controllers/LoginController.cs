@@ -44,14 +44,18 @@ namespace WebInterface.Controllers
             {
                 return RedirectToAction("ResetPassword", "Agent", agent.Result);
             }
+            if (agent.Result.Role == "user")
+            {
+                return RedirectToAction("MySubmissions", "Ticket");
+            }
             return RedirectToAction("MyTickets", "Ticket");
         }
 
-        [HttpPost]
+        [HttpGet]
         public IActionResult Logout()
         {
             _login.Logout();
-            return View();
+            return RedirectToAction("Login", "Login");
         }
 
 

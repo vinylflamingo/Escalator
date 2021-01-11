@@ -1,4 +1,4 @@
-@model WebInterface.Models.TicketViewModel
+@model WebInterface.Models.CommonViewModel
 @{
     ViewBag.Title = "Create New Ticket";  
 
@@ -67,9 +67,8 @@
                         @Html.ValidationMessageFor(model => model.ticket.Details)
                     </div>
                     <div class="row" style="display: grid; place-items: center; padding-top: 1em;">
-                        @Html.LabelFor(model => model.ticket.WhoSubmitted,"Your Name", new { @class = "control-label col-md-2"})
-                        @Html.EditorFor(model => model.ticket.WhoSubmitted, new {htmlAttributes = new {@style = "width:20em;"}})
-                        @Html.ValidationMessageFor(model => model.ticket.WhoSubmitted)
+                        @Html.HiddenFor(m => m.ticket.WhoSubmitted)
+                   
                     </div>
                 </div>
                 <div class="row" style="display: grid; place-items: center; padding-top: 1em;">

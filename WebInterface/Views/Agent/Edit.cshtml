@@ -2,7 +2,7 @@
 @{
     ViewBag.Title = "Edit Agent";
 
-    var roles = new List<string>() {"admin", "manager"};
+    var roles = new List<string>() {"admin", "manager", "user"};
 
 
 }
@@ -12,6 +12,7 @@
     {
     <div class="card" style="width: 70em;">
         @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.Id)
         @Html.HiddenFor(model => model.Password)
         <h5 class="card-header">Edit Agent</h5>
 

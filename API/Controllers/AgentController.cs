@@ -29,7 +29,7 @@ namespace Escalator.API.Controllers
 
         //GET A LIST OF ALL AGENTS
         // GET: api/Agent
-        [AllowAnonymous]
+        [Authorize(Roles="user,manager,admin")]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Agent>>> GetAgents()
         {
@@ -38,7 +38,7 @@ namespace Escalator.API.Controllers
 
         // GET INFO FOR SINGLE AGENT
         // GET: api/Agent/5
-        [Authorize]
+        [Authorize(Roles="user,manager,admin")]
         [HttpGet("{username}")]
         public ActionResult<Agent> GetAgent(string username)
         {
@@ -81,7 +81,7 @@ namespace Escalator.API.Controllers
 
 
         //EDIT EXISTING AGENT
-        [Authorize]
+        [Authorize(Roles = "admin")]
         [HttpPut("put")]
         public async Task<IActionResult> PutAgent(Agent agent)
         {
@@ -109,7 +109,7 @@ namespace Escalator.API.Controllers
 
         // DELETE AGENT 
         // DELETE: api/Agent/5
-        [Authorize]
+        [Authorize(Roles = "admin")]
         [HttpDelete("{id}")]
         public async Task<ActionResult<Agent>> DeleteAgent(long id)
         {

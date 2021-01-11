@@ -13,7 +13,7 @@ using Escalator.API.Interfaces;
 
 namespace Escalator.API.Controllers
 {
-    [Authorize]
+    
     [Route("api/[controller]")]
     [ApiController]
     public class TicketController : ControllerBase
@@ -28,6 +28,7 @@ namespace Escalator.API.Controllers
         }
 
         // GET: api/Ticket
+        [Authorize(Roles="user,manager,admin")]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Ticket>>> GetTickets()
         {
@@ -35,6 +36,7 @@ namespace Escalator.API.Controllers
         }
 
         // GET: api/Ticket/5
+        [Authorize(Roles="user,manager,admin")]
         [HttpGet("{id}")]
         public async Task<ActionResult<Ticket>> GetTicket(long id)
         {
@@ -51,6 +53,7 @@ namespace Escalator.API.Controllers
         // PUT: api/Ticket/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
+        [Authorize(Roles="user,manager,admin")]
         [HttpPut("{id}")]
         public async Task<IActionResult> PutTicket(long id, Ticket ticket)
         {
@@ -78,7 +81,7 @@ namespace Escalator.API.Controllers
         // POST: api/Ticket
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
-        [AllowAnonymous]
+        [Authorize(Roles="user,manager,admin")]
         [HttpPost]
         public async Task<ActionResult<Ticket>> PostTicket(Ticket ticket)
         {

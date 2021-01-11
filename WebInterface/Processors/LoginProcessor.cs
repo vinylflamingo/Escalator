@@ -7,6 +7,8 @@ using Escalator.WebInterface;
 using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
 using Microsoft.Extensions.Configuration;
+using System.IdentityModel.Tokens.Jwt;
+using System.Linq;
 
 namespace WebInterface.Processors
 {
@@ -14,11 +16,13 @@ namespace WebInterface.Processors
     {
         private IHttpContextAccessor _accessor;
         private readonly IConfiguration Configuration;
+        private AgentProcessor _agentProcessor;
         private string apiUrl;
 
-        public LoginProcessor(IHttpContextAccessor accessor, IConfiguration configuration)
+        public LoginProcessor(IHttpContextAccessor accessor, IConfiguration configuration, AgentProcessor agentProcessor)
         {
             _accessor = accessor;
+            _agentProcessor = agentProcessor;
             Configuration = configuration;
             apiUrl = Configuration["ServerUrl"];
             
@@ -37,8 +41,13 @@ namespace WebInterface.Processors
             if (response.IsSuccessStatusCode)
             {
                 string stringJWT = response.Content.ReadAsStringAsync().Result;
+                
                 _accessor.HttpContext.Session.SetString("token", stringJWT);
                 _accessor.HttpContext.Session.SetString("username", userCred.Username);
+
+                var role = _agentProcessor.LoadAgent(userCred.Username).Result.Role;
+                _accessor.HttpContext.Session.SetString("role", role);
+
                 return stringJWT;
             }
             else
@@ -52,6 +61,9 @@ namespace WebInterface.Processors
         public bool Logout()
         {
             _accessor.HttpContext.Session.Remove("token");
+            _accessor.HttpContext.Session.Remove("username");
+            _accessor.HttpContext.Session.Remove("role");
+
             return !string.IsNullOrEmpty(_accessor.HttpContext.Session.GetString("token"));
 
         }

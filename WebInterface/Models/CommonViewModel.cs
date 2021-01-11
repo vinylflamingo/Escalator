@@ -5,12 +5,16 @@ namespace WebInterface.Models
 {
     public class CommonViewModel
     {
-        public IEnumerable<Ticket> Tickets;
-        public IEnumerable<Agent> Agents;
-        public IEnumerable<Jurisdiction> Jurisdictions;
-        public Ticket Ticket;
-        public Agent Agent;
-        public Jurisdiction Jurisdiction;
+        public IEnumerable<Ticket> tickets;
+        public IEnumerable<Agent> agents;
+        public IEnumerable<Jurisdiction> jurisdictions;
+        public IEnumerable<TicketType> ticketTypes;
+        public Ticket ticket;
+        public Agent agent;
+        public Jurisdiction jurisdiction;
+        public TicketType ticketType;
+        public string role;
+        public string username;
         
     }
 }

@@ -49,7 +49,7 @@ namespace Escalator.API
                 var token = tokenHandler.CreateToken(tokenDescriptor);
                 return tokenHandler.WriteToken(token);
             }
-            else
+            else if (user.Role == "manager")
             {
                 var tokenDescriptor = new SecurityTokenDescriptor
                 {
@@ -57,6 +57,23 @@ namespace Escalator.API
                 {
                     new Claim(ClaimTypes.Name, username),
                     new Claim(ClaimTypes.Role, "manager")
+                }),
+                Expires = DateTime.UtcNow.AddHours(4),
+                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(tokenKey),
+                SecurityAlgorithms.HmacSha256Signature
+                )
+                }; 
+                var token = tokenHandler.CreateToken(tokenDescriptor);
+                return tokenHandler.WriteToken(token);
+            }
+            else
+            {
+                var tokenDescriptor = new SecurityTokenDescriptor
+                {
+                Subject = new ClaimsIdentity(new Claim[]
+                {
+                    new Claim(ClaimTypes.Name, username),
+                    new Claim(ClaimTypes.Role, "user")
                 }),
                 Expires = DateTime.UtcNow.AddHours(4),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(tokenKey),
