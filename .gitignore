@@ -32,7 +32,7 @@ bld/
 bin/
 obj/
 API/appsettings.json
-WebInterface/appsetting.json
+WebInterface/appsettings.json
 
 
 
