@@ -29,6 +29,10 @@ namespace WebInterface.Controllers
 
         public async Task<IActionResult> Index()
         {
+            if (_accessor.HttpContext.Session.GetString("role") == "user")
+            {
+                return RedirectToAction("NoAccess", "Home");
+            }
 
             TicketsViewModel model = new TicketsViewModel()
             {
@@ -42,11 +46,16 @@ namespace WebInterface.Controllers
                 return RedirectToAction("NoAccess", "Home");
             }
 
+
             return View(model);
         }
 
         public async Task<IActionResult> FullHistory()
         {
+            if (_accessor.HttpContext.Session.GetString("role") == "user")
+            {
+                return RedirectToAction("NoAccess", "Home");
+            }
 
             TicketsViewModel model = new TicketsViewModel()
             {
@@ -65,6 +74,10 @@ namespace WebInterface.Controllers
 
         public async Task<IActionResult> MyTickets()
         {
+            if (_accessor.HttpContext.Session.GetString("role") == "user")
+            {
+                return RedirectToAction("NoAccess", "Home");
+            }
 
             MyTicketsViewModel model = new MyTicketsViewModel()
             {
@@ -82,17 +95,46 @@ namespace WebInterface.Controllers
             return View(model);
         }
 
+        public async Task<IActionResult> MySubmissions()
+        {
+            CommonViewModel model = new CommonViewModel()
+            {
+                tickets = await _ticketProcessor.LoadTickets(),
+                ticketTypes = await _ticketProcessor.LoadTypes(),
+                jurisdictions = await _jurisdictionProcessor.LoadJurisdictions(),
+                username = _accessor.HttpContext.Session.GetString("username")
+            };
+
+            if (model.tickets == null)
+            {
+                return RedirectToAction("Login", "Login");
+            }
+
+            return View(model);
+        }
+
         //PAGE SHOWING FORM TO CREATE NEW RECORD
 
         [HttpGet]
         public async Task<IActionResult> New()
         {
+            
 
-            TicketViewModel model = new TicketViewModel()
+            var username = _accessor.HttpContext.Session.GetString("username");
+            CommonViewModel model = new CommonViewModel()
             {
                 ticketTypes = await _ticketProcessor.LoadTypes(),
-                jurisdictions = await _jurisdictionProcessor.LoadJurisdictions()
+                jurisdictions = await _jurisdictionProcessor.LoadJurisdictions(),
+                role = _accessor.HttpContext.Session.GetString("role"),
+                ticket = new Ticket() {WhoSubmitted = username}
             };
+
+            if (model.ticketTypes == null)
+            {
+                return RedirectToAction("Login", "Login");
+            }
+
+
             return View(model);
         }
 
@@ -104,7 +146,7 @@ namespace WebInterface.Controllers
             
             var result = await _ticketProcessor.SaveTicket(ticket);
             var x = _accessor.HttpContext.Session.GetString("token");
-            if(x == null)
+            if(!String.IsNullOrEmpty(result))
             {
                 return RedirectToAction("Success", "Home");
             }
@@ -117,6 +159,10 @@ namespace WebInterface.Controllers
         [HttpGet]
         public async Task<IActionResult> AdminEdit(int ticketId)
         {
+            if (_accessor.HttpContext.Session.GetString("role") == "user")
+            {
+                return RedirectToAction("NoAccess", "Home");
+            }
 
             TicketViewModel model = new TicketViewModel()
             {
@@ -137,6 +183,10 @@ namespace WebInterface.Controllers
         [HttpPost]
         public async Task<IActionResult> AdminEdit(Ticket ticket)
         {
+            if (_accessor.HttpContext.Session.GetString("role") == "user")
+            {
+                return RedirectToAction("NoAccess", "Home");
+            }
             var result = await _ticketProcessor.EditTicket(ticket);
             return RedirectToAction("Index");
         }

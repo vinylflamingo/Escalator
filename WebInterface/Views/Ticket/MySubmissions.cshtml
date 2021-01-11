@@ -1,0 +1,49 @@
+@model WebInterface.Models.CommonViewModel
+@{
+
+    ViewData["Title"] = "My Open Tickets";
+}
+
+<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+    <div class="card">
+        <h5 class="card-header">My Submissions</h5>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-striped table-bordered first">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Ticket Type</th>
+                            <th>Jurisdiction</th>
+                            <th>Opened</th>
+                            <th>Account</th>
+                            <th>Submitted By</th>
+                            <th>Details</th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                    @{
+                        foreach (var item in Model.tickets)
+                        if (item.WhoSubmitted == Model.username && item.IsCompleted == false)
+                        {
+                            {
+                            <tr>
+                                <td>@item.Id</td>
+                                <td>@Model.ticketTypes.Where(x => x.Id == item.ticketType).First().Type</td>
+                                <td>@Model.jurisdictions.Where(x => x.Id == item.JurisdictionId).First().Name</td>
+                                <td>@item.OpenDate</td>
+                                <td>@item.OriginalAccount</td>
+                                <td>@item.WhoSubmitted</td>
+                                <td><a asp-controller="Ticket" asp-action="AdminEdit" asp-route-ticketId=@item.Id>Details</a></td>
+                            </tr> 
+                            }    
+                        }
+   
+                    }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

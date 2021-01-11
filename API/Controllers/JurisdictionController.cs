@@ -11,7 +11,6 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace Escalator.API.Controllers
 {
-    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class JurisdictionController : ControllerBase
@@ -24,7 +23,7 @@ namespace Escalator.API.Controllers
         }
 
         // GET: api/Jurisdiction
-        [AllowAnonymous]
+        [Authorize(Roles="user,manager,admin")]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Jurisdiction>>> GetJurisdictions()
         {
@@ -32,6 +31,7 @@ namespace Escalator.API.Controllers
         }
 
         // GET: api/Jurisdiction/5
+        [Authorize(Roles="user,manager,admin")]
         [HttpGet("{id}")]
         public async Task<ActionResult<Jurisdiction>> GetJurisdiction(long id)
         {

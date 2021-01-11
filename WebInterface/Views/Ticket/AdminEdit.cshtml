@@ -10,7 +10,8 @@
         <div class="card" style="width: 70em;">
             @Html.ValidationSummary(true)
             @Html.HiddenFor(model => model.ticket.Id)
-            @Html.HiddenFor(mode => Model.ticket.OpenDate)
+            @Html.HiddenFor(model => model.ticket.OpenDate)
+            @Html.HiddenFor(model => model.ticket.WhoSubmitted)
             <h5 class="card-header">Edit Ticket</h5>
             <div class="card-body" style="text-align: center;">
                 <div>
@@ -81,11 +82,7 @@
                         @Html.TextAreaFor(model => model.ticket.Details, new {@style = "width:40em; height:20em"})
                         @Html.ValidationMessageFor(model => model.ticket.Details)
                     </div>
-                    <div class="row" style="display: grid; place-items: center; padding-top: 1em;">
-                        @Html.LabelFor(model => model.ticket.WhoSubmitted,"Your Name", new { @class = "control-label col-md-2"})
-                        @Html.EditorFor(model => model.ticket.WhoSubmitted, new {htmlAttributes = new {@style = "width:20em;"}})
-                        @Html.ValidationMessageFor(model => model.ticket.WhoSubmitted)
-                    </div>
+                    
                 </div>
                 <div class="row" style="display: grid; place-items: center; padding-top: 1em;">
                     <input type="submit" value="Save" class="btn btn-default" />
