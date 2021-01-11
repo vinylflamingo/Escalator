@@ -159,10 +159,8 @@ namespace WebInterface.Controllers
         [HttpGet]
         public async Task<IActionResult> AdminEdit(int ticketId)
         {
-            if (_accessor.HttpContext.Session.GetString("role") == "user")
-            {
-                return RedirectToAction("NoAccess", "Home");
-            }
+            
+        
 
             TicketViewModel model = new TicketViewModel()
             {
@@ -172,6 +170,15 @@ namespace WebInterface.Controllers
                 agents = await _agentProcessor.LoadAgents()
             };
 
+            if (_accessor.HttpContext.Session.GetString("role") == "user")
+            {
+                if (model.ticket.WhoSubmitted != _accessor.HttpContext.Session.GetString("username"))
+                {
+                    return RedirectToAction("NoAccess", "Home");
+                }
+            }
+            
+            //returns null because user is not authorized for this.
             if (model.ticket == null)
             {
                 return RedirectToAction("Login", "Login");
@@ -183,12 +190,8 @@ namespace WebInterface.Controllers
         [HttpPost]
         public async Task<IActionResult> AdminEdit(Ticket ticket)
         {
-            if (_accessor.HttpContext.Session.GetString("role") == "user")
-            {
-                return RedirectToAction("NoAccess", "Home");
-            }
             var result = await _ticketProcessor.EditTicket(ticket);
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", "Home");
         }
 
         [HttpDelete]

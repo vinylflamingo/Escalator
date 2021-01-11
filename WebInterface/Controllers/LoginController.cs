@@ -38,17 +38,13 @@ namespace WebInterface.Controllers
                 return RedirectToAction("Login", "Login", new { code = 1});
             }
 
-            Debug.WriteLine("RESULT : "+result); 
+            //Debug.WriteLine("RESULT : "+result); 
             var agent = _agentProcessor.LoadAgent(userCred.Username);
             if (agent.Result.NeedsNewPassword)
             {
                 return RedirectToAction("ResetPassword", "Agent", agent.Result);
             }
-            if (agent.Result.Role == "user")
-            {
-                return RedirectToAction("MySubmissions", "Ticket");
-            }
-            return RedirectToAction("MyTickets", "Ticket");
+            return RedirectToAction("Index", "Home");
         }
 
         [HttpGet]
