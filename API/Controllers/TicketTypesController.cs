@@ -23,7 +23,6 @@ namespace Escalator.API.Controllers
         }
 
         // GET: api/TicketType
-        [Authorize(Roles="user,manager,admin")]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<TicketType>>> GetTicketTypes()
         {
@@ -31,7 +30,6 @@ namespace Escalator.API.Controllers
         }
 
         // GET: api/TicketType/5
-        [Authorize(Roles="user,manager,admin")]
         [HttpGet("{id}")]
         public async Task<ActionResult<TicketType>> GetTicketType(long id)
         {
