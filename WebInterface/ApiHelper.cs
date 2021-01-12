@@ -37,6 +37,7 @@ namespace Escalator.WebInterface
                     "Authorization", 
                     string.Concat("Bearer ", _accessor.HttpContext.Session.GetString("token").Trim('"'))
                 );  
+ 
             }
             catch (Exception e)
             {

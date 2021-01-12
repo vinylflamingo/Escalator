@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -52,6 +53,13 @@ namespace Escalator.API
             }
             );
 
+            services.AddCors(o => o.AddPolicy("cors", builder =>
+            {
+                builder.AllowAnyOrigin()
+                       .AllowAnyMethod()
+                       .AllowAnyHeader();
+            }));
+
 
             services.AddIdentity<IdentityUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = true)
                     .AddEntityFrameworkStores<DBContext>();
@@ -92,6 +100,8 @@ namespace Escalator.API
 
             app.UseDefaultFiles();
             app.UseStaticFiles();
+
+            app.UseCors("cors");
 
             app.UseHttpsRedirection();
 
