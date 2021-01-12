@@ -1,0 +1,98 @@
+@model Escalator.Common.Models.TicketType
+@{
+    ViewBag.Title = "Create New Ticket Type";
+
+}
+
+<div style="display: grid; place-items: center;">
+    @using (Html.BeginForm())
+    {
+    <div class="card" style="width: 70em;">
+        @Html.ValidationSummary(true)
+        <h5 class="card-header">New Ticket Type</h5>
+
+        <div class="card-body" style="text-align: center;">
+            <div class="row" style="display: grid; place-items: center; padding-top: 1em;"> 
+                @Html.LabelFor(model => model.Type, new { @class = "control-label col-md-2"})
+                @Html.EditorFor(model => model.Type)                    
+                @Html.ValidationMessageFor(model => model.Type)           
+            </div>
+            <div class="row" style="display: grid; place-items: center; padding-top: 1em;"> 
+                @Html.LabelFor(model => model.formAssignedAgent, "Assigned Agent Box List?", new { @class = "control-label col-md-2"})
+                @Html.CheckBoxFor(m => m.formAssignedAgent, new {@style = "width:20em;"})                    
+                @Html.ValidationMessageFor(model => model.formAssignedAgent)           
+            </div>
+            <div class="row" style="display: grid; place-items: center; padding-top: 1em;"> 
+                @Html.LabelFor(model => model.formCompletedBy, "Completed By List?", new { @class = "control-label col-md-2"})
+                @Html.CheckBoxFor(m => m.formCompletedBy ,new {@style = "width:20em;"})                    
+                @Html.ValidationMessageFor(model => model.formCompletedBy)           
+            </div>
+            <div class="row" style="display: grid; place-items: center; padding-top: 1em;"> 
+                @Html.LabelFor(model => model.formDetails, "Details TextBox?", new { @class = "control-label col-md-2"})
+                @Html.CheckBoxFor(m => m.formDetails ,new {@style = "width:20em;"})                    
+                @Html.ValidationMessageFor(model => model.formDetails)           
+            </div>
+            <div class="row" style="display: grid; place-items: center; padding-top: 1em;"> 
+                @Html.LabelFor(model => model.formDueDate, "Due Date Calender?", new { @class = "control-label col-md-2"})
+                @Html.CheckBoxFor(m => m.formDueDate, new {@style = "width:20em;"})                    
+                @Html.ValidationMessageFor(model => model.formDueDate)           
+            </div>
+            <div class="row" style="display: grid; place-items: center; padding-top: 1em;"> 
+                @Html.LabelFor(model => model.formEmailAddress, "Email Address Line?", new { @class = "control-label col-md-2"})
+                @Html.CheckBoxFor(m => m.formEmailAddress ,new {@style = "width:20em;"})                    
+                @Html.ValidationMessageFor(model => model.formEmailAddress)           
+            </div>
+            <div class="row" style="display: grid; place-items: center; padding-top: 1em;"> 
+                @Html.LabelFor(model => model.formInvoices, "Inovices Line?", new { @class = "control-label col-md-2"})
+                @Html.CheckBoxFor(m => m.formInvoices ,new {@style = "width:20em;"})                    
+                @Html.ValidationMessageFor(model => model.formInvoices)           
+            </div>
+            <div class="row" style="display: grid; place-items: center; padding-top: 1em;"> 
+                @Html.LabelFor(model => model.formJurisdiction, "Jurisdiction List?", new { @class = "control-label col-md-2"})
+                @Html.CheckBoxFor(m => m.formJurisdiction ,new {@style = "width:20em;"})                    
+                @Html.ValidationMessageFor(model => model.formJurisdiction)           
+            </div>
+            <div class="row" style="display: grid; place-items: center; padding-top: 1em;"> 
+                @Html.LabelFor(model => model.formMarkComplete, "Mark Complete CheckBox?", new { @class = "control-label col-md-2"})
+                @Html.CheckBoxFor(m => m.formMarkComplete ,new {@style = "width:20em;"})                    
+                @Html.ValidationMessageFor(model => model.formMarkComplete)           
+            </div>
+            <div class="row" style="display: grid; place-items: center; padding-top: 1em;"> 
+                @Html.LabelFor(model => model.formMoveToAccount, "Move To Account Line?", new { @class = "control-label col-md-2"})
+                @Html.CheckBoxFor(m => m.formMoveToAccount ,new {@style = "width:20em;"})                    
+                @Html.ValidationMessageFor(model => model.formMoveToAccount)           
+            </div>
+            <div class="row" style="display: grid; place-items: center; padding-top: 1em;"> 
+                @Html.LabelFor(model => model.formOriginalAccount, "Original Account Line?", new { @class = "control-label col-md-2"})
+                @Html.CheckBoxFor(m => m.formOriginalAccount ,new {@style = "width:20em;"})                    
+                @Html.ValidationMessageFor(model => model.formOriginalAccount)           
+            </div>
+            <div class="row" style="display: grid; place-items: center; padding-top: 1em;"> 
+                @Html.LabelFor(model => model.formPhoneNumber, "Phone Number Line?", new { @class = "control-label col-md-2"})
+                @Html.CheckBoxFor(m => m.formPhoneNumber ,new {@style = "width:20em;"})                    
+                @Html.ValidationMessageFor(model => model.formPhoneNumber)           
+            </div>
+            <div class="row" style="display: grid; place-items: center; padding-top: 1em;"> 
+                @Html.LabelFor(model => model.formSeverity, "Severity List?", new { @class = "control-label col-md-2"})
+                @Html.CheckBoxFor(m => m.formSeverity ,new {@style = "width:20em;"})                    
+                @Html.ValidationMessageFor(model => model.formSeverity)           
+            </div>
+            <div class="row" style="display: grid; place-items: center; padding-top: 1em;"> 
+                @Html.LabelFor(model => model.formStatus, "Status List?", new { @class = "control-label col-md-2"})
+                @Html.CheckBoxFor(m => m.formStatus ,new {@style = "width:20em;"})                    
+                @Html.ValidationMessageFor(model => model.formStatus)           
+            </div>
+
+            
+
+            <div class="row" style="display: grid; place-items: center; padding-top: 1em;"> 
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+
+        </div>
+    </div>
+    }
+</div>
+
+@*@Html.DropDownList("ConstructionType", new SelectList(Model.Construction.Distinct().ToList(), "ConstructionID", "ConstructionType", item.ConstructionID))
+@Html.DropDownListFor(m => m.BANK_NAME, new SelectList(Model.BANKS, "ID", "Name"))*@

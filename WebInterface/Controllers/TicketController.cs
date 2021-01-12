@@ -159,8 +159,6 @@ namespace WebInterface.Controllers
         [HttpGet]
         public async Task<IActionResult> AdminEdit(int ticketId)
         {
-            
-        
 
             TicketViewModel model = new TicketViewModel()
             {
@@ -199,6 +197,79 @@ namespace WebInterface.Controllers
         {
             var result = _ticketProcessor.DeleteTicket(ticket);
             return RedirectToAction("Index");
+        }
+
+
+
+        [HttpGet]
+        public IActionResult NewType()
+        {
+            if (_accessor.HttpContext.Session.GetString("role") == "user" || _accessor.HttpContext.Session.GetString("role") == "manager" )
+            {
+                return RedirectToAction("NoAccess", "Home");
+            }
+
+            return View();
+            
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> NewType(TicketType ticketType)
+        {
+            var result = await _ticketProcessor.SaveType(ticketType);
+            return RedirectToAction("Index", "Home");
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> EditType(int typeId)
+        {
+
+            CommonViewModel model = new CommonViewModel()
+            {
+
+                ticketType = await _ticketProcessor.LoadType(typeId)
+
+            };
+
+            if (_accessor.HttpContext.Session.GetString("role") == "user" || _accessor.HttpContext.Session.GetString("role") == "manager")
+            {
+
+                return RedirectToAction("NoAccess", "Home");
+  
+            }
+            
+            //returns null because user is not authorized for this.
+            return View(model);
+        }
+
+        // POST ACTION TO SAVE TYPE EDITS 
+        [HttpPost]
+        public async Task<IActionResult> EditType(TicketType ticketType)
+        {
+            var result = await _ticketProcessor.EditType(ticketType);
+            return RedirectToAction("ManageTypes", "Ticket");
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> ManageTypes()
+        {
+            if (_accessor.HttpContext.Session.GetString("role") == "user" || _accessor.HttpContext.Session.GetString("role") == "manager")
+            {
+                return RedirectToAction("NoAccess", "Home");
+            }
+
+            CommonViewModel model = new CommonViewModel()
+            {
+                ticketTypes = await _ticketProcessor.LoadTypes()
+            };
+            return View(model);
+        }
+
+        [HttpGet]
+        public IActionResult DeleteType(long id)
+        {
+            var result = _ticketProcessor.DeleteType(id);
+            return RedirectToAction("ManageTypes", "Ticket");
         }
 
 

@@ -10,66 +10,68 @@
         <div class="card" style="width: 70em;">
             @Html.ValidationSummary(true)
             @Html.HiddenFor(model => model.ticket.Id)
+            @Html.HiddenFor(model => model.ticket.OpenDate)
+            @Html.HiddenFor(model => model.ticket.WhoSubmitted)
+            @Html.HiddenFor(model => model.ticket.IsCompleted)
             <h5 class="card-header">New Ticket</h5>
             <div class="card-body" style="text-align: center;">
                 <div>
-                    <div class="row" style="display: grid; place-items: center; padding-top: 1em;"> 
+                    
+                    <div class="row" id="ticketType" style="display: grid; place-items: center; padding-top: 1em;"> 
                         @Html.LabelFor(model => model.ticket.ticketType, "Type of Ticket", new { @class = "control-label col-md-2"})
-                        @Html.DropDownListFor(m => m.ticket.ticketType, new SelectList(Model.ticketTypes, "Id", "Type"), new {@style = "width:20em;"})
+                        @Html.DropDownListFor(m => m.ticket.ticketType, new SelectList(Model.ticketTypes, "Id", "Type"), new {@style = "width:20em;", @id = "ticketTypeControl", @onchange="changeStatus()"})
                         @Html.ValidationMessageFor(model => model.ticket.ticketType)
                     </div>
-                    <div class="row" style="display: grid; place-items: center; padding-top: 1em;">
+
+                    <div class="row" id="jurisdictionId" style="display: grid; place-items: center; padding-top: 1em;">
                         @Html.LabelFor(model => model.ticket.JurisdictionId, "Jurisdiction", new { @class = "control-label col-md-2"})
                         @Html.DropDownListFor(m => m.ticket.JurisdictionId, new SelectList(Model.jurisdictions, "Id", "Name"), new {@style = "width:20em;"})                      
                         @Html.ValidationMessageFor(model => model.ticket.JurisdictionId)           
                     </div>
-
-                    <div class="row" style="display: grid; place-items: center; padding-top: 1em;">
+                    <div class="row" id="severity" style="display: grid; place-items: center; padding-top: 1em;">
                         @Html.LabelFor(model => model.ticket.Severity, "Severity", new { @class = "control-label col-md-2"})
                         @Html.DropDownListFor(m => m.ticket.Severity, Html.GetEnumSelectList(typeof(Escalator.Common.Models.Severity)), new {@style = "width:20em;"})                  
                         @Html.ValidationMessageFor(model => model.ticket.Severity)           
                     </div>
-                    <div class="row" style="display: grid; place-items: center; padding-top: 1em;">
+                    <div class="row" id="dueBy" style="display: grid; place-items: center; padding-top: 1em;">
                         @Html.LabelFor(model => model.ticket.DueBy, "Due Date", new { @class = "control-label col-md-2"})
                         @Html.EditorFor(model => model.ticket.DueBy, new {htmlAttributes = new {@style = "width:20em;"}})
                         @Html.ValidationMessageFor(model => model.ticket.DueBy)
                     </div>
-                    <div class="row" style="display: grid; place-items: center; padding-top: 1em;">
+                    <div class="row" id="phoneNumber" style="display: grid; place-items: center; padding-top: 1em;">
                         @Html.LabelFor(model => model.ticket.PhoneNumber,"Phone Number", new { @class = "control-label col-md-2"})
                         @Html.EditorFor(model => model.ticket.PhoneNumber, new {htmlAttributes = new {@style = "width:20em;"}})
                         @Html.ValidationMessageFor(model => model.ticket.PhoneNumber)
                     
                     </div>
-                    <div class="row" style="display: grid; place-items: center; padding-top: 1em;">
+                    <div class="row" id="emailAddress" style="display: grid; place-items: center; padding-top: 1em;">
                         @Html.LabelFor(model => model.ticket.EmailAddress,"Email Address", new { @class = "control-label col-md-2"})
                         @Html.EditorFor(model => model.ticket.EmailAddress, new {htmlAttributes = new {@style = "width:20em;"}})
                         @Html.ValidationMessageFor(model => model.ticket.EmailAddress)
                     
                     </div>
-                    <div class="row" style="display: grid; place-items: center; padding-top: 1em;">
+                    <div class="row" id="originalAccount" style="display: grid; place-items: center; padding-top: 1em;">
                         @Html.LabelFor(model => model.ticket.OriginalAccount,"Original Account", new { @class = "control-label col-md-2"})
                         @Html.EditorFor(model => model.ticket.OriginalAccount, new {htmlAttributes = new {@style = "width:20em;"}})
                         @Html.ValidationMessageFor(model => model.ticket.OriginalAccount)
                     </div>
-                    <div class="row" style="display: grid; place-items: center; padding-top: 1em;">
+                    <div class="row" id="moveToAccount" style="display: grid; place-items: center; padding-top: 1em;">
                         @Html.LabelFor(model => model.ticket.MoveToAccount,"Move To Account", new { @class = "control-label col-md-2"})
                         @Html.EditorFor(model => model.ticket.MoveToAccount, new {htmlAttributes = new {@style = "width:20em;"}})
                         @Html.ValidationMessageFor(model => model.ticket.MoveToAccount)
                     </div>
-                    <div class="row" style="display: grid; place-items: center; padding-top: 1em;">
+                    <div class="row" id="invoices"  style="display: grid; place-items: center; padding-top: 1em;">
                         @Html.LabelFor(model => model.ticket.Invoices,"Invoices #'s", new { @class = "control-label col-md-2"})
                         @Html.EditorFor(model => model.ticket.Invoices, new {htmlAttributes = new {@style = "width:20em;"}})
                         @Html.ValidationMessageFor(model => model.ticket.Invoices)
                     </div>
-                    <div class="row" style="display: grid; place-items: center; padding-top: 1em;">
+
+                    <div class="row" id="details" style="display: grid; place-items: center; padding-top: 1em;">
                         @Html.LabelFor(model => model.ticket.Details,"Details", new { @class = "control-label col-md-2"})
                         @Html.TextAreaFor(model => model.ticket.Details, new {@style = "width:40em; height:20em"})
                         @Html.ValidationMessageFor(model => model.ticket.Details)
                     </div>
-                    <div class="row" style="display: grid; place-items: center; padding-top: 1em;">
-                        @Html.HiddenFor(m => m.ticket.WhoSubmitted)
-                   
-                    </div>
+                    
                 </div>
                 <div class="row" style="display: grid; place-items: center; padding-top: 1em;">
                     <input type="submit" value="Save" class="btn btn-default" />
@@ -79,5 +81,115 @@
     }
 </div>
 
-@*@Html.DropDownList("ConstructionType", new SelectList(Model.Construction.Distinct().ToList(), "ConstructionID", "ConstructionType", item.ConstructionID))
-@Html.DropDownListFor(m => m.BANK_NAME, new SelectList(Model.BANKS, "ID", "Name"))*@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+    var ticketType;
+    var ticketTypeControl = document.getElementById("ticketTypeControl");
+    var jurisdictionId = document.getElementById("jurisdictionId");
+    var severity = document.getElementById("severity");
+    var dueBy = document.getElementById("dueBy");
+    var phoneNumber = document.getElementById("phoneNumber");
+    var emailAddress = document.getElementById("emailAddress");
+    var originalAccount = document.getElementById("originalAccount");
+    var moveToAccount = document.getElementById("moveToAccount");
+    var invoices = document.getElementById("invoices");
+    var details = document.getElementById("details");
+
+
+    
+
+    function changeStatus()
+    {
+        var _data;
+        ticketTypeId = ticketTypeControl.value;
+        console.log(ticketTypeId);
+        var url = 'https://localhost:8081/api/TicketType/' + ticketTypeId;
+        console.log(url);
+        $.ajax({
+            dataType: 'json',
+            url: url,
+            type: "GET",
+            async: false,
+            crossDomain: true,
+            success: function (data) {
+                console.log("SUCCESS")
+                console.log(data)
+
+                if (data.formJurisdiction == false){
+                    jurisdictionId.style.display="none";
+                }   
+                else{
+                    jurisdictionId.style.display="grid";
+                }
+
+                if (data.formSeverity == false){
+                    severity.style.display="none";
+                }   
+                else{
+                    severity.style.display="grid";
+                }
+
+                if (data.formDueDate == false){
+                    dueBy.style.display="none";
+                }   
+                else{
+                    dueBy.style.display="grid";
+                }
+
+                if (data.formPhoneNumber == false){
+                    phoneNumber.style.display="none";
+                }   
+                else{
+                    phoneNumber.style.display="grid";
+                }
+
+                if (data.formEmailAddress == false){
+                    emailAddress.style.display="none";
+                }   
+                else{
+                    emailAddress.style.display="grid";
+                }
+
+                if (data.formOriginalAccount == false){
+                    originalAccount.style.display="none";
+                }   
+                else{
+                    originalAccount.style.display="grid";
+                }
+
+                if (data.formMoveToAccount == false){
+                    moveToAccount.style.display="none";
+                }   
+                else{
+                    moveToAccount.style.display="grid";
+                }
+
+                if (data.formInvoices== false){
+                    invoices.style.display="none";
+                }   
+                else{
+                    invoices.style.display="grid";
+                }
+
+                if (data.formDetails== false){
+                    details.style.display="none";
+                }   
+                else{
+                    details.style.display="grid";
+                }
+                
+
+            },
+            error: function (xhr, textStatus, errorThrown) {
+                console.log("FAILURE")
+                console.log(xhr)
+                console.log(textStatus)
+                console.log(errorThrown)
+                
+            }
+        });        
+    }
+
+    changeStatus();
+</script>
