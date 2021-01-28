@@ -79,7 +79,7 @@
             </div>
             <div class="row" style="display: grid; place-items: center; padding-top: 1em;"> 
                 @Html.LabelFor(model => model.formStatus, "Status List?", new { @class = "control-label col-md-2"})
-                @Html.CheckBoxFor(m => m.formStatus ,new {@style = "width:20em;"})                    
+                @Html.CheckBoxFor(model => model.formStatus ,new {@style = "width:20em;"})                    
                 @Html.ValidationMessageFor(model => model.formStatus)           
             </div>
 

@@ -13,6 +13,7 @@
                     <thead>
                         <tr>
                             <th>ID</th>
+                            <th>Status</th>
                             <th>Ticket Type</th>
                             <th>Jurisdiction</th>
                             <th>Opened</th>
@@ -28,15 +29,16 @@
                         if (item.WhoSubmitted == Model.username && item.IsCompleted == false)
                         {
                             {
-                            <tr>
-                                <td>@item.Id</td>
-                                <td>@Model.ticketTypes.Where(x => x.Id == item.ticketType).First().Type</td>
-                                <td>@Model.jurisdictions.Where(x => x.Id == item.JurisdictionId).First().Name</td>
-                                <td>@item.OpenDate</td>
-                                <td>@item.OriginalAccount</td>
-                                <td>@item.WhoSubmitted</td>
-                                <td><a asp-controller="Ticket" asp-action="AdminEdit" asp-route-ticketId=@item.Id>Details</a></td>
-                            </tr> 
+                                <tr>
+                                    <td>@item.Id</td>
+                                    <td>@item.Status</td>
+                                    <td>@Model.ticketTypes.Where(x => x.Id == item.ticketType).First().Type</td>
+                                    <td>@Model.jurisdictions.Where(x => x.Id == item.JurisdictionId).First().Name</td>
+                                    <td>@item.OpenDate</td>
+                                    <td>@item.OriginalAccount</td>
+                                    <td>@item.WhoSubmitted</td>
+                                    <td><a asp-controller="Ticket" asp-action="AdminEdit" asp-route-ticketId=@item.Id>Details</a></td>
+                                </tr> 
                             }    
                         }
    

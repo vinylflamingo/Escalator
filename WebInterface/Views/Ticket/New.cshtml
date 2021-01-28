@@ -97,6 +97,7 @@
     var details = document.getElementById("details");
 
 
+
     
 
     function changeStatus()
@@ -115,6 +116,7 @@
             success: function (data) {
                 console.log("SUCCESS")
                 console.log(data)
+                console.log(status)
 
                 if (data.formJurisdiction == false){
                     jurisdictionId.style.display="none";

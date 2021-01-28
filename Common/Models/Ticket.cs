@@ -20,5 +20,6 @@ namespace Escalator.Common.Models
         public string Details {get; set;}
         public string WhoSubmitted {get; set;}
         public Severity Severity {get; set;}
+        public Status Status {get; set;}
     }
 }

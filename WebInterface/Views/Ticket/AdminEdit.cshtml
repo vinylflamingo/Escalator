@@ -26,6 +26,11 @@
                         @Html.DropDownListFor(m => m.ticket.JurisdictionId, new SelectList(Model.jurisdictions, "Id", "Name"), new {@style = "width:20em;"})                      
                         @Html.ValidationMessageFor(model => model.ticket.JurisdictionId)           
                     </div>
+                    <div class="row" id="status" style="display: grid; place-items: center; padding-top: 1em;">
+                        @Html.LabelFor(model => model.ticket.Status, "Status", new { @class = "control-label col-md-2"})
+                        @Html.DropDownListFor(m => m.ticket.Status, Html.GetEnumSelectList(typeof(Escalator.Common.Models.Status)), new {@style = "width:20em;"})                  
+                        @Html.ValidationMessageFor(model => model.ticket.Status)           
+                    </div>
                     <div class="row" id="severity" style="display: grid; place-items: center; padding-top: 1em;">
                         @Html.LabelFor(model => model.ticket.Severity, "Severity", new { @class = "control-label col-md-2"})
                         @Html.DropDownListFor(m => m.ticket.Severity, Html.GetEnumSelectList(typeof(Escalator.Common.Models.Severity)), new {@style = "width:20em;"})                  
@@ -112,6 +117,7 @@
     var invoices = document.getElementById("invoices");
     var isCompleted = document.getElementById("isCompleted");
     var details = document.getElementById("details");
+    var ticketStatus = document.getElementById("status");
 
 
     
@@ -138,6 +144,12 @@
                 }   
                 else{
                     jurisdictionId.style.display="grid";
+                }
+                if (data.formStatus == false){
+                    ticketStatus.style.display="none";
+                }   
+                else{
+                    ticketStatus.style.display="grid";
                 }
 
                 if (data.formSeverity == false){
