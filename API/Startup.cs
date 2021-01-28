@@ -41,6 +41,7 @@ namespace Escalator.API
                 if (dbType == "SQLSERVER")
                 {
                     options.UseSqlServer(connectionString);
+
                 }
                 else if (dbType == "POSTGRES")
                 {

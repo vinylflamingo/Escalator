@@ -57,6 +57,15 @@ namespace Escalator.API.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutTicket(long id, Ticket ticket)
         {
+
+            if(ticket.Status == Status.closed)
+            {
+                ticket.IsCompleted = true;
+            }
+            else
+            {
+                ticket.IsCompleted = false;
+            }
             _context.Entry(ticket).State = EntityState.Modified;
 
             try
