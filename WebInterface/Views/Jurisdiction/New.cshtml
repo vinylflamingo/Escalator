@@ -2,6 +2,13 @@
 @{
     ViewBag.Title = "Create New Jurisdictions";
 
+    var agentList = Model.agents.ToList();
+    var agentListWithNone = Model.agents.ToList();
+    agentListWithNone.Insert(0, new Escalator.Common.Models.Agent(){Id = 999999999, Username = "NONE"});
+
+    
+
+
 }
 
 <div style="display: grid; place-items: center;">
@@ -19,8 +26,24 @@
             </div>
             <div class="row" style="display: grid; place-items: center; padding-top: 1em;"> 
                 @Html.LabelFor(model => model.jurisdiction.DefaultAgentId, "Select a default agent.", new { @class = "control-label col-md-2"})
-                @Html.DropDownListFor(m => m.jurisdiction.DefaultAgentId, new SelectList(Model.agents, "Id", "Username"), new {@style = "width:20em;"})                    
+                @Html.DropDownListFor(m => m.jurisdiction.DefaultAgentId, new SelectList(agentList, "Id", "Username"), new {@style = "width:20em;"})                    
                 @Html.ValidationMessageFor(model => model.jurisdiction.DefaultAgentId)           
+            </div>
+            <div class="row" style="display: grid; place-items: center; padding-top: 1em;"> 
+                @Html.LabelFor(model => model.jurisdiction.DefaultManagerId, "Select a default manager.", new { @class = "control-label col-md-2"})
+                @Html.DropDownListFor(m => m.jurisdiction.DefaultManagerId, new SelectList(agentListWithNone.Where(agent => agent.Role == "manager" || agent.Role == "admin" || agent.Id == 999999999 ), "Id", "Username"), new {@style = "width:20em;"})                    
+                @Html.ValidationMessageFor(model => model.jurisdiction.DefaultManagerId)           
+            </div>
+            <div class="row" style="display: grid; place-items: center; padding-top: 1em;"> 
+                @Html.LabelFor(model => model.jurisdiction.SecondaryAgentId, "Select a secondary agent. (not required)", new { @class = "control-label col-md-2"})
+                @Html.DropDownListFor(m => m.jurisdiction.SecondaryAgentId, new SelectList(agentListWithNone, "Id", "Username"), new {@style = "width:20em;"})                    
+                @Html.ValidationMessageFor(model => model.jurisdiction.SecondaryAgentId)           
+            </div>
+
+            <div class="row" style="display: grid; place-items: center; padding-top: 1em;"> 
+                @Html.LabelFor(model => model.jurisdiction.TertiaryAgentId, "Select a tertiary agent. (not required)", new { @class = "control-label col-md-2"})
+                @Html.DropDownListFor(m => m.jurisdiction.TertiaryAgentId, new SelectList(agentListWithNone, "Id", "Username"), new {@style = "width:20em;"})                    
+                @Html.ValidationMessageFor(model => model.jurisdiction.TertiaryAgentId)           
             </div>
 
             <div class="row" style="display: grid; place-items: center; padding-top: 1em;"> 

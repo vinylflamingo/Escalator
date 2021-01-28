@@ -9,5 +9,10 @@ namespace Escalator.Common.Models
         
         [Required]
         public long DefaultAgentId {get; set;} 
+        public long? DefaultManagerId {get; set;} = null;
+
+        public long? SecondaryAgentId{get; set;} = null;
+        public long? TertiaryAgentId{get; set;} = null;
+
     }
 }

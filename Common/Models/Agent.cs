@@ -7,6 +7,6 @@ namespace Escalator.Common.Models
         public string Password { get; set;}
         public string Role {get; set;}
         public string Email {get; set;}
-        public bool NeedsNewPassword {get; set;}
+        public bool NeedsNewPassword {get; set;} = false;
     }
 }

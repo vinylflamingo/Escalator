@@ -118,8 +118,9 @@ namespace Escalator.API.Controllers
             {
                 return NotFound();
             }
-
             _context.Agents.Remove(agent);
+
+
             await _context.SaveChangesAsync();
 
             return agent;

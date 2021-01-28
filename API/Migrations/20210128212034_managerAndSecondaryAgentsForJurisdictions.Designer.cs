@@ -4,14 +4,16 @@ using Escalator.API;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EscalatorclassAPI.Migrations
 {
     [DbContext(typeof(DBContext))]
-    partial class DBContextModelSnapshot : ModelSnapshot
+    [Migration("20210128212034_managerAndSecondaryAgentsForJurisdictions")]
+    partial class managerAndSecondaryAgentsForJurisdictions
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -56,16 +58,16 @@ namespace EscalatorclassAPI.Migrations
                     b.Property<long>("DefaultAgentId")
                         .HasColumnType("bigint");
 
-                    b.Property<long?>("DefaultManagerId")
+                    b.Property<long>("DefaultManagerId")
                         .HasColumnType("bigint");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<long?>("SecondaryAgentId")
+                    b.Property<long>("SecondaryAgentId")
                         .HasColumnType("bigint");
 
-                    b.Property<long?>("TertiaryAgentId")
+                    b.Property<long>("TertiaryAgentId")
                         .HasColumnType("bigint");
 
                     b.HasKey("Id");
@@ -80,16 +82,16 @@ namespace EscalatorclassAPI.Migrations
                         .HasColumnType("bigint")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<long?>("AssignedAgent")
+                    b.Property<long>("AssignedAgent")
                         .HasColumnType("bigint");
 
-                    b.Property<long?>("CompletedBy")
+                    b.Property<long>("CompletedBy")
                         .HasColumnType("bigint");
 
                     b.Property<string>("Details")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime?>("DueBy")
+                    b.Property<DateTime>("DueBy")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("EmailAddress")
@@ -107,7 +109,7 @@ namespace EscalatorclassAPI.Migrations
                     b.Property<string>("MoveToAccount")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime?>("OpenDate")
+                    b.Property<DateTime>("OpenDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("OriginalAccount")
