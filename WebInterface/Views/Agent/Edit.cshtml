@@ -39,7 +39,19 @@
                 @Html.LabelFor(model => model.Role, new { @class = "control-label col-md-2"})
                 @Html.DropDownListFor(model => model.Role, new SelectList(roles), new {@style = "width:20em;"})                    
                 @Html.ValidationMessageFor(model => model.Role)           
-            </div>               
+            </div>   
+            <div class="row" style="display: grid; place-items: center; padding-top: 1em;"> 
+                @Html.LabelFor(model => model.OptInNotifications, new { @class = "control-label col-md-2"})
+                @Html.CheckBoxFor(model => model.OptInNotifications, new {@style = "width:20em;"})                    
+                @Html.ValidationMessageFor(model => model.OptInNotifications)           
+            </div>  
+            <div class="row" style="display: grid; place-items: center; padding-top: 1em;"> 
+                @Html.LabelFor(model => model.OptInReports, new { @class = "control-label col-md-2"})
+                @Html.CheckBoxFor(model => model.OptInReports, new {@style = "width:20em;"})                    
+                @Html.ValidationMessageFor(model => model.OptInReports)           
+            </div>  
+
+
             <div class="row" style="display: grid; place-items: center; padding-top: 1em;"> 
                 <input type="submit" value="Save" class="btn btn-default" />
             </div>

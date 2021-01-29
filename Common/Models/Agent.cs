@@ -8,5 +8,8 @@ namespace Escalator.Common.Models
         public string Role {get; set;}
         public string Email {get; set;}
         public bool NeedsNewPassword {get; set;} = false;
+
+        public bool OptInNotifications {get; set;} = true;
+        public bool OptInReports {get; set;} = true;
     }
 }
