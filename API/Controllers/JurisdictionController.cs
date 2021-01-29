@@ -122,6 +122,13 @@ namespace Escalator.API.Controllers
                 return NotFound();
             }
 
+            var allTickets = _context.Tickets.Where(x => x.JurisdictionId == id);
+            foreach(var ticket in allTickets)
+            {
+                ticket.JurisdictionId = null;
+                _context.Entry(ticket).State = EntityState.Modified;
+            }
+
             _context.Jurisdictions.Remove(jurisdiction);
             await _context.SaveChangesAsync();
 

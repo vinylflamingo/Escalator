@@ -6,8 +6,8 @@ namespace Escalator.Common.Models
     {
         //this table is the main driver of the application
         public long Id { get; set; }
-        public long ticketType {get; set;}
-        public long JurisdictionId {get; set;}
+        public long? ticketType {get; set;}
+        public long? JurisdictionId {get; set;}
         public long? AssignedAgent {get; set;}
         public long? CompletedBy {get; set;}
         public DateTime? OpenDate {get; set;}

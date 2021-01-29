@@ -7,8 +7,7 @@ namespace Escalator.Common.Models
         public long Id {get; set;}
         public string Name {get; set;}
         
-        [Required]
-        public long DefaultAgentId {get; set;} 
+        public long? DefaultAgentId {get; set;} 
         public long? DefaultManagerId {get; set;} = null;
 
         public long? SecondaryAgentId{get; set;} = null; // these are extra agent id slots

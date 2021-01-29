@@ -118,6 +118,37 @@ namespace Escalator.API.Controllers
             {
                 return NotFound();
             }
+
+            var allTickets = _context.Tickets.Where(x => x.AssignedAgent == id);
+            foreach(var ticket in allTickets)
+            {
+                ticket.AssignedAgent = null;
+                _context.Entry(ticket).State = EntityState.Modified;
+            }
+
+            var allJurisdictionsWithDefaultAgent = _context.Jurisdictions.Where(x => x.DefaultAgentId == id);
+            foreach(var jurisdiction in allJurisdictionsWithDefaultAgent)
+            {
+                jurisdiction.DefaultAgentId = null;
+                _context.Entry(jurisdiction).State = EntityState.Modified;
+            }
+
+            var allJurisdictionsWithSecondaryAgent = _context.Jurisdictions.Where(x => x.SecondaryAgentId == id);
+            foreach(var jurisdiction in allJurisdictionsWithSecondaryAgent)
+            {
+                jurisdiction.SecondaryAgentId = null;
+                _context.Entry(jurisdiction).State = EntityState.Modified;
+            }
+
+            var allJurisdictionsWithTertiaryAgent = _context.Jurisdictions.Where(x => x.TertiaryAgentId == id);
+            foreach(var jurisdiction in allJurisdictionsWithTertiaryAgent)
+            {
+                jurisdiction.TertiaryAgentId = null;
+                _context.Entry(jurisdiction).State = EntityState.Modified;
+            }
+
+
+
             _context.Agents.Remove(agent);
 
 
