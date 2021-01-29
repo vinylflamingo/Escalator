@@ -15,6 +15,7 @@
                             <th>ID</th>
                             <th>Jurisdiction</th>
                             <th>Default Agent</th>
+                            <th>Edit</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -25,6 +26,7 @@
                                 <td>@item.Id</td>
                                 <td>@item.Name</td>
                                 <td>@item.DefaultAgentId</td>
+                                <td><a asp-controller="Jurisdiction" asp-action="Edit" asp-route-id=@item.Id>Edit</a></td>
                             </tr>           
                         }
                     }

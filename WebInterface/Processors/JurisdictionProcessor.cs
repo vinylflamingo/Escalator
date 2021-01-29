@@ -27,7 +27,7 @@ namespace WebInterface.Processors
         }
 
 
-     public async Task<IEnumerable<Jurisdiction>> LoadJurisdictions()
+        public async Task<IEnumerable<Jurisdiction>> LoadJurisdictions()
         {
            HttpClient apiHelper = new ApiHelper(_accessor).InitializeClient();
            
@@ -47,6 +47,26 @@ namespace WebInterface.Processors
             }
         }   
 
+        public async Task<Jurisdiction> LoadJurisdiction(long id)
+        {
+            HttpClient apiHelper = new ApiHelper(_accessor).InitializeClient();
+          
+            string url = $"https://{apiUrl}/api/Jurisdiction/{id}";
+
+            using (HttpResponseMessage response = await apiHelper.GetAsync(url))
+            {
+                if (response.IsSuccessStatusCode)
+                {
+                    Jurisdiction jurisdiction = await response.Content.ReadAsAsync<Jurisdiction>();
+                    return jurisdiction;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+        }
+
         public async Task<string> SaveJurisdiction(Jurisdiction jurisdiction)
         {
             HttpClient apiHelper = new ApiHelper(_accessor).InitializeClient();
@@ -58,6 +78,46 @@ namespace WebInterface.Processors
 
             var response = await apiHelper.PostAsync(url, data);
 
+            if (!response.IsSuccessStatusCode)
+            {
+                return null;
+            }
+            string result = response.Content.ReadAsStringAsync().Result;
+            Console.WriteLine(result);
+            return result;
+        }
+
+        public async Task<string> EditJurisdiction(Jurisdiction jurisdiction)
+        {
+            HttpClient apiHelper = new ApiHelper(_accessor).InitializeClient();
+
+            string url = $"https://{apiUrl}/api/Jurisdiction/{jurisdiction.Id}";
+
+
+            var json = JsonConvert.SerializeObject(jurisdiction);
+            var data = new StringContent(json, Encoding.UTF8, "application/json");
+
+            var response = await apiHelper.PutAsync(url, data);
+            if (!response.IsSuccessStatusCode)
+            {
+                return null;
+            }
+            string result = response.Content.ReadAsStringAsync().Result;
+            Console.WriteLine(result);
+            return result;
+        }
+
+        public async Task<string> DeleteJurisdiction(Jurisdiction jurisdiction)
+        {
+            HttpClient apiHelper = new ApiHelper(_accessor).InitializeClient();
+
+            string url = $"https://{apiUrl}/api/Jurisdiction/{jurisdiction.Id}";
+
+
+            var json = JsonConvert.SerializeObject(jurisdiction);
+            var data = new StringContent(json, Encoding.UTF8, "application/json");
+
+            var response = await apiHelper.DeleteAsync(url);
             if (!response.IsSuccessStatusCode)
             {
                 return null;
