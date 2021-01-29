@@ -85,6 +85,18 @@ namespace Escalator.API.Controllers
         [HttpPost]
         public async Task<ActionResult<Jurisdiction>> PostJurisdiction(Jurisdiction jurisdiction)
         {
+            if (jurisdiction.DefaultManagerId == 999999999)
+            {
+                jurisdiction.DefaultManagerId = null;
+            }
+            if (jurisdiction.SecondaryAgentId == 999999999)
+            {
+                jurisdiction.SecondaryAgentId = null;
+            }
+            if (jurisdiction.TertiaryAgentId == 999999999)
+            {
+                jurisdiction.TertiaryAgentId = null;
+            }
             _context.Jurisdictions.Add(jurisdiction);
             await _context.SaveChangesAsync();
 

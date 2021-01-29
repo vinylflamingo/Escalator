@@ -47,5 +47,6 @@ namespace Escalator.API.Email
             return "";
         }
 
+
     }
 }
