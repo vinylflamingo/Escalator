@@ -49,6 +49,8 @@ namespace Escalator.API.Email
 
             foreach (var agent in agentList)
             {
+
+                //this part of the loop only if the agent has notifications on.
                 if (agent.OptInNotifications == true)
                 {
                     var jurisdiction = jd.Name.ToString();

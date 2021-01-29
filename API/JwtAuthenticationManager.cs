@@ -19,19 +19,26 @@ namespace Escalator.API
             this.key = key;
         }
         
+        //checks user credentials, if valid creates a key based on role.
         public string Authenticate(string username, string password, DBContext context)
         {
+            //first we collect the users.
             var users = context.Agents;
+
+            //next we see if the user doesn't exist.
             if (!users.Any(u => u.Username == username && u.Password == password))
             {
                 return null;
             }
 
+            //now that we know a user does exist we collect that user and store in the variable.
             var user = context.Agents.First(u => u.Username == username);
 
+            //this is a little setup for JWT authentication
             var tokenHandler = new JwtSecurityTokenHandler();
             var tokenKey = Encoding.ASCII.GetBytes(key);
 
+            // admin token
             if (user.Role == "admin")
             {
                 var tokenDescriptor = new SecurityTokenDescriptor
@@ -49,6 +56,7 @@ namespace Escalator.API
                 var token = tokenHandler.CreateToken(tokenDescriptor);
                 return tokenHandler.WriteToken(token);
             }
+            //manager token
             else if (user.Role == "manager")
             {
                 var tokenDescriptor = new SecurityTokenDescriptor
@@ -66,6 +74,7 @@ namespace Escalator.API
                 var token = tokenHandler.CreateToken(tokenDescriptor);
                 return tokenHandler.WriteToken(token);
             }
+            //user token
             else
             {
                 var tokenDescriptor = new SecurityTokenDescriptor

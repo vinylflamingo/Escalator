@@ -4,6 +4,7 @@ namespace Escalator.Common.Models
 {
     public class Ticket
     {
+        //this table is the main driver of the application
         public long Id { get; set; }
         public long ticketType {get; set;}
         public long JurisdictionId {get; set;}
