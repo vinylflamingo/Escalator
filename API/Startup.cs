@@ -19,6 +19,7 @@ using System.Text;
 using Escalator.API.Interfaces;
 using Escalator.API.Email;
 using System.Diagnostics;
+using Escalator.API.Contact;
 
 namespace Escalator.API
 { 
@@ -87,7 +88,8 @@ namespace Escalator.API
                 };
             });
             services.AddSingleton<IJwtAuthenticationManager>(new JwtAuthenticationManager(key));
-            services.AddSingleton<EmailService>();
+            //services.AddSingleton<EmailService>();
+            //services.AddSingleton<ContactService>();
             services.AddSwaggerGen();
         }
 

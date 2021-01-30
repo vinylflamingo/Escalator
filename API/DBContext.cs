@@ -15,6 +15,7 @@ namespace Escalator.API
         public DbSet<Agent> Agents {get; set;}
         public DbSet<Jurisdiction> Jurisdictions {get; set;}
         public DbSet<TicketType> TicketType {get; set;}
+        public DbSet<ContactRecord> ContactRecords {get; set;}
 
     }
 }
