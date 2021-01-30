@@ -25,7 +25,7 @@
                             <tr>
                                 <td>@item.Id</td>
                                 <td>@item.Name</td>
-                                <td>@item.DefaultAgentId</td>
+                                <td>@Model.agents.Where(x => x.Id == item.Id).DefaultIfEmpty(new Escalator.Common.Models.Agent {Username = "DELETED"}).First().Username</td>
                                 <td><a asp-controller="Jurisdiction" asp-action="Edit" asp-route-id=@item.Id>Edit</a></td>
                             </tr>           
                         }
@@ -36,3 +36,4 @@
         </div>
     </div>
 </div>
+
