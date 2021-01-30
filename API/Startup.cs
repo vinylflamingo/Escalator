@@ -36,7 +36,7 @@ namespace Escalator.API
         {
             services.AddDbContext<DBContext>(options => 
             {
-                var connectionString = Configuration.GetConnectionString("LocalSqlServer");
+                var connectionString = Configuration.GetConnectionString("SqlServer");
                 var dbType = Configuration["DatabaseType"];
                 if (dbType == "SQLSERVER")
                 {
