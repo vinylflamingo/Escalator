@@ -30,8 +30,8 @@
                             <tr>
                                 <td>@item.Id</td>
                                 <td>@item.Status</td>
-                                <td>@Model.ticketTypes.Where(x => x.Id == item.ticketType).First().Type</td>
-                                <td>@Model.jurisdictions.Where(x => x.Id == item.JurisdictionId).First().Name</td>
+                                <td>@Model.ticketTypes.Where(x => x.Id == item.ticketType).DefaultIfEmpty(new Escalator.Common.Models.TicketType {Type = "DELETED"}).First().Type</td>
+                                <td>@Model.jurisdictions.Where(x => x.Id == item.JurisdictionId).DefaultIfEmpty(new Escalator.Common.Models.Jurisdiction {Name = "DELETED"}).First().Name</td>
                                 <td>@item.OpenDate</td>
                                 <td>@item.OriginalAccount</td>
                                 <td>@item.WhoSubmitted</td>

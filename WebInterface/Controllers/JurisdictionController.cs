@@ -52,5 +52,35 @@ namespace WebInterface.Controllers
             return RedirectToAction("Index");
 
         }
+
+        [HttpGet]
+        public IActionResult Edit(long id)
+        {
+            JurisdictionViewModel model = new JurisdictionViewModel()
+            {
+                jurisdiction = _jurisdictionProcessor.LoadJurisdiction(id).Result,
+                agents = _agentProcessor.LoadAgents().Result
+            };
+
+            return View(model);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(Jurisdiction jurisdiction)
+        {
+            var result = await _jurisdictionProcessor.EditJurisdiction(jurisdiction);
+            if (result == null)
+            {
+                return RedirectToAction("NoAccess", "Home");
+            }
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public IActionResult Delete(long id)
+        {   var jurisdiction = _jurisdictionProcessor.LoadJurisdiction(id).Result;
+            var result = _jurisdictionProcessor.DeleteJurisdiction(jurisdiction).Result;
+            return RedirectToAction("Index", "Jurisdiction");
+        }
     }
 }

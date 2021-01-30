@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Escalator;
 using Escalator.Common.Models;
 using Microsoft.AspNetCore.Authorization;
+using System.Diagnostics;
 
 namespace Escalator.API.Controllers
 {
@@ -94,16 +95,23 @@ namespace Escalator.API.Controllers
         [HttpDelete("{id}")]
         public async Task<ActionResult<TicketType>> DeleteTicketType(long id)
         {
-            var ticket = await _context.TicketType.FindAsync(id);
-            if (ticket == null)
+            var ticketType = await _context.TicketType.FindAsync(id);
+            if (ticketType == null)
             {
                 return NotFound();
             }
 
-            _context.TicketType.Remove(ticket);
+            var allTickets = _context.Tickets.Where(x => x.ticketType == ticketType.Id);
+            foreach(var ticket in allTickets)
+            {
+                ticket.ticketType = null;
+                _context.Entry(ticket).State = EntityState.Modified;
+            }
+
+            _context.TicketType.Remove(ticketType);
             await _context.SaveChangesAsync();
 
-            return ticket;
+            return ticketType;
         }
 
         private bool TicketTypeExists(long id)

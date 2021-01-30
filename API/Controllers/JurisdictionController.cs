@@ -50,11 +50,19 @@ namespace Escalator.API.Controllers
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [Authorize(Roles = "admin")]
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutJurisdiction(long id, Jurisdiction jurisdiction)
+        public async Task<IActionResult> PutJurisdiction(Jurisdiction jurisdiction)
         {
-            if (id != jurisdiction.Id)
+            if (jurisdiction.DefaultManagerId == 999999999)
             {
-                return BadRequest();
+                jurisdiction.DefaultManagerId = null;
+            }
+            if (jurisdiction.SecondaryAgentId == 999999999)
+            {
+                jurisdiction.SecondaryAgentId = null;
+            }
+            if (jurisdiction.TertiaryAgentId == 999999999)
+            {
+                jurisdiction.TertiaryAgentId = null;
             }
 
             _context.Entry(jurisdiction).State = EntityState.Modified;
@@ -65,7 +73,7 @@ namespace Escalator.API.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!JurisdictionExists(id))
+                if (!JurisdictionExists(jurisdiction.Id))
                 {
                     return NotFound();
                 }
@@ -112,6 +120,13 @@ namespace Escalator.API.Controllers
             if (jurisdiction == null)
             {
                 return NotFound();
+            }
+
+            var allTickets = _context.Tickets.Where(x => x.JurisdictionId == id);
+            foreach(var ticket in allTickets)
+            {
+                ticket.JurisdictionId = null;
+                _context.Entry(ticket).State = EntityState.Modified;
             }
 
             _context.Jurisdictions.Remove(jurisdiction);
