@@ -22,7 +22,7 @@ namespace Escalator.ReportTrigger
                 .ConfigureServices((hostContext, services) =>
                 {
                     services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-                    services.AddHostedService<TestWorker>();
+                    services.AddHostedService<MainWorker>();
                 });
     }
 }

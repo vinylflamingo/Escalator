@@ -23,7 +23,7 @@
 
             <div class="row" style="display: grid; place-items: center; padding-top: 1em;"> 
                 @Html.LabelFor(model => model.Password, new { @class = "control-label col-md-2"})
-                @Html.EditorFor(model => model.Password, new {htmlAttributes = new {@style = "width:20em;"}})                    
+                @Html.PasswordFor(model => model.Password, new {htmlAttributes = new {@style = "width:20em;"}})                    
                 @Html.ValidationMessageFor(model => model.Password)           
             </div>
 
