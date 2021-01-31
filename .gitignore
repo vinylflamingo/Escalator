@@ -33,6 +33,7 @@ bin/
 obj/
 API/appsettings.json
 WebInterface/appsettings.json
+ReportTrigger/appsettings.json
 publish/
 
 
