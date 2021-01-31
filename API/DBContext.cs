@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Identity;
 
 namespace Escalator.API
 {
-    public class DBContext: IdentityDbContext<IdentityUser>
+    public class DBContext: DbContext
     {
         public DBContext(DbContextOptions<DBContext> options) : base(options)
         {           
