@@ -69,19 +69,6 @@ namespace Escalator.API.Controllers
                 await new MonthlyReport(_context, _config).Submit();
             }
         }
-        //generates and sends report of type Test
-        [HttpGet("TestReport")]
-        public async Task ExecuteTestReport()
-        {
-            await new TestReport(_context, _config).Submit();
-        }
-
-        //generates and sends report of type Weekly
-        [HttpGet("WeeklyReport")]
-        public async Task ExecuteWeeklyReport()
-        {
-            await new WeeklyReport(_context, _config).Submit();
-        }
 
         //marks the report Executed
         [HttpPut("{id}")]
