@@ -10,14 +10,14 @@ using Microsoft.Extensions.Configuration;
 
 namespace Escalator.API.Contact.Report
 {
-    public class NewTestReport : IContact
+    public class WeeklyReport : IContact
     {
 
         public ContactService contactService;
         public DBContext _context;
         public List<ContactRecord> newMessages;
 
-        public NewTestReport(DBContext context, IConfiguration config)
+        public WeeklyReport(DBContext context, IConfiguration config)
         {
             contactService = new ContactService(context, config);
             _context = context;

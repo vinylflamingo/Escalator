@@ -61,10 +61,7 @@ namespace Escalator.API.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutTicket(long id, Ticket ticket)
         {
-            if(ticket.Status == Status.moreinfo)
-            {
-                await new NewKickBackNotification(ticket, _context, _config).Submit();
-            }
+
 
             if(ticket.Status == Status.closed)
             {
@@ -78,7 +75,12 @@ namespace Escalator.API.Controllers
 
             try
             {
+                if(ticket.Status == Status.moreinfo)
+                {
+                    await new KickBackNotification(ticket, _context, _config).Submit();
+                }
                 await _context.SaveChangesAsync();
+                
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -107,7 +109,7 @@ namespace Escalator.API.Controllers
             ticket.IsCompleted = false;
             _context.Tickets.Add(ticket);
             await _context.SaveChangesAsync();
-            await new NewTicketNotification(ticket, _context, _config).Submit();
+            await new TicketNotification(ticket, _context, _config).Submit();
             return CreatedAtAction("GetTicket", new { id = ticket.Id }, ticket);
         }
 

@@ -9,7 +9,7 @@ using Microsoft.Extensions.Configuration;
 
 namespace Escalator.API.Contact.Notification
 {
-    public class NewTicketNotification : IContact
+    public class TicketNotification : IContact
     {
 
         public ContactService contactService;
@@ -17,7 +17,7 @@ namespace Escalator.API.Contact.Notification
         public DBContext context;
         public List<ContactRecord> newMessages;
 
-        public NewTicketNotification(Ticket _ticket, DBContext _context, IConfiguration config)
+        public TicketNotification(Ticket _ticket, DBContext _context, IConfiguration config)
         {
             contactService = new ContactService(_context, config);
             context = _context;

@@ -188,6 +188,10 @@ namespace WebInterface.Controllers
         [HttpPost]
         public async Task<IActionResult> AdminEdit(Ticket ticket)
         {
+            if (ticket.Status == Status.closed)
+            {
+                ticket.CompletedDate = DateTime.Now;
+            }
             var result = await _ticketProcessor.EditTicket(ticket);
             return RedirectToAction("Index", "Home");
         }

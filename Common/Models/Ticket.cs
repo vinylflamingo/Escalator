@@ -11,6 +11,7 @@ namespace Escalator.Common.Models
         public long? AssignedAgent {get; set;}
         public long? CompletedBy {get; set;}
         public DateTime? OpenDate {get; set;}
+        public DateTime? CompletedDate {get; set;}
         public bool IsCompleted {get; set;} = false;
         public DateTime? DueBy {get; set;} = DateTime.UtcNow.AddDays(2);
         public string PhoneNumber {get; set;}
