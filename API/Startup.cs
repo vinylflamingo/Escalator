@@ -20,6 +20,7 @@ using Escalator.API.Interfaces;
 using Escalator.API.Email;
 using System.Diagnostics;
 using Escalator.API.Contact;
+using API.Contact;
 
 namespace Escalator.API
 { 
@@ -35,6 +36,7 @@ namespace Escalator.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            
             services.AddDbContext<DBContext>(options => 
             {
                 var connectionString = Configuration.GetConnectionString("SqlServer");
@@ -88,6 +90,9 @@ namespace Escalator.API
                 };
             });
             services.AddSingleton<IJwtAuthenticationManager>(new JwtAuthenticationManager(key));
+            //services.AddHostedService<ReportingServer>();
+          //  services.AddSingleton<IWorker, WeeklyWorker>();
+            //services.AddSingleton<IWorker, TestWorker>();
             //services.AddSingleton<EmailService>();
             //services.AddSingleton<ContactService>();
             services.AddSwaggerGen();

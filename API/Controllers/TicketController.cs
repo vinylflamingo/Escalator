@@ -22,7 +22,6 @@ namespace Escalator.API.Controllers
     public class TicketController : ControllerBase
     {
         private readonly DBContext _context;
-        public TicketEmails ticketEmails;
         private readonly IConfiguration _config;
 
         public TicketController(DBContext context, IConfiguration config)
