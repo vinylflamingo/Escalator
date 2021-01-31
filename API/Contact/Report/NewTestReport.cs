@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Escalator.API.Contact;
@@ -42,7 +43,7 @@ namespace Escalator.API.Contact.Report
                 var subscribedJurisdictions = new List<Jurisdiction>();
                 foreach(var ticket in outstandingTickets)
                 {
-                    var type = ticketTypes.Where(t => t.Id == ticket.Id).First();
+                    var type = ticketTypes.Where(t => t.Id == ticket.ticketType).First();
                     if (!outstandingTypes.ContainsKey(type.Type))
                     {
                         outstandingTypes.Add(type.Type, 1);
@@ -51,7 +52,9 @@ namespace Escalator.API.Contact.Report
                     {
                         int count; 
                         outstandingTypes.TryGetValue(type.Type, out count);
-                        outstandingTypes[type.Type] = count++;
+                        count++;
+                        Debug.WriteLine(count);
+                        outstandingTypes[type.Type] = count;
                     }
                         
                 }         
