@@ -1,23 +1,14 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Cors;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Escalator.API.Interfaces;
-using Escalator.API.Email;
 using System.Diagnostics;
 
 namespace Escalator.API
@@ -34,6 +25,7 @@ namespace Escalator.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            
             services.AddDbContext<DBContext>(options => 
             {
                 var connectionString = Configuration.GetConnectionString("SqlServer");
@@ -62,8 +54,8 @@ namespace Escalator.API
             }));
 
 
-            services.AddIdentity<IdentityUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = true)
-                    .AddEntityFrameworkStores<DBContext>();
+           // services.AddIdentity<IdentityUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = true)
+           //         .AddEntityFrameworkStores<DBContext>();
             
             services.AddControllers();
             var key = "ZZlZx0BStZBoagv5ONvDX59yndEHm";
@@ -87,7 +79,11 @@ namespace Escalator.API
                 };
             });
             services.AddSingleton<IJwtAuthenticationManager>(new JwtAuthenticationManager(key));
-            services.AddSingleton<EmailService>();
+            //services.AddHostedService<ReportingServer>();
+          //  services.AddSingleton<IWorker, WeeklyWorker>();
+            //services.AddSingleton<IWorker, TestWorker>();
+            //services.AddSingleton<EmailService>();
+            //services.AddSingleton<ContactService>();
             services.AddSwaggerGen();
         }
 

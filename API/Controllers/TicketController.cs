@@ -10,6 +10,9 @@ using Escalator.Common.Models;
 using Microsoft.AspNetCore.Authorization;
 using Escalator.API.Email;
 using Escalator.API.Interfaces;
+using Escalator.API.Contact;
+using Escalator.API.Contact.Notification;
+using Microsoft.Extensions.Configuration;
 
 namespace Escalator.API.Controllers
 {
@@ -19,12 +22,13 @@ namespace Escalator.API.Controllers
     public class TicketController : ControllerBase
     {
         private readonly DBContext _context;
-        public TicketEmails ticketEmails;
+        private readonly IConfiguration _config;
 
-        public TicketController(DBContext context, EmailService emailService)
+        public TicketController(DBContext context, IConfiguration config)
         {
             _context = context;
-            ticketEmails = new TicketEmails(emailService, context);
+            _config = config;
+            //ticketEmails = new TicketEmails(emailService, context);
         }
 
         // GET: api/Ticket
@@ -99,7 +103,7 @@ namespace Escalator.API.Controllers
             ticket.IsCompleted = false;
             _context.Tickets.Add(ticket);
             await _context.SaveChangesAsync();
-            await ticketEmails.sendNewTicketEmail(ticket);
+            await new NewTicketNotification(ticket, _context, _config).Submit();
             return CreatedAtAction("GetTicket", new { id = ticket.Id }, ticket);
         }
 

@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Identity;
 
 namespace Escalator.API
 {
-    public class DBContext: IdentityDbContext<IdentityUser>
+    public class DBContext: DbContext
     {
         public DBContext(DbContextOptions<DBContext> options) : base(options)
         {           
@@ -15,6 +15,7 @@ namespace Escalator.API
         public DbSet<Agent> Agents {get; set;}
         public DbSet<Jurisdiction> Jurisdictions {get; set;}
         public DbSet<TicketType> TicketType {get; set;}
+        public DbSet<ContactRecord> ContactRecords {get; set;}
 
     }
 }
