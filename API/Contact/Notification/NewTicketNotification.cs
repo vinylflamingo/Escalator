@@ -25,10 +25,6 @@ namespace Escalator.API.Contact.Notification
             newMessages = CreateMessages();
         }
 
-
-
-
-
         public List<ContactRecord> CreateMessages()
         {
             // we've got to grab the jurisdiction object first to see if there is other agents 
