@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Escalator;
 using Escalator.Common.Models;
 using Microsoft.AspNetCore.Authorization;
-using Escalator.API.Email;
+
 using Escalator.API.Interfaces;
 using Escalator.API.Contact;
 using Escalator.API.Contact.Notification;
