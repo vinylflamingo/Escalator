@@ -1,7 +1,29 @@
-<h1>Version Alpha 0.2</h1>
+<h1>Version Alpha 0.3</h1>
 
 <h2>Release Notes</h2>
 
+
+<h3>Version 0.3</h3>
+<h4>Reporting and notification systems</h4>
+<ul>
+    <li>Reporting routing in API Created</li>
+    <li>Worker Service sends reports based in time intervals</li>
+    <li>Worker checks new table ReportSchedule to find reports to execute</li>
+    <li>Worker uses HTTP methods to trigger reporting actions on the API <li>
+    <li>Reports and notifications are save in new table ContactRecord</li>
+    <li>Reports an notifications are generated using the ContactService class. Each type of report/notif inherits from IContact</li>
+    <li>Current reports include:</li>
+    <ul>
+        <li>JURISDICTION BY OPEN TICKETS COUNT</li>
+        <li>30 DAY NEW SUBMISSION COUNT BY USER</li>
+        <li>30 DAY COMPLETED TICKETS COUNT BY USER</li>
+    </ul>
+    <li>Current Notifications Include:</li>
+    <ul>
+        <li>NEW TICKET NOTIFICATION FOR ASSIGNED AGENTS</li>
+        <li>KICK BACK NOTIFICATION FOR SUBMITTED USER</li>
+    </ul>
+</ul>
 <h3>Version 0.2</h3>
 <h4>Major upgrades to authentication and role based UI</h4>
 <ul>

@@ -137,12 +137,17 @@ Processors. Otherwise the project is quite similair to most MVC projects.
     dotnet ef database update - update database according to migrations
     dotnet dev-certs https --clean  - removes certs 
     dotnet dev-certs https --trust  - creates new local cert
-    dotnet publish -c Release -o ./publish/0.2  - publish new version. the 0.2 is a version number. 
+    dotnet publish -c Release -o ./publish/0.3  - publish new version. the 0.2 is a version number. 
     git rm --cached WebInterface/appsettings.json - remove from git tracking
 
 
 
     
 
-
+version="5.0.102"
+sudo rm -rf /usr/local/share/dotnet/sdk/$version
+sudo rm -rf /usr/local/share/dotnet/shared/Microsoft.NETCore.App/$version
+sudo rm -rf /usr/local/share/dotnet/shared/Microsoft.AspNetCore.All/$version
+sudo rm -rf /usr/local/share/dotnet/shared/Microsoft.AspNetCore.App/$version
+sudo rm -rf /usr/local/share/dotnet/host/fxr/$version
 
