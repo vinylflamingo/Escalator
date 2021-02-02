@@ -48,7 +48,7 @@ namespace Escalator.ReportTrigger
                     if (response.IsSuccessStatusCode)
                     {
                         reportSchedule = await response.Content.ReadAsAsync<List<ReportSchedule>>();
-                        _logger.LogDebug(reportSchedule.ToString());
+                        _logger.LogInformation(reportSchedule.ToArray().ToString());
                     }
                     else
                     {
@@ -59,19 +59,23 @@ namespace Escalator.ReportTrigger
                 {
                     if (report.Type == "Weekly")
                     {
-                        _logger.LogDebug("Starting Weekly Reports");
+                        _logger.LogInformation("Starting Weekly Reports");
                         DoReport(report, apiHelper);
-                        _logger.LogDebug("Making New Weekly Reports");
+                        _logger.LogInformation("Making New Weekly Reports");
                         CreateNewReport(report.Type, DateTime.Now.AddDays(7), apiHelper);
                     }
                     if (report.Type == "Test")
                     {
+                        _logger.LogInformation("Starting Test Reports");
                         DoReport(report, apiHelper);
+                        _logger.LogInformation("Making New Test Reports");
                         CreateNewReport(report.Type, DateTime.Now, apiHelper); //disabled unless testing. will create test right after executing. will send on next service interval
                     }
                     if (report.Type == "Monthly")
                     {
+                        _logger.LogInformation("Starting Monthly Reports");
                         DoReport(report, apiHelper);
+                        _logger.LogInformation("Making New Monthly Reports");
                         CreateNewReport(report.Type, new DateTime
                         (
                             report.ScheduledDate.AddMonths(1).Year,
