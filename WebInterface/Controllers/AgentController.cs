@@ -1,5 +1,6 @@
 using System.Threading.Tasks;
 using Escalator.Common.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using WebInterface.Models;
 using WebInterface.Processors;
@@ -10,11 +11,13 @@ namespace WebInterface.Controllers
     {
         private AgentProcessor _agentProcessor;
         private TicketProcessor _ticketProcessor;
+        private IHttpContextAccessor _accessor;
 
-        public AgentController(AgentProcessor agentProcessor, TicketProcessor ticketProcessor)
+        public AgentController(AgentProcessor agentProcessor, TicketProcessor ticketProcessor, IHttpContextAccessor accessor)
         {
             _agentProcessor = agentProcessor;
             _ticketProcessor = ticketProcessor;
+            _accessor = accessor;
         }
 
         public async Task<IActionResult> Index()
@@ -63,6 +66,10 @@ namespace WebInterface.Controllers
             {
                 return RedirectToAction("NoAccess", "Home");
             }
+            if(_accessor.HttpContext.Session.GetString("role") != "admin")
+            {
+                return RedirectToAction("Index", "Home");
+            }
             return RedirectToAction("Index");
         }
 
@@ -76,7 +83,7 @@ namespace WebInterface.Controllers
         public IActionResult PostNewPassword(Agent agent)
         {
             var result = _agentProcessor.NewPassword(agent);
-            return RedirectToAction("Index", "Ticket");
+            return RedirectToAction("Index", "Home");
         }
 
         [HttpGet]
@@ -86,6 +93,14 @@ namespace WebInterface.Controllers
             return RedirectToAction("Index", "Agent");
         }
 
+
+        [HttpGet] 
+        public IActionResult Options()
+        {
+            var model = _agentProcessor.LoadAgent(_accessor.HttpContext.Session.GetString("username")).Result;
+            return View(model);
+
+        }
 
     }
 }

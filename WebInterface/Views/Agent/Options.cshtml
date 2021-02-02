@@ -1,0 +1,55 @@
+@model Escalator.Common.Models.Agent
+@{
+    ViewBag.Title = "Options";
+
+    var roles = new List<string>() {"admin", "manager", "user"};
+
+
+}
+
+<div style="display: grid; place-items: center;">
+    @using (Html.BeginForm("Edit", "Agent"))
+    {
+    <div class="card" style="width: 70em;">
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.Id)
+        @Html.HiddenFor(model => model.Password)
+        @Html.HiddenFor(model => model.Username)
+        @Html.HiddenFor(model => model.Role)
+        <h5 class="card-header">Options</h5>
+
+        <div class="card-body" style="text-align: center;">
+
+            <div class="row" style="display: grid; place-items: center; padding-top: 1em;"> 
+                @Html.LabelFor(model => model.Email, new { @class = "control-label col-md-2"})
+                @Html.EditorFor(model => model.Email, new {htmlAttributes = new {@style = "width:20em;"}})                    
+                @Html.ValidationMessageFor(model => model.Email)           
+            </div>
+              
+            <div class="row" style="display: grid; place-items: center; padding-top: 1em;"> 
+                @Html.LabelFor(model => model.OptInNotifications, new { @class = "control-label col-md-2"})
+                @Html.CheckBoxFor(model => model.OptInNotifications, new {@style = "width:20em;"})                    
+                @Html.ValidationMessageFor(model => model.OptInNotifications)           
+            </div>  
+            <div class="row" style="display: grid; place-items: center; padding-top: 1em;"> 
+                @Html.LabelFor(model => model.OptInReports, new { @class = "control-label col-md-2"})
+                @Html.CheckBoxFor(model => model.OptInReports, new {@style = "width:20em;"})                    
+                @Html.ValidationMessageFor(model => model.OptInReports)           
+            </div>  
+            <div class="row" style="display: grid; place-items: center; padding-top: 1em;"> 
+                @Html.LabelFor(model => model.NeedsNewPassword,"Reset Password On Next Login", new { @class = "control-label col-md-2", @style = "width:20em;"})
+                @Html.CheckBoxFor(model => model.NeedsNewPassword)                    
+                @Html.ValidationMessageFor(model => model.NeedsNewPassword)           
+            </div>
+
+
+            <div class="row" style="display: grid; place-items: center; padding-top: 1em;"> 
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+    }
+</div>
+
+@*@Html.DropDownList("ConstructionType", new SelectList(Model.Construction.Distinct().ToList(), "ConstructionID", "ConstructionType", item.ConstructionID))
+@Html.DropDownListFor(m => m.BANK_NAME, new SelectList(Model.BANKS, "ID", "Name"))*@
