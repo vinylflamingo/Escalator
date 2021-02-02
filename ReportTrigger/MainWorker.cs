@@ -48,7 +48,7 @@ namespace Escalator.ReportTrigger
                     if (response.IsSuccessStatusCode)
                     {
                         reportSchedule = await response.Content.ReadAsAsync<List<ReportSchedule>>();
-                        Debug.WriteLine(response.Content.ToString());
+                        _logger.LogDebug(reportSchedule.ToString());
                     }
                     else
                     {
@@ -59,13 +59,15 @@ namespace Escalator.ReportTrigger
                 {
                     if (report.Type == "Weekly")
                     {
+                        _logger.LogDebug("Starting Weekly Reports");
                         DoReport(report, apiHelper);
+                        _logger.LogDebug("Making New Weekly Reports");
                         CreateNewReport(report.Type, DateTime.Now.AddDays(7), apiHelper);
                     }
                     if (report.Type == "Test")
                     {
                         DoReport(report, apiHelper);
-                        //CreateNewReport(report.Type, DateTime.Now, apiHelper); //disabled unless testing. will create test right after executing. will send on next service interval
+                        CreateNewReport(report.Type, DateTime.Now, apiHelper); //disabled unless testing. will create test right after executing. will send on next service interval
                     }
                     if (report.Type == "Monthly")
                     {
@@ -109,7 +111,6 @@ namespace Escalator.ReportTrigger
                 Executed = false,
                 ScheduledDate = date,
                 CreatedDate = DateTime.Now
-
             };
             var json = JsonConvert.SerializeObject(newReport);
             var data = new StringContent(json, Encoding.UTF8, "application/json");

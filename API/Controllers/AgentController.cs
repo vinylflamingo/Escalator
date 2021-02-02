@@ -10,6 +10,8 @@ using Escalator.Common.Models;
 using Escalator.API;
 using Microsoft.AspNetCore.Authorization;
 using Escalator.API.Interfaces;
+using System.Security.Claims;
+using System.Diagnostics;
 
 namespace Escalator.API.Controllers
 {
@@ -81,10 +83,14 @@ namespace Escalator.API.Controllers
 
 
         //EDIT EXISTING AGENT
-        [Authorize(Roles = "admin")]
+        [Authorize]
         [HttpPut("put")]
         public async Task<IActionResult> PutAgent(Agent agent)
         {
+            if(SelfOrAdminCheck(agent) == false)
+            {
+                return Unauthorized();
+            }
 
             _context.Entry(agent).State = EntityState.Modified;
 
@@ -160,6 +166,23 @@ namespace Escalator.API.Controllers
         private bool AgentExists(long id)
         {
             return _context.Agents.Any(e => e.Id == id);
+        }
+
+        private bool SelfOrAdminCheck(Agent agent)
+        {
+            var submitter = User.Claims.Where(x => x.Type == ClaimTypes.Name).First().Value;
+            var role = User.Claims.Where(x => x.Type == ClaimTypes.Role).First().Value;
+            var continueFlag = false;
+
+            if (submitter == agent.Username)
+            {
+                continueFlag = true;
+            }
+            if (role == "admin")
+            {
+                continueFlag = true;
+            }
+            return continueFlag;
         }
     }
 }

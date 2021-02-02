@@ -36,7 +36,11 @@ namespace Escalator.API.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<ReportSchedule>>> Index()
         {
-            return await _context.ReportSchedule.Where(x => x.Executed == false).Where(x => x.ScheduledDate.Date == DateTime.Now.Date).ToListAsync();
+            return await _context.ReportSchedule.Where(x => x.Executed == false).Where(
+                x => x.ScheduledDate.Date == DateTime.Now.Date 
+                && 
+                x.ScheduledDate.Hour == DateTime.Now.Hour )
+                .ToListAsync();
         }
 
         // returns a single specific report
