@@ -66,10 +66,10 @@ namespace Escalator.ReportTrigger
                     }
                     if (report.Type == "Test")
                     {
-                        _logger.LogInformation("Starting Test Reports");
-                        DoReport(report, apiHelper);
-                        _logger.LogInformation("Making New Test Reports");
-                        CreateNewReport(report.Type, DateTime.Now, apiHelper); //disabled unless testing. will create test right after executing. will send on next service interval
+                       // _logger.LogInformation("Starting Test Reports");
+                      //  DoReport(report, apiHelper);
+                       // _logger.LogInformation("Making New Test Reports");
+                        //CreateNewReport(report.Type, DateTime.Now.AddDays(1), apiHelper); //disabled unless testing. will create test right after executing. will send on next service interval
                     }
                     if (report.Type == "Monthly")
                     {
@@ -97,7 +97,6 @@ namespace Escalator.ReportTrigger
 
             //modify the report to indicate it has been completed
             report.Executed = true;
-
             //edit the database to reflect the report has been executed
             url = $"https://{apiUrl}/api/Report/{report.Id}";
             var json = JsonConvert.SerializeObject(report);

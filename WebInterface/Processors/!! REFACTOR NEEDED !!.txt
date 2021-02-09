@@ -1,0 +1,6 @@
+I need to refactor this code. 
+
+1. api helped can be added to the class initilization 
+2. seperate ticket from ticket type 
+3. create interface for Processor
+4. not sure how to handle login processor since it is much unlike the others. 
