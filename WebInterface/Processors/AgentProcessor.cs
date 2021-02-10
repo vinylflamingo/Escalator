@@ -18,18 +18,18 @@ namespace WebInterface.Processors
         private IHttpContextAccessor _accessor;
         private readonly IConfiguration Configuration;
         private string apiUrl;
+        private HttpClient apiHelper;
 
         public AgentProcessor(IHttpContextAccessor accessor, IConfiguration configuration)
         {
             _accessor = accessor;
             Configuration = configuration;
             apiUrl = Configuration["ServerUrl"];
+            apiHelper = new ApiHelper(_accessor).InitializeClient();
         }
         
         public async Task<IEnumerable<Agent>> LoadAgents()
         {
-            HttpClient apiHelper = new ApiHelper(_accessor).InitializeClient();
-          
             string url = $"https://{apiUrl}/api/Agent/";
 
             using (HttpResponseMessage response = await apiHelper.GetAsync(url))
@@ -48,8 +48,6 @@ namespace WebInterface.Processors
         
         public async Task<Agent> LoadAgent(string username)
         {
-            HttpClient apiHelper = new ApiHelper(_accessor).InitializeClient();
-          
             string url = $"https://{apiUrl}/api/Agent/{username}";
 
             using (HttpResponseMessage response = await apiHelper.GetAsync(url))
@@ -68,86 +66,69 @@ namespace WebInterface.Processors
 
         public async Task<string> DeleteAgent(Agent agent)
         {
-            HttpClient apiHelper = new ApiHelper(_accessor).InitializeClient();
 
             string url = $"https://{apiUrl}/api/Agent/{agent.Id}";
-
-
-            var json = JsonConvert.SerializeObject(agent);
-            var data = new StringContent(json, Encoding.UTF8, "application/json");
-
+           
             var response = await apiHelper.DeleteAsync(url);
+           
             if (!response.IsSuccessStatusCode)
             {
                 return null;
             }
-            string result = response.Content.ReadAsStringAsync().Result;
-            Console.WriteLine(result);
-            return result;
+            return response.Content.ReadAsStringAsync().Result;
         }
 
         public async Task<string> SaveAgent(Agent agent)
         {
-            HttpClient apiHelper = new ApiHelper(_accessor).InitializeClient();
 
             string url = $"https://{apiUrl}/api/Agent/Create";
-
-
-            var json = JsonConvert.SerializeObject(agent);
-            var data = new StringContent(json, Encoding.UTF8, "application/json");
-
+            var data = BuildJson(agent);
             var response = await apiHelper.PostAsync(url, data);
             if (!response.IsSuccessStatusCode)
             {
                 return null;
             }
-            string result = response.Content.ReadAsStringAsync().Result;
-            Console.WriteLine(result);
-            return result;
+            return response.Content.ReadAsStringAsync().Result;
         }
 
         public async Task<string> EditAgent(Agent agent)
         {
-            HttpClient apiHelper = new ApiHelper(_accessor).InitializeClient();
 
             string url = $"https://{apiUrl}/api/Agent/put";
 
-
-            var json = JsonConvert.SerializeObject(agent);
-            var data = new StringContent(json, Encoding.UTF8, "application/json");
+            var data = BuildJson(agent);
 
             var response = await apiHelper.PutAsync(url, data);
             if (!response.IsSuccessStatusCode)
             {
                 return null;
             }
-            string result = response.Content.ReadAsStringAsync().Result;
-            Console.WriteLine(result);
-            return result;
+            return response.Content.ReadAsStringAsync().Result;
+
         }
 
         public async Task<string> NewPassword(Agent agent)
         {
-            HttpClient apiHelper = new ApiHelper(_accessor).InitializeClient();
-            
             string url = $"https://{apiUrl}/api/Agent/put";
-
             agent.NeedsNewPassword = false;   //I think even though this is business logic-esque i'm going ot leave it here for now.
                                               //The method it calls in the api is the same updating ANY agent info, I dont want an email change
                                               //for example to change this password flag. As I dive deeper into the auth system and creating normal
                                               //submission users, maybe this will be something to revisit.
 
-            var json = JsonConvert.SerializeObject(agent);
-            var data = new StringContent(json, Encoding.UTF8, "application/json");
-
+            var data = BuildJson(agent);
             var response = await apiHelper.PutAsync(url, data);
             if (!response.IsSuccessStatusCode)
             {
                 return null;
             }
-            string result = response.Content.ReadAsStringAsync().Result;
-            Console.WriteLine(result);
-            return result;
+            return response.Content.ReadAsStringAsync().Result;
+        }
+
+        private StringContent BuildJson(Agent agent)
+        {
+            var json = JsonConvert.SerializeObject(agent);
+            var data = new StringContent(json, Encoding.UTF8, "application/json");
+            return data;
         }
 
     }

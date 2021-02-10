@@ -18,18 +18,18 @@ namespace WebInterface.Processors
         private IHttpContextAccessor _accessor;
         private readonly IConfiguration Configuration;
         private string apiUrl;
+        private HttpClient apiHelper;
 
         public TicketProcessor(IHttpContextAccessor accessor, IConfiguration configuration)
         {
             _accessor = accessor;
             Configuration = configuration;
             apiUrl = Configuration["ServerUrl"];
+            apiHelper = new ApiHelper(_accessor).InitializeClient();
         }
 
         public async Task<Ticket> LoadTicket(int ticketId)
         {
-            HttpClient apiHelper = new ApiHelper(_accessor).InitializeClient(); 
-
             string url = $"https://{apiUrl}/api/Ticket/{ticketId}/";
             
             using (HttpResponseMessage response = await apiHelper.GetAsync(url))
@@ -47,9 +47,7 @@ namespace WebInterface.Processors
         }
 
         public async Task<IEnumerable<Ticket>> LoadTickets()
-        {
-            HttpClient apiHelper = new ApiHelper(_accessor).InitializeClient();
-            
+        {   
             string url = $"https://{apiUrl}/api/Ticket/";
 
             using (HttpResponseMessage response = await apiHelper.GetAsync(url))
@@ -68,54 +66,32 @@ namespace WebInterface.Processors
        
         public async Task<string> SaveTicket(Ticket ticket)
         {
-            HttpClient apiHelper = new ApiHelper(_accessor).InitializeClient(); 
             string url = $"https://{apiUrl}/api/Ticket/";
-
-            var json = JsonConvert.SerializeObject(ticket);
-            var data = new StringContent(json, Encoding.UTF8, "application/json");
-
+            var data = BuildJson(ticket);
             var response = await apiHelper.PostAsync(url, data);
-            string result = response.Content.ReadAsStringAsync().Result;
-            Console.WriteLine(result);
-            return result;
+            return response.Content.ReadAsStringAsync().Result;
         }
        
         public async Task<string> EditTicket(Ticket ticket)
         {
-            HttpClient apiHelper = new ApiHelper(_accessor).InitializeClient();
- 
             string url = $"https://{apiUrl}/api/Ticket/{ticket.Id}";
-            
-            var json = JsonConvert.SerializeObject(ticket);
-            var data = new StringContent(json, Encoding.UTF8, "application/json");
-
+            var data = BuildJson(ticket);
             var response = await apiHelper.PutAsync(url, data);
-            string result = response.Content.ReadAsStringAsync().Result;
-            Console.WriteLine(result);
-            return result;
+            return response.Content.ReadAsStringAsync().Result;
+
         }        
        
         public async Task<string> DeleteTicket(Ticket ticket)
         {
-            HttpClient apiHelper = new ApiHelper(_accessor).InitializeClient();
- 
             string url = $"https://{apiUrl}/api/Ticket/{ticket.Id}";
-
-            var json = JsonConvert.SerializeObject(ticket);
-            var data = new StringContent(json, Encoding.UTF8, "application/json");
-
+            var data = BuildJson(ticket);
             var response = await apiHelper.DeleteAsync(url);
-            string result = response.Content.ReadAsStringAsync().Result;
-            Console.WriteLine(result);
-            return result;
+            return response.Content.ReadAsStringAsync().Result;
         }
        
         public async Task<IEnumerable<TicketType>> LoadTypes()
         {
-            HttpClient apiHelper = new ApiHelper(_accessor).InitializeClient();
-          
             string url = $"https://{apiUrl}/api/TicketType/";
-
             using (HttpResponseMessage response = await apiHelper.GetAsync(url))
             {
                 if (response.IsSuccessStatusCode)
@@ -132,10 +108,7 @@ namespace WebInterface.Processors
        
         public async Task<TicketType> LoadType(int typeId)
         {
-            HttpClient apiHelper = new ApiHelper(_accessor).InitializeClient();
-          
             string url = $"https://{apiUrl}/api/TicketType/{typeId}";
-
             using (HttpResponseMessage response = await apiHelper.GetAsync(url))
             {
                 if (response.IsSuccessStatusCode)
@@ -152,7 +125,6 @@ namespace WebInterface.Processors
        
         public async Task<string> SaveType(TicketType ticketType)
         {
-            HttpClient apiHelper = new ApiHelper(_accessor).InitializeClient(); 
             string url = $"https://{apiUrl}/api/TicketType/";
 
             var json = JsonConvert.SerializeObject(ticketType);
@@ -193,6 +165,13 @@ namespace WebInterface.Processors
             string result = response.Content.ReadAsStringAsync().Result;
             Console.WriteLine(result);
             return result;
+        }
+
+        private StringContent BuildJson(Ticket ticket)
+        {
+            var json = JsonConvert.SerializeObject(ticket);
+            var data = new StringContent(json, Encoding.UTF8, "application/json");
+            return data;
         }
     }
 }
