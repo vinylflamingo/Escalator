@@ -1,0 +1,20 @@
+@model WebInterface.Models.CommonViewModel
+@{
+    ViewBag.Title = "View Record";
+}
+
+<div style="display: grid; place-items: center;">
+   <h2>ID: @Model.contactRecord.Id </h2>
+   <p>Created: @Model.contactRecord.Created</p>
+   <h3>Sent To: @Model.contactRecord.SentTo</h3>
+   <h3>Subject: @Model.contactRecord.Subject</h3>
+   <div class="card card-body row">
+   @Html.Raw(Model.contactRecord.Body)
+   </div>
+   <a href="javascript:history.back()">Go Back</a>
+</div>
+
+
+
+@*@Html.DropDownList("ConstructionType", new SelectList(Model.Construction.Distinct().ToList(), "ConstructionID", "ConstructionType", item.ConstructionID))
+@Html.DropDownListFor(m => m.BANK_NAME, new SelectList(Model.BANKS, "ID", "Name"))*@

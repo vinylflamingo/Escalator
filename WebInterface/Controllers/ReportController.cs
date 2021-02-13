@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using WebInterface.Models;
 using WebInterface.Processors;
+using System.Linq;
+using System;
 
 namespace WebInterface.Controllers
 {
@@ -11,10 +13,12 @@ namespace WebInterface.Controllers
     {
         private IHttpContextAccessor _accessor;
         private ReportProcessor _reportProcessor;
+        private AgentProcessor _agentProcessor;
 
-        public ReportController(ReportProcessor reportProcessor, IHttpContextAccessor accessor)
+        public ReportController(ReportProcessor reportProcessor, AgentProcessor agentProcessor, IHttpContextAccessor accessor)
         {
             _reportProcessor = reportProcessor;
+            _agentProcessor = agentProcessor; 
             _accessor = accessor;
         }
 
@@ -31,8 +35,10 @@ namespace WebInterface.Controllers
             return View(model);
         }
 
-        [HttpGet("/notifications")]
-        public async Task<IActionResult> Notifications()
+
+        //view all notifications
+        [HttpGet("notifications/all")]
+        public async Task<IActionResult> AllNotifications()
         {
             CommonViewModel model = new CommonViewModel()
             {
@@ -40,6 +46,87 @@ namespace WebInterface.Controllers
             };
             return View(model);
         }
+
+        //view notifications generated for logged in user
+        [HttpGet("notifications")]
+        public async Task<IActionResult> MyNotifications()
+        {
+            //find the agent from the Session context 
+            var agent = _agentProcessor.LoadAgent(_accessor.HttpContext.Session.GetString("username")).Result;
+            var records = await _reportProcessor.LoadRecords("Notification");
+            CommonViewModel model = new CommonViewModel()
+            {
+                contactRecords = records.Where(x => x.SentTo == agent.Email)
+            };
+            return View(model);
+        }
+
+        //view reports generated for logged in user
+        [HttpGet("myreports")]
+        public async Task<IActionResult> MyReports()
+        {
+            //find the agent from the Session context 
+            var agent = _agentProcessor.LoadAgent(_accessor.HttpContext.Session.GetString("username")).Result;
+            var records = await _reportProcessor.LoadRecords("Report");
+            CommonViewModel model = new CommonViewModel()
+            {
+                contactRecords = records.Where(x => x.SentTo == agent.Email)
+            };
+            return View(model);
+        }
+        
+
+        //view a single record
+        [HttpGet("record/{id}")]
+        public async Task<IActionResult> Record(long id)
+        {
+            CommonViewModel model = new CommonViewModel()
+            {
+                contactRecord = await _reportProcessor.LoadRecord(id)
+            };
+ 
+            return View(model);
+        }
+
+        // edit a contact record
+        [HttpPost]
+        public async Task<IActionResult> EditRecord(ContactRecord record)
+        {
+            var result = await _reportProcessor.EditRecord(record);
+            return RedirectToAction("MyReports", "Report");
+        }
+
+        //manually create a new contact record
+
+        [HttpGet]
+        public IActionResult NewRecord()
+        {
+            return View();
+        }
+
+        //manually save a new contact record
+        [HttpPost]
+        public async Task<IActionResult> SaveNewRecord(ContactRecord record)
+        {
+            
+            var result = await _reportProcessor.SaveRecord(record);
+            var x = _accessor.HttpContext.Session.GetString("token");
+            if(!String.IsNullOrEmpty(result))
+            {
+                return RedirectToAction("Success", "Home");
+            }
+            return RedirectToAction("NewRecord");
+        }
+
+
+
+
+
+
+        
+
+
+
 
 
        /*  [HttpGet]
