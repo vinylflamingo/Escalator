@@ -23,7 +23,7 @@ namespace WebInterface.Controllers
         public async Task<IActionResult> Index()
         {
 
-            AgentsViewModel model = new AgentsViewModel()
+            CommonViewModel model = new CommonViewModel()
             {
                 agents = await _agentProcessor.LoadAgents()
             };

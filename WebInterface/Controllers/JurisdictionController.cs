@@ -21,7 +21,7 @@ namespace WebInterface.Controllers
         public async Task<IActionResult> Index()
         {
 
-            JurisdictionsViewModel model = new JurisdictionsViewModel()
+            CommonViewModel model = new CommonViewModel()
             {
                 jurisdictions = await _jurisdictionProcessor.LoadJurisdictions()
             };
@@ -32,7 +32,7 @@ namespace WebInterface.Controllers
         [HttpGet]
         public IActionResult New()
         {
-            JurisdictionViewModel model = new JurisdictionViewModel()
+            CommonViewModel model = new CommonViewModel()
             {
                 agents = _agentProcessor.LoadAgents().Result
             };

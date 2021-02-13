@@ -29,7 +29,12 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-nav ml-auto navbar-right-top">
-                    <a asp-action="ReleaseNotes" asp-controller="Home"><p style="padding-right: 35px; color: red;">v0.3</p></a> 
+                    
+                    @if (!String.IsNullOrEmpty(role))  
+                        {
+                     //   <a style="padding-right: 35px;" class="nav-link" href="/notifications">Notifications<i class="fas fa-fw fa-bell" style="padding-left: 5px;"></i></a>
+
+                        }
                 </div>
         
                 @* <div class="collapse navbar-collapse " id="navbarSupportedContent">
@@ -135,14 +140,7 @@
                         </li>
                         }     
 
-                        
-
-                         
-
-
-                        
-
-
+                        <a asp-action="ReleaseNotes" asp-controller="Home"><p style="padding-right: 35px; color: red; position: fixed; bottom: 0px;">v0.4</p></a> 
                     </ul>
                 </div>
             </nav>

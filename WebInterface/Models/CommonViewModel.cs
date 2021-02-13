@@ -19,6 +19,7 @@ namespace WebInterface.Models
         public ContactRecord contactRecord;
         public string role;
         public string username;
+        public long AgentId;
         
     }
 }

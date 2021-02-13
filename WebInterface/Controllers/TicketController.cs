@@ -34,7 +34,7 @@ namespace WebInterface.Controllers
                 return RedirectToAction("NoAccess", "Home");
             }
 
-            TicketsViewModel model = new TicketsViewModel()
+            CommonViewModel model = new CommonViewModel()
             {
                 tickets = await _ticketProcessor.LoadTickets(),
                 ticketTypes = await _ticketProcessor.LoadTypes(),
@@ -57,7 +57,7 @@ namespace WebInterface.Controllers
                 return RedirectToAction("NoAccess", "Home");
             }
 
-            TicketsViewModel model = new TicketsViewModel()
+            CommonViewModel model = new CommonViewModel()
             {
                 tickets = await _ticketProcessor.LoadTickets(),
                 ticketTypes = await _ticketProcessor.LoadTypes(),
@@ -79,7 +79,7 @@ namespace WebInterface.Controllers
                 return RedirectToAction("NoAccess", "Home");
             }
 
-            MyTicketsViewModel model = new MyTicketsViewModel()
+            CommonViewModel model = new CommonViewModel()
             {
                 tickets = await _ticketProcessor.LoadTickets(),
                 ticketTypes = await _ticketProcessor.LoadTypes(),
@@ -160,7 +160,7 @@ namespace WebInterface.Controllers
         public async Task<IActionResult> AdminEdit(int ticketId)
         {
 
-            TicketViewModel model = new TicketViewModel()
+            CommonViewModel model = new CommonViewModel()
             {
                 ticket = await _ticketProcessor.LoadTicket(ticketId),
                 ticketTypes = await _ticketProcessor.LoadTypes(),
