@@ -80,12 +80,15 @@
 
                         @if (!String.IsNullOrEmpty(role))  
                         {
+                            <li class="nav-item">
+                                <a class="nav-link" href="/notifications"><i class="fas fa-fw fa-bell"></i>Notifications</a>
+                            </li>
                             <li class="nav-item ">
                                 <a class="nav-link" asp-controller="Ticket" asp-action="New"><i class="fab fa-fw fa-wpforms"></i>New Ticket</a>
                             </li>  
 
                             <li class="nav-item">
-                                <a class="nav-link" asp-controller="Ticket" asp-action="MySubmissions"><i class="fas fa-fw fa-chart-pie"></i>My Submissions</a>
+                                <a class="nav-link" asp-controller="Ticket" asp-action="MySubmissions"><i class="fas fa-fw fa-chart-pie"></i>Submissions</a>
                             </li> 
                         }
 
@@ -109,12 +112,13 @@
 
                         @if (!String.IsNullOrEmpty(role))
                         {
+                        <li class="nav-item">
+                                <a class="nav-link" href="/myreports"><i class="fas fa-fw fa-chart-line"></i>Reports</a>
+                        </li> 
                         <li class="nav-item ">
                             <a class="nav-link" asp-controller="Agent" asp-action="Options"><i class="fas fa-address-book fas fa-cog"></i>Options</a>
-                        </li>
-                        <li class="nav-item">
-                                <a class="nav-link" href="/myreports"><i class="fas fa-fw fa-chart-line"></i>My Reports</a>
                         </li> 
+                        
                         } 
 
 

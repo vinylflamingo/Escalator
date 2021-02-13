@@ -1,6 +1,6 @@
 :::: ESCALATOR ::::
 
-Engineering Documentation v1 
+Documentation v1 
 
 Summary:
 Escalator is a ticket based suport system. It is built with .Net Core 3.1. 
@@ -71,14 +71,12 @@ Processors. Otherwise the project is quite similair to most MVC projects.
         interactions so besides this, there should be no difference in code 
         for specific databases.
 
-        : EMAIL :
-        The email service allows emails to be sent from Escalator. The 
-        EmailService class pulls the configuration from the appsettings. 
-        The app settings for smtp are quite standard. The TicketEmail class 
-        creates the formatting and execuets the sending of ticket related 
-        emails. A ReportEmail class  will soon be implemented to generate 
-        reports. The email service is a singleton registered in the services 
-        in Startup.cs.
+        : Contact :
+        The contact system generates notifications and reports for the users. 
+        ContactService class lays the ground work for all the contact records 
+        to use. It can create new records, send emails, save records to database,
+        and also check for Opt In options. Each contact method inherits from the
+        IContact interface. 
 
         : JWT AUTH :
         The authentication system makes use of Jwt generated tokens. The 
