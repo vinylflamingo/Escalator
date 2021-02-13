@@ -32,6 +32,9 @@ namespace Escalator.API.Controllers
             //ticketEmails = new TicketEmails(emailService, context);
         }
 
+        ///<summary>
+        /// First section deals with the Report Schedule and Executing reports
+        ///</summary>
         //returns the current days reports that are not already executed.
         [HttpGet]
         public async Task<ActionResult<IEnumerable<ReportSchedule>>> Index()
@@ -41,6 +44,11 @@ namespace Escalator.API.Controllers
                 && 
                 x.ScheduledDate.Hour == DateTime.Now.Hour )
                 .ToListAsync();
+        }
+        [HttpGet("all")]
+        public async Task<ActionResult<IEnumerable<ReportSchedule>>> All()
+        {
+            return await _context.ReportSchedule.ToListAsync();
         }
 
         // returns a single specific report
@@ -58,7 +66,7 @@ namespace Escalator.API.Controllers
         }
 
         [HttpGet("Execute/{type}")]
-        public async Task Execute(string type)
+        public async Task<ActionResult> Execute(string type)
         {
             if (type == "Weekly")
             {
@@ -72,6 +80,7 @@ namespace Escalator.API.Controllers
             {
                 await new MonthlyReport(_context, _config).Submit();
             }
+            return NotFound();
         }
 
         //marks the report Executed
@@ -99,7 +108,7 @@ namespace Escalator.API.Controllers
             return NoContent();
         }
 
-        //creates new report.
+        //creates new scheduled report.
         [HttpPost]
         public async Task<ActionResult<ReportSchedule>> PostReportSchedule(ReportSchedule reportSchedule)
         {
@@ -113,5 +122,61 @@ namespace Escalator.API.Controllers
             return _context.ReportSchedule.Any(e => e.Id == id);
         }
 
+        ///<summary>
+        /// Second section deals with the retrieving of records to be used in the interface
+        ///</summary>
+        //return all ContactRecords
+        [HttpGet("Records/{type}")]
+        public async Task<ActionResult<IEnumerable<ContactRecord>>> Records(string type = null)
+        {
+            if (type == null) return await _context.ContactRecords.ToListAsync();
+            if (type == "Notification") return await _context.ContactRecords.Where(x => x.Type == "Notification").ToListAsync();
+            if (type == "Report") return await _context.ContactRecords.Where(x => x.Type == "Report").ToListAsync();
+            return NotFound();
+        }
+
+        //returns a specific record
+        [HttpGet("Records/id/{id}")]
+        public async Task<ActionResult<ContactRecord>> Record(long id)
+        {
+            var record = await _context.ContactRecords.FindAsync(id);
+            if (record == null)
+            {
+                return NotFound();
+            }
+            return record;
+        }
+
+        //create new record 
+        [HttpPost("Records")]
+        public async Task<ActionResult<ContactRecord>> Record(ContactRecord contactRecord)
+        {
+            var contactService = new ContactService(_context, _config);
+            await contactService.Save(contactRecord);
+            return CreatedAtAction("Record", new {id = contactRecord.Id}, contactRecord);
+        }
+        [HttpPut("Records/{id}")]
+        public async Task<IActionResult> PutRecord(ContactRecord contactRecord)
+        {
+            _context.Entry(contactRecord).State = EntityState.Modified;
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!ReportScheduleExists(contactRecord.Id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return NoContent();
+        }
     }
 }
