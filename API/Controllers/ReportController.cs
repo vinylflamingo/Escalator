@@ -45,6 +45,11 @@ namespace Escalator.API.Controllers
                 x.ScheduledDate.Hour == DateTime.Now.Hour )
                 .ToListAsync();
         }
+        [HttpGet("all")]
+        public async Task<ActionResult<IEnumerable<ReportSchedule>>> All()
+        {
+            return await _context.ReportSchedule.ToListAsync();
+        }
 
         // returns a single specific report
         [HttpGet("{id}")]
@@ -61,7 +66,7 @@ namespace Escalator.API.Controllers
         }
 
         [HttpGet("Execute/{type}")]
-        public async Task Execute(string type)
+        public async Task<ActionResult> Execute(string type)
         {
             if (type == "Weekly")
             {
@@ -75,6 +80,7 @@ namespace Escalator.API.Controllers
             {
                 await new MonthlyReport(_context, _config).Submit();
             }
+            return NotFound();
         }
 
         //marks the report Executed
@@ -131,6 +137,46 @@ namespace Escalator.API.Controllers
 
         //returns a specific record
         [HttpGet("Records/id/{id}")]
+        public async Task<ActionResult<ContactRecord>> Record(long id)
+        {
+            var record = await _context.ContactRecords.FindAsync(id);
+            if (record == null)
+            {
+                return NotFound();
+            }
+            return record;
+        }
 
+        //create new record 
+        [HttpPost("Records")]
+        public async Task<ActionResult<ContactRecord>> Record(ContactRecord contactRecord)
+        {
+            var contactService = new ContactService(_context, _config);
+            await contactService.Save(contactRecord);
+            return CreatedAtAction("Record", new {id = contactRecord.Id}, contactRecord);
+        }
+        [HttpPut("Records/{id}")]
+        public async Task<IActionResult> PutRecord(ContactRecord contactRecord)
+        {
+            _context.Entry(contactRecord).State = EntityState.Modified;
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!ReportScheduleExists(contactRecord.Id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return NoContent();
+        }
     }
 }
