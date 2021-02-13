@@ -17,14 +17,12 @@ namespace WebInterface.Processors
         private IHttpContextAccessor _accessor;
         private readonly IConfiguration Configuration;
         private string apiUrl;
-        private HttpClient apiHelper;
 
         public ReportProcessor(IHttpContextAccessor accessor, IConfiguration configuration)
         {
             _accessor = accessor;
             Configuration = configuration;
             apiUrl = Configuration["ServerUrl"];
-            apiHelper = new ApiHelper(_accessor).InitializeClient();
         }
 
         /// <summary>
@@ -34,6 +32,7 @@ namespace WebInterface.Processors
         public async Task<IEnumerable<ReportSchedule>> LoadActiveReportSchedules()
         {
             string url = $"https://{apiUrl}/api/Report/";
+            var apiHelper = new ApiHelper(_accessor).InitializeClient();
 
             using (HttpResponseMessage response = await apiHelper.GetAsync(url))
             {
@@ -52,6 +51,7 @@ namespace WebInterface.Processors
         public async Task<IEnumerable<ReportSchedule>> LoadAllReportSchedules()
         {
             string url = $"https://{apiUrl}/api/Report/all";
+            var apiHelper = new ApiHelper(_accessor).InitializeClient();
 
             using (HttpResponseMessage response = await apiHelper.GetAsync(url))
             {
@@ -70,6 +70,7 @@ namespace WebInterface.Processors
         public async Task<string> SaveReportSchedule(ReportSchedule report)
         {
             string url = $"https://{apiUrl}/api/Report/";
+            var apiHelper = new ApiHelper(_accessor).InitializeClient();
             var data = BuildJsonSchedule(report);
             var response = await apiHelper.PostAsync(url, data);
             if (!response.IsSuccessStatusCode)
@@ -82,6 +83,7 @@ namespace WebInterface.Processors
         public async Task<ReportSchedule> LoadReportSchedule(long id)
         {
             string url = $"https://{apiUrl}/api/Report/{id}";
+            var apiHelper = new ApiHelper(_accessor).InitializeClient();
 
             using (HttpResponseMessage response = await apiHelper.GetAsync(url))
             {
@@ -100,6 +102,7 @@ namespace WebInterface.Processors
         public async Task<string> EditReportSchedule(ReportSchedule report)
         {
             string url = $"https://{apiUrl}/api/Report/{report.Id}";
+            var apiHelper = new ApiHelper(_accessor).InitializeClient();
             var data = BuildJsonSchedule(report);
             var response = await apiHelper.PutAsync(url, data);
             if (!response.IsSuccessStatusCode)
@@ -112,6 +115,7 @@ namespace WebInterface.Processors
         public async void ExecuteReportSchedule(string type = "")
         {
             string url = $"https://{apiUrl}/api/Report/Execute/{type}";
+            var apiHelper = new ApiHelper(_accessor).InitializeClient();
             await apiHelper.GetAsync(url);
         }
 
@@ -122,6 +126,7 @@ namespace WebInterface.Processors
         public async Task<IEnumerable<ContactRecord>> LoadRecords(string type = "")
         {
             string url = $"https://{apiUrl}/api/Report/Records/{type}";
+            var apiHelper = new ApiHelper(_accessor).InitializeClient();
 
             using (HttpResponseMessage response = await apiHelper.GetAsync(url))
             {
@@ -140,6 +145,7 @@ namespace WebInterface.Processors
         public async Task<ContactRecord> LoadRecord(long id)
         {
             string url = $"https://{apiUrl}/api/Report/Records/id/{id}";
+            var apiHelper = new ApiHelper(_accessor).InitializeClient();
 
             using (HttpResponseMessage response = await apiHelper.GetAsync(url))
             {
@@ -158,6 +164,7 @@ namespace WebInterface.Processors
         public async Task<string> SaveRecord(ContactRecord record)
         {
             string url = $"https://{apiUrl}/api/Report/Records/";
+            var apiHelper = new ApiHelper(_accessor).InitializeClient();
             var data = BuildJsonRecord(record);
             var response = await apiHelper.PostAsync(url, data);
             if (!response.IsSuccessStatusCode)
@@ -170,6 +177,7 @@ namespace WebInterface.Processors
         public async Task<string> EditRecord(ContactRecord record)
         {
             string url = $"https://{apiUrl}/api/Report/{record.Id}";
+            var apiHelper = new ApiHelper(_accessor).InitializeClient();
             var data = BuildJsonRecord(record);
             var response = await apiHelper.PutAsync(url, data);
             if (!response.IsSuccessStatusCode)

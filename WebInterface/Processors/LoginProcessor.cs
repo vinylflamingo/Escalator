@@ -18,7 +18,6 @@ namespace WebInterface.Processors
         private readonly IConfiguration Configuration;
         private AgentProcessor _agentProcessor;
         private string apiUrl;
-        private HttpClient apiHelper;
 
         public LoginProcessor(IHttpContextAccessor accessor, IConfiguration configuration, AgentProcessor agentProcessor)
         {
@@ -26,7 +25,6 @@ namespace WebInterface.Processors
             _agentProcessor = agentProcessor;
             Configuration = configuration;
             apiUrl = Configuration["ServerUrl"];
-            apiHelper = new ApiHelper(_accessor).InitializeClient();
         }
 
         // post that resets password
@@ -35,6 +33,7 @@ namespace WebInterface.Processors
         public async Task<string> Login(UserCred userCred)
         {
             string url = $"https://{apiUrl}/api/Agent/authenticate";
+            var apiHelper = new ApiHelper(_accessor).InitializeClient();
             var json = JsonConvert.SerializeObject(userCred);
             var data = new StringContent(json, Encoding.UTF8, "application/json");
             var response = await apiHelper.PostAsync(url, data);
@@ -44,7 +43,6 @@ namespace WebInterface.Processors
                 
                 _accessor.HttpContext.Session.SetString("token", stringJWT);
                 _accessor.HttpContext.Session.SetString("username", userCred.Username);
-
                 var role = _agentProcessor.LoadAgent(userCred.Username).Result.Role;
                 _accessor.HttpContext.Session.SetString("role", role);
 

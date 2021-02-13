@@ -18,19 +18,20 @@ namespace WebInterface.Processors
         private IHttpContextAccessor _accessor;
         private readonly IConfiguration Configuration;
         private string apiUrl;
-        private HttpClient apiHelper;
+
 
         public AgentProcessor(IHttpContextAccessor accessor, IConfiguration configuration)
         {
             _accessor = accessor;
             Configuration = configuration;
             apiUrl = Configuration["ServerUrl"];
-            apiHelper = new ApiHelper(_accessor).InitializeClient();
+
         }
         
         public async Task<IEnumerable<Agent>> LoadAgents()
         {
             string url = $"https://{apiUrl}/api/Agent/";
+            var apiHelper = new ApiHelper(_accessor).InitializeClient();
 
             using (HttpResponseMessage response = await apiHelper.GetAsync(url))
             {
@@ -49,7 +50,7 @@ namespace WebInterface.Processors
         public async Task<Agent> LoadAgent(string username)
         {
             string url = $"https://{apiUrl}/api/Agent/{username}";
-
+            var apiHelper = new ApiHelper(_accessor).InitializeClient();
             using (HttpResponseMessage response = await apiHelper.GetAsync(url))
             {
                 if (response.IsSuccessStatusCode)
@@ -68,6 +69,7 @@ namespace WebInterface.Processors
         {
 
             string url = $"https://{apiUrl}/api/Agent/{agent.Id}";
+            var apiHelper = new ApiHelper(_accessor).InitializeClient();
            
             var response = await apiHelper.DeleteAsync(url);
            
@@ -82,6 +84,7 @@ namespace WebInterface.Processors
         {
 
             string url = $"https://{apiUrl}/api/Agent/Create";
+            var apiHelper = new ApiHelper(_accessor).InitializeClient();
             var data = BuildJson(agent);
             var response = await apiHelper.PostAsync(url, data);
             if (!response.IsSuccessStatusCode)
@@ -95,6 +98,7 @@ namespace WebInterface.Processors
         {
 
             string url = $"https://{apiUrl}/api/Agent/put";
+            var apiHelper = new ApiHelper(_accessor).InitializeClient();
 
             var data = BuildJson(agent);
 
@@ -110,6 +114,7 @@ namespace WebInterface.Processors
         public async Task<string> NewPassword(Agent agent)
         {
             string url = $"https://{apiUrl}/api/Agent/put";
+            var apiHelper = new ApiHelper(_accessor).InitializeClient();
             agent.NeedsNewPassword = false;   //I think even though this is business logic-esque i'm going ot leave it here for now.
                                               //The method it calls in the api is the same updating ANY agent info, I dont want an email change
                                               //for example to change this password flag. As I dive deeper into the auth system and creating normal

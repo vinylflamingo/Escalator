@@ -39,6 +39,7 @@ namespace Escalator.WebInterface
             services.AddSingleton<TicketProcessor>();
             services.AddSingleton<AgentProcessor>();
             services.AddSingleton<JurisdictionProcessor>();
+            services.AddSingleton<ReportProcessor>();
          //   services.AddSingleton<AgentProcessor>();
             //
         }
