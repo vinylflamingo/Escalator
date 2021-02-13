@@ -8,7 +8,7 @@ This initially was built to solve issues regarding database edits and call
 center escalations within a support organization. 
 
 
-::: ARCHITECTURE :::
+## ARCHITECTURE 
 
 Escalator is made of two major projects. The API Project controls the back
 end. It has the option of using either postgres server or SQL Server. It 
@@ -16,35 +16,35 @@ also controls the email service sending reports and notifications.
 The application also uses Jwt tokens for authentication. Currently their
 are three authentication levels: user, manager, admin. 
 
-:: AUTHENTICATION LEVELS ::
+### AUTHENTICATION LEVELS
 
 user: 
-Can add tickets. 
-Can edit their own tickets.
-Can view status of their tickets.
+* Can add tickets. 
+* Can edit their own tickets.
+* Can view status of their tickets.
 
 manager: 
-* of user 
-Can edit all tickets
-Can be assigned tickets
-Can close tickets
-Can see open tickets
+* all of user 
+* Can edit all tickets
+* Can be assigned tickets
+* Can close tickets
+* Can see open tickets
 
 admin:
-* of manager
-Can add agents, jurisdictions, ticketypes
-Can delete agents, jurisdictions, ticketypes, tickets
-Can reopen closed tickets
+* all of manager
+* Can add agents, jurisdictions, ticketypes
+* Can delete agents, jurisdictions, ticketypes, tickets
+* Can reopen closed tickets
 
 The other main project is the WebInterface. This host the UI and is 
 completely decoupled from the API project. To call data, the project uses 
 Processors. Otherwise the project is quite similair to most MVC projects.
 
 
-::: PROJECTS :::
+## PROJECTS 
 
 
-:: API ::
+### API 
 
 The API project is a .NET Core 3.1 API Project. It follows standard API 
 procedures for this kind of projects. It has 3 main services currently.
@@ -52,7 +52,7 @@ One is API calls, and data processing. Two is email service which sends
 formatted emails. Three is the Jwt Authentication. It generates tokens
 to be used for the API to authorize calls to the API. 
 
-: CONNECTION : 
+#### CONNECTION
 You can pick between either postgres or SQL Server for the database 
 service. Entity framework can easily switch between both. 
 
@@ -72,12 +72,12 @@ variable in the Startup.cs file. Entity framework handles the database
 interactions so besides this, there should be no difference in code 
 for specific databases.
 
-: CONTACT :
+#### CONTACT
 The contact system generates notifications and reports for the users. 
 ContactService class lays the ground work for all the contact records 
 to use. It can create new records, send emails, save records to database, and also check for Opt In options. Each contact method inherits from the IContact interface. 
 
-: JWT AUTH :
+#### JWT AUTH
 The authentication system makes use of Jwt generated tokens. The 
 key for the Jwt token system is located in the Startup.CS file 
 directly above authentication. The Jwt authentication is also a
@@ -91,7 +91,7 @@ be permanent, and is still in research. Tokens last for 4 horus before
 expiring.
 
 
-:: COMMON :: 
+### COMMON
 
 This is a simple class library sharing the standard types for the project. 
 All other main projects reference this project, insuring type integrity 
