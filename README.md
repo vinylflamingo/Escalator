@@ -1,4 +1,4 @@
-:::: ESCALATOR ::::
+#ESCALATOR
 
 Documentation v0.4
 
@@ -17,6 +17,7 @@ The application also uses Jwt tokens for authentication. Currently their
 are three authentication levels: user, manager, admin. 
 
 :: AUTHENTICATION LEVELS ::
+
 user: 
 Can add tickets. 
 Can edit their own tickets.
