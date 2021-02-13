@@ -124,6 +124,13 @@ The sessions stores two fields 1. The Jwt Token. 2. The username who is using sa
 The plan is control some auth on the UI side by using the role stored in the token, or 
 possibly by adding a third field in the session titled role. 
 
+### ReportTrigger
+
+This is a service class that periodically checks the database for reports that needs to 
+be sent. It also creates new reports if the are a repeating report. This is the main driver
+for reporting. It can installed on the server inwhich the api lives or it can be remote and 
+make http request. 
+
 
 
 
