@@ -32,6 +32,9 @@ namespace Escalator.API.Controllers
             //ticketEmails = new TicketEmails(emailService, context);
         }
 
+        ///<summary>
+        /// First section deals with the Report Schedule and Executing reports
+        ///</summary>
         //returns the current days reports that are not already executed.
         [HttpGet]
         public async Task<ActionResult<IEnumerable<ReportSchedule>>> Index()
@@ -99,7 +102,7 @@ namespace Escalator.API.Controllers
             return NoContent();
         }
 
-        //creates new report.
+        //creates new scheduled report.
         [HttpPost]
         public async Task<ActionResult<ReportSchedule>> PostReportSchedule(ReportSchedule reportSchedule)
         {
@@ -112,6 +115,22 @@ namespace Escalator.API.Controllers
         {
             return _context.ReportSchedule.Any(e => e.Id == id);
         }
+
+        ///<summary>
+        /// Second section deals with the retrieving of records to be used in the interface
+        ///</summary>
+        //return all ContactRecords
+        [HttpGet("Records/{type}")]
+        public async Task<ActionResult<IEnumerable<ContactRecord>>> Records(string type = null)
+        {
+            if (type == null) return await _context.ContactRecords.ToListAsync();
+            if (type == "Notification") return await _context.ContactRecords.Where(x => x.Type == "Notification").ToListAsync();
+            if (type == "Report") return await _context.ContactRecords.Where(x => x.Type == "Report").ToListAsync();
+            return NotFound();
+        }
+
+        //returns a specific record
+        [HttpGet("Records/id/{id}")]
 
     }
 }

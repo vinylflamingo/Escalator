@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
+using Escalator.Common.Models;
 using Escalator.WebInterface;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
@@ -25,7 +26,7 @@ namespace WebInterface.Processors
         }
 
 
-        public async Task<IEnumerable<Report>> LoadJurisdictions()
+        public async Task<IEnumerable<ContactRecord>> LoadRecords()
         {
             string url = $"https://{apiUrl}/api/Report/";
 
