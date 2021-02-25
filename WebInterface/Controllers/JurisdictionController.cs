@@ -56,7 +56,7 @@ namespace WebInterface.Controllers
         [HttpGet]
         public IActionResult Edit(long id)
         {
-            JurisdictionViewModel model = new JurisdictionViewModel()
+            CommonViewModel model = new CommonViewModel()
             {
                 jurisdiction = _jurisdictionProcessor.LoadJurisdiction(id).Result,
                 agents = _agentProcessor.LoadAgents().Result
