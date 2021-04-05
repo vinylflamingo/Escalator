@@ -3,9 +3,8 @@
 Documentation v0.4
 
 Summary:
-Escalator is a ticket based suport system. It is built with .Net Core 3.1. 
-This initially was built to solve issues regarding database edits and call 
-center escalations within a support organization. 
+Escalator is a ticket based support system. It is built with .Net Core 3.1. 
+This initially was built to solve issues regarding database edits and escalations within a support organization. 
 
 
 ## ARCHITECTURE 
